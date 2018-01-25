@@ -5,8 +5,10 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>首页</title>
-		<link rel="stylesheet" href="css/index.css" />
-		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="${ctx}/css/index.css" />
+		<link rel="stylesheet" href="${ctx}/css/bootstrap.min.css" />
+		<script type="text/javascript" src="${ctx}/js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="${ctx}/js/jquery-1.11.0.js" ></script>
 	</head>
 	<body>
 		<div class="container">
@@ -23,7 +25,7 @@
 	        </div>
 	        <!--导航-->
 			<div class="logos">
-				<img src="images/logo.png" />
+				<img src="${ctx}/images/logo.png" />
 			</div>
 			<div class="menu">
 				<ul>
@@ -63,7 +65,7 @@
 			<div class="content">
 					<div class="header">
 						<!--轮播-->
-						<div id="myCarousel" class="carousel slide">
+						<div id="myCarousel" class="carousel slide" data-ride="carousel">
 						    <!-- 轮播（Carousel）指标 -->
 						    <ol class="carousel-indicators" style="bottom: 111px;">
 						        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -71,15 +73,15 @@
 						        <li data-target="#myCarousel" data-slide-to="2"></li>
 						    </ol>   
 						    <!-- 轮播（Carousel）项目 -->
-						    <div class="carousel-inner">
+						    <div class="carousel-inner" role="listbox">
 						        <div class="item active">
-						            <img src="images/img1.png" alt="First slide">
+						            <img src="${ctx}/images/img1.png" alt="First slide">
 						        </div>
 						        <div class="item">
-						            <img src="images/img2.png" alt="Second slide">
+						            <img src="${ctx}/images/img2.png" alt="Second slide">
 						        </div>
 						        <div class="item">
-						            <img src="images/img3.png" alt="Third slide">
+						            <img src="${ctx}/images/img3.png" alt="Third slide">
 						        </div>
 						    </div>
 				<!--登录-->
@@ -87,13 +89,21 @@
 			                <div class="box">
 			                    <div class="t">用户登录 <span><a href="" target="_blank"></a></span></div>
 			                    <div>
-			                        <form action="login" method="post" id="login_form">
+			                        <form action="${pageContext.request.contextPath }/UsernameAndPassword" method="post" id="login_form">
+			                        <c:choose>
+						<c:when test="${requestScope.message == null }">
+							<span style="padding-top: px;margin-left: 70px;">&nbsp;</span>
+						</c:when>
+						<c:otherwise>
+							<span style="padding-top: 5px"><font style="color:red;">${requestScope.message}</font></span>
+						</c:otherwise>
+						</c:choose>
 			                            <input type="hidden" name="go" value="pc">
 			                            <div class="label">
-			                                <em class="ico-user"></em><input type="text" name="username" class="txt" placeholder="请输入您的账号">
+			                                <em class="ico-user"></em><input type="text" name="loginname" class="txt" placeholder="请输入您的账号">
 			                            </div>
 			                            <div class="label2">
-			                                <em class="ico-pwd"></em><input type="password" name="passwd" class="txt" placeholder="您的密码">
+			                                <em class="ico-pwd"></em><input type="password" name="password" class="txt" placeholder="您的密码">
 			                            </div>
 			                            <div class="label2" style="width: 150px;float: left;">
 			                                <em class="ico-code"></em><input type="text" name="piccode" class="txt1" placeholder="验证码">
@@ -130,7 +140,6 @@
 		    	Copyright ©2012-2017 五福彩票. All Rights Reserved
 		    </div>
 		</div>
-		<script type="text/javascript" src="js/bootstrap.js" ></script>
-		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+		
 	</body>
 </html>

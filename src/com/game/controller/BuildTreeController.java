@@ -26,10 +26,10 @@ public class BuildTreeController {
 	 * 
 	 * @return ึ๗าณ
 	 */
-	@RequestMapping(value = "/test")
+	@RequestMapping(value = "")
 	public String name() {
 
-		return "index2";
+		return "";
 
 	}
 /**

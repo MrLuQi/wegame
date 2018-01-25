@@ -1,0 +1,248 @@
+ul li{
+	list-style:none
+}
+
+*, *:after, *:before { padding:0px;margin:0px;-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+body, html { font-size: 100%; padding: 0; margin: 0; }
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before, .clearfix:after { content: " "; display: table; }
+.clearfix:after { clear: both; }
+
+body {
+	font-size:12px;
+	font-family:"微软雅黑","Arial";	
+	background:#fff;
+	-webkit-text-size-adjust: none;
+}
+
+
+body::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb
+{
+	background-color: #666;
+}
+a {
+	font-family:"微软雅黑","Arial";
+	color:#666;
+	text-decoration: none;
+}
+a:hover,a:active {
+	color: #333;
+	text-decoration: none;
+}
+input[type="text"]{
+	-webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0);
+	box-shadow:inset 0 0px 0px rgba(0, 0, 0, 0);
+	margin: 0;
+	padding: 0;
+	
+}
+
+.notice{
+	width:100%;
+	height:30px;
+	line-height:30px;
+	background:#ededed;
+}
+.text{
+	width:1000px;
+	height:auto;
+	margin:0 auto;
+	text-align:left;	
+}
+.word{
+	padding-left:20px;
+	background:#DDD no-repeat left center;	
+}
+.scroll_zi{
+	float:right; height:30px; line-height:30px; overflow:hidden	
+}
+
+
+/****导航****/
+
+.container{
+	width: 90%;
+    margin: 0 auto;
+    max-width: 1170px;
+}
+.logos{
+	float: left;
+}
+.menu {
+	height: auto;
+	float: right;
+}
+
+.menu ul li {
+	float: left;
+	height: auto;
+	line-height: 40px;
+	margin-left: 40px;
+	font-size: 16px;
+	padding-top:30px;
+}
+
+.menu a {
+	position: relative;
+	float: left;
+	display: inline;
+	display: block;
+	color: #4f4f4f;
+	text-align: center;
+}
+
+.menu a:hover, .menu .on {
+	text-decoration: none;
+	color: #eb432d;
+}
+
+.menu a i {
+	position: absolute;
+	left: 50%;
+	bottom: -1px;
+	width: 0;
+	font-size:0;
+	overflow: hidden;
+	height: 2px;
+	background-color: #eb432d;
+}
+
+.menu a:hover i, .menu .on i {
+	width: 20px;
+	margin-left: -10px;
+}
+
+.trans {
+	-webkit-transition: all 0.3s;
+
+	transition: all 0.3s;
+}
+
+/*content*/
+.content{
+	width: 100%;
+    height: 500px;
+    float: left;
+    background: #ef4444;
+}
+
+.carousel{
+    width: 600px;
+    top: -111px;
+}
+.carousel-indicators li{
+	height: 15px;
+	width: 15px;
+}
+.carousel-indicators {
+	height: 17px;
+	width: 17px;
+}
+
+
+/*登录*/
+.login{
+	position: absolute;
+    z-index: 999;
+    right: -465px;
+    display: block;
+    top: 155px;
+    width: 300px;
+    height: auto;
+    background: #fff;
+    border-radius: 5px;
+    padding-bottom: 20px;
+    }
+.login .box{ width:255px; margin:10px auto}
+.login .box .t{ text-align:left; color:#757575; font-size:18px; margin-top:12px; font-weight:bold;width: 100%;height: auto;float: left;padding-bottom: 10px;}
+.login .box .t span{float:right}
+.login .box .t span a{ width:100px; height:34px; display:block; background:url(../images/service.png) no-repeat}
+.login .box .t span a:hover{background:url(../images/service_hover.png) no-repeat}
+.login .label{display: block; border:1px solid #d8d8d8; overflow:hidden;   margin-top:10px;width:255px; padding: 0; background-color:#ffffff; height:40px;border-radius:3px}
+.login .label .ico-user{ margin-left: 10px;display:inline-block; height:22px; width:26px; background:url(../images/l_user.png) left center no-repeat; float:left; margin-top:9px;background-size:20px 20px}
+.login .label2{ border:1px solid #d8d8d8; overflow:hidden;   margin-top:10px;width:255px; background-color:#ffffff; height:40px; vertical-align:middle;border-radius:3px}
+.login .label2 .ico-pwd{ display:inline-block; height:22px; width:26px; background:url(../images/l_pass.png) left center  no-repeat; float:left; margin-left:10px; margin-top:9px;background-size:20px 20px}
+.login .label2 .qq{ display:inline-block; height:22px; width:26px; background:url(../images/l_qq.png) left center  no-repeat; float:left; margin-left:10px; background-size:20px 20px}
+
+.login .label2 .ico-code{ display:inline-block; height:22px; width:26px; background:url(../images/l_pass-09.png) left center  no-repeat; float:left; margin-left:10px; margin-top:9px; background-size:20px 20px}
+.login .txt{ width:200px; height:38px; margin: 0;padding: 0; float:left; line-height:28px; border:0px; outline:none; font-size:14px;}
+.login .txt1{ width:100px; height:38px; margin: 0;padding: 0; float:left; line-height:28px; border:0px; outline:none; font-size:14px;}
+.login .code{ float:right; margin-right:10px; margin-top:10px}
+.submit{ float:left; margin-top:10px}
+#login{ 
+	width:150px; height:39px; background-color:#4ad371; font-size:15px; color:#FFFFFF; border:0px; font-family:微软雅黑;border-radius:3px;
+	}
+.submit input:hover{background-color:#3ba95a; cursor:pointer}
+.reg{ float:right; margin-top:10px}
+.reg a{ width:96px; height:39px; background-color:#5a9ae8; font-size:15px; color:#FFFFFF; border:0px; display:block; text-align:center; line-height:39px;border-radius:3px}
+.reg a:hover{background-color:#44759a}
+.btn{ float:right; margin-top:10px}
+.btn a{ width:255px; height:39px; background-color:#f5ca48; font-size:15px; color:#FFFFFF; border:0px; display:block; text-align:center; line-height:39px;border-radius:3px}
+.btn a:hover{background-color:#c4a23a}
+
+
+
+.list{
+	width:1000px; height:auto; margin:0px auto; position:relative	
+}
+.caizhong{
+	    position: absolute;
+    top: 430px;
+    z-index: 999;
+}
+.caizhong ul li{
+	width:166px;
+	height:auto;
+	float:left;
+	text-align:center;
+}
+.carousel-indicators{
+	bottom: 111px;
+}
+.header{
+	    width: 1000px;
+    margin: 0 auto;
+}
+/*footer*/
+
+.footer{
+	position: relative;
+    top: 130px;
+    width: 100%;
+    height: 114px;
+    float: left;
+    color: #4f4f4f;
+    font-size: 12px;
+}
+.copyright{
+	width:1000px;
+	height:auto;
+	margin:0px auto;	
+	text-align:center;
+	padding-top:20px;
+	padding-bottom:30px;
+	line-height:24px;
+	border-top:1px solid #e5e5e5;
+}
+.copyright img{padding-bottom:10px}
+
+
+
+
+
+
+
+

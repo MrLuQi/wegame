@@ -226,7 +226,7 @@ a,a:hover {
 	display: block;
 	width: 117px;
 	height: 46px;
-	background: url(../images/nav_shuxian.png) no-repeat right 22px;
+
 }
 
 .more_game {
@@ -962,7 +962,6 @@ margin-left: 8px;
 
 .skin_blue .header .lotterys a span {
 	width: 117px;
-	background: url(../images/nav_shuxian.png) no-repeat right 22px;
 }
 
 .skin_blue .more_game {
@@ -973,6 +972,7 @@ margin-left: 8px;
 	background: url(../images/nav_hover.png) no-repeat 4px 0;
 	color: #FFFF00;
 }
+
 
 .skin_blue .header .sub {
 	color: #FFF;
@@ -1189,7 +1189,7 @@ margin-left: 8px;
 
 .skin_gray .header .lotterys a span {
 	width: 117px;
-	background: url(../images/nav_shuxian.png) no-repeat right 22px;
+
 }
 
 .skin_gray .more_game {

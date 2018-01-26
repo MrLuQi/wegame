@@ -47,7 +47,7 @@
                                     href="javascript:changeSkin('gray')">灰色</a></li></ul></span>
             </div>
             <div class="menu3">
-                <a href="" class="logout"></a>
+                <a href="${ctx }/toLogout" class="logout"></a>
             </div>
             <div style="clear:both;"></div>
         </div>

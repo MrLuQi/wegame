@@ -83,8 +83,8 @@
             <div class="zhanghu" id="account">
                 <div class="info">
                     <label>编号：</label><span> 155825</span></div>
-                <div class="info"><label>金币：</label><span class="balance">0</span></div>
-                <div class="info"><label>未结算金额：</label><span class="betting">0</span></div>
+                <div class="info"><label>金币：</label><span class="balance">200</span></div>
+                <div class="info"><label>未结算金额：</label><span class="betting">10200</span></div>
             </div>
         </div>
                     <div class="betdone" id="drawOfficial">

@@ -108,7 +108,7 @@
 								
 								 <c:choose>
 						<c:when test="${requestScope.message == null }">
-							<span style="padding-top: px;margin-left: 70px;">&nbsp;</span>
+							<span style="padding-top: 0px;margin-left: 70px;">&nbsp;</span>
 						</c:when>
 						<c:otherwise>
 							<span style="padding-top: 5px"><font style="color:red;">${requestScope.message}</font></span>

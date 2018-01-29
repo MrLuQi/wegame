@@ -1,0 +1,44 @@
+table{
+	    border-collapse: collapse;
+}
+.changepass{
+	height: 40px;
+}
+button:hover{
+				background: #FFE400;
+			}
+.pword{
+	height: 30px;
+	width: 600px;
+    text-align: -webkit-left;
+}
+.ptext{
+	height: 30px;
+	    width: 300px;
+    text-align: -webkit-right;
+}
+.ptext span{
+	margin-right: 20px;
+}
+.pword input{
+	margin-left: 20px;
+	width: 265px;
+}
+.pword p{
+	margin-left: 20px;
+}
+.button{
+     position: absolute;
+    margin: 0 auto;
+    height: 70px;
+    line-height: 40px;
+    left: 365px;
+    width: 200px;
+    text-align: center;
+}
+.button button{
+	    height: 31px;
+    width: 75px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+}

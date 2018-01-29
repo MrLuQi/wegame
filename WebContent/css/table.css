@@ -1,0 +1,94 @@
+table{
+	    border-collapse: collapse;
+}
+th{
+	height: 30px;
+}
+li{
+	    margin-right: 10px;
+    float: left;
+    display: block;
+}
+button:hover{
+				background: #FFE400;
+			}
+.ths{
+	background: #a9dbff;
+	width: 115px;
+	height: 30px;
+	line-height: 10px;
+	text-align: center;
+}
+.ths5{
+		background: #a9dbff;
+	width: 230px;
+	height: 30px;
+	line-height: 10px;
+	text-align: center;
+}
+.tha{
+	background: #e4e4e4;
+	width: 115px;
+	height: 30px;
+	line-height: 10px;
+	text-align: center;
+}
+.tha5{
+	background: #e4e4e4;
+	width: 230px;
+	height: 30px;
+	line-height: 10px;
+	text-align: center;
+}
+.tds{
+	height: 35px;
+    font-size: 17px;
+    font-weight: 100;
+}
+.row{
+	margin-bottom:10px ;
+}
+.rowtxt{
+    font-size: 15px;
+    font-weight: 600;
+}
+.row input{
+	font-size: 15px;
+}
+.row button{
+	height: 28px;
+    width: 74px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+}
+.data{
+	background: #a9dbff;
+	width: 260px;
+	height: 30px;
+	line-height: 10px;
+	text-align: center;
+}
+.time{
+	background: #a9dbff;
+	width: 360px;
+	height: 40px;
+	line-height: 10px;
+	text-align: center;
+}
+.number{
+	background: #a9dbff;
+	width: 200px;
+	height: 30px;
+	line-height: 10px;
+	text-align: center;
+}
+.math{
+	background: #a9dbff;
+	width: 150px;
+	height: 30px;
+	line-height: 10px;
+	text-align: center;
+}
+.weight th{
+	font-weight: 100;
+}

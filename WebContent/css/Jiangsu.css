@@ -8,21 +8,25 @@ body {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	background-color: #ffffff;
 }
-
+button:hover{
+				background: #FFE400;
+			}
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-	width: 100%;
+	float: left;
+	margin: 2px;
 }
 
 table th, table td {
 	border: 1px solid;
 	text-align: center;
 	padding: 0;
+	width: 62px;
 }
 
 #main {
-	width: 755px;
+	width: 920px;
 	float: left;
 	overflow: hidden;
 }
@@ -39,6 +43,9 @@ table th, table td {
 	height: 40px;
 	margin: 0;
 	width: 648px;
+}
+.table_lm{
+	margin-top: 10px;
 }
 
 .checkbox {
@@ -57,10 +64,10 @@ table th, table td {
 }
 
 .lottery_info {
-	background: #f9dcdf url("../images/red/title_bg.png") no-repeat left top;
+	background: #cce2ff url("../images/red/title_bg.png") no-repeat left top;
 	height: 30px;
 	line-height: 30px;
-	width: 755px;
+	width: 98%;
 }
 
 .lottery_info_right {
@@ -188,10 +195,12 @@ table th, table td {
 
 .bet_panel th, .bet_panel td {
 	cursor: pointer;
+	width: 66px;
 }
 
 .bet_panel .name {
-	background: none repeat 0 0 #FFF5F5;
+	background: none repeat 0 0 #ececec;
+	width: 41px;
 }
 
 #quick_sec_table td {
@@ -316,7 +325,7 @@ table thead th, table .head th {
 }
 
 .bet_panel .amount input {
-	width: 48px;
+	width: 50px;
 	border: #b0b0b0 1px solid;
 	padding: 0 2px;
 	background: url("../images/red/text_input.gif") repeat-x left top;
@@ -369,6 +378,8 @@ table thead th, table .head th {
 }
 
 .control {
+	margin-bottom: 15px;
+	margin-top: 10px;
 	text-align: center;
 	clear: both;
 	color: #690925;
@@ -425,15 +436,16 @@ table thead th, table .head th {
 }
 
 .control .buttons {
+	height: 60px;
+	padding-top: 10px;
 	width: 754px;
 }
 
 .control .button {
-	background: url("../images/red/tab2.png") no-repeat 0 0;
 	border: medium none;
 	font-size: 14px;
 	color: #FFFFFF;
-	height: 41px;
+	height: 36px;
 	line-height: 21px;
 	width: 66px;
 	margin: 0 0 0 8px;
@@ -1381,7 +1393,7 @@ a, a:hover {
 }
 
 .skin_gray .control .button_hover, .control .button:hover {
-	color: #FFE400;
+	color: #B30B00;
 	font-weight: bold;
 }
 
@@ -1626,13 +1638,13 @@ a, a:hover {
 }
 
 .skin_red table, .skin_red table th, .skin_red table td {
-	border-color: #E6B3BE;
+	border-color: #4987d7;
 	color: #762D08;
 	background-color: #FFF
 }
 
 .skin_red table thead th, .skin_red table .head th {
-	background: #FFBDB9 url("../images/red/table_headerbg.gif") repeat-x left top;
+	background: #e8f2ff;
 	color: #762d08;
 	font-weight: bold;
 	height: 28px;

@@ -11,7 +11,9 @@ body {
 	margin: 0;
 	padding: 0;
 }
-
+button:hover{
+				background: #FFE400;
+			}
 ul li {
 	list-style: none outside none;
 }
@@ -54,7 +56,13 @@ table td,table th {
 	left: 190px;
 	width: auto;
 }
-
+.iframes{
+	    position: absolute;
+    width: 90%;
+    right: 0;
+    height:100%;
+    background: #fff;
+}
 #header {
 	bottom: auto;
 	height: 135px;
@@ -421,13 +429,15 @@ margin-left: 8px;
 }
 
 .side_left .control a {
-	background: url("images/btn-bg.png") repeat-x;
-	width: 66px;
-	height: 18px;
-	line-height: 18px;
-	color: #fff;
-	display: inline-block;
-	margin-top: 4px;
+	border-radius: 11px;
+    background: #DDD;
+    font-size: 14px;
+    color: #FFFFFF;
+    height: 35px;
+    line-height: 21px;
+    width: 66px;
+    margin: 0 0 0 8px;
+    border: 1px solid transparent;
 }
 
 .skin_blue .side_left .control a {
@@ -917,6 +927,7 @@ margin-left: 8px;
 }
 
 .skin_blue #side {
+	float: left;
 	margin: 0 0 0 0;
 	right: auto;
 	width: 189px;

@@ -66,7 +66,7 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value="/toLogout")
-	public ModelAndView  toLogout( HttpSession session,ModelAndView mv)
+  public ModelAndView  toLogout( HttpSession session,ModelAndView mv)
 	  {
 	   if (session!=null)
 	       {

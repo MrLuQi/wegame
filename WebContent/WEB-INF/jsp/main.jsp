@@ -128,16 +128,16 @@
 					<a href="${ctx }/jsks" target="Exhibition" class="list-item list-item-checked">
 						<span>江苏快3</span>
 					</a>
-					<a href="Beijing.html" target="Exhibition" class="list-item">
+					<a href="${ctx }/bjsc" target="Exhibition" class="list-item">
 						<span>北京赛车</span>
 					</a>
-					<a href="PC.html" target="Exhibition" class="list-item">
+					<a href="${ctx }/pcdd" target="Exhibition" class="list-item">
 						<span>PC蛋蛋</span>
 					</a>
-					<a href="six.html" target="Exhibition" class="list-item">
+					<a href="${ctx }/lhc" target="Exhibition" class="list-item">
 						<span>六合彩</span>
 					</a>
-					<a href="CQtwo.html"target="Exhibition" class="list-item">
+					<a href="${ctx }/ssc"target="Exhibition" class="list-item">
 						<span>重庆时时彩</span>
 					</a>
 				</div>
@@ -153,23 +153,23 @@
 				</div>
 				<div class="contents">
 					<li>
-						<a href="Beijing.html" target="Exhibition">两面</a>
+						<a href="${ctx }/bjsc" target="Exhibition">两面</a>
 					</li>
 					<li>
-						<a href="BJtow.html" target="Exhibition">1~10</a>
+						<a href="${ctx }/bjscDH" target="Exhibition">1~10</a>
 					</li>
 					<li>
-						<a href="BJthree.html" target="Exhibition">冠军组合</a>
-					</li>
-				</div>
-				<div class="contents">
-					<li>
-						<a href="PC.html" target="Exhibition">PC蛋蛋</a>
+						<a href="${ctx }/bjscGYJZH" target="Exhibition">冠军组合</a>
 					</li>
 				</div>
 				<div class="contents">
 					<li>
-						<a>特码</a>
+						<a href="${ctx }/pcdd" target="Exhibition">PC蛋蛋</a>
+					</li>
+				</div>
+				<div class="contents">
+					<li>
+						<a href="${ctx }/ssc" target="Exhibition">特码</a>
 					</li>
 					<li>
 						<a>色波</a>
@@ -201,22 +201,22 @@
 				</div>
 				<div class="contents">
 					<li>
-						<a href="CQtwo.html" target="Exhibition">两面</a>
+						<a href="${ctx }/ssc" target="Exhibition">两面</a>
 					</li>
 					<li>
-						<a href="CQ.html" target="Exhibition">第一球</a>
+						<a href="${ctx }/sscONE" target="Exhibition">第一球</a>
 					</li>
 					<li>
-						<a href="CQ.html" target="Exhibition">第二球</a>
+						<a href="${ctx }/sscTWO" target="Exhibition">第二球</a>
 					</li>
 					<li>
-						<a href="CQ.html" target="Exhibition">第三球</a>
+						<a href="${ctx }/sscTHREE" target="Exhibition">第三球</a>
 					</li>
 					<li>
-						<a href="CQ.html" target="Exhibition">第四球</a>
+						<a href="${ctx }/sscFOUR" target="Exhibition">第四球</a>
 					</li>
 					<li>
-						<a href="CQ.html" target="Exhibition">第五球</a>
+						<a href="${ctx }/sscFIVE" target="Exhibition">第五球</a>
 					</li>
 				</div>
 			</div>

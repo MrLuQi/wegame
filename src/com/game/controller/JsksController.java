@@ -47,8 +47,7 @@ public class JsksController {
 	 * @return
 	 */
 	@RequestMapping(value = "/tzdata")
-	@ResponseBody
-	public JsonBoCai JSKS_DXTB(HttpServletRequest request, HttpServletResponse response ){
+	public String JSKS_DXTB(HttpServletRequest request, HttpServletResponse response ){
 		//大小三军的玩法
 				JsonBoCai jsonBoCai = new JsonBoCai();
 				jsonBoCai.setCategory("JSKS");   //江苏快三
@@ -125,14 +124,14 @@ public class JsksController {
 				
 				 JSONObject json_play = JSONObject.fromObject(jsonBoCai);
 				 String str_json_play=json_play.toString();
-					 System.out.println(str_json_play);
+					 //System.out.println(str_json_play);
 					 Orders orders= new Orders();
 					
-					 orders.setOid(1);
+					 orders.setOid(4);
 					 orders.setOrderstatus(str_json_play);
 					 jsksService.insertData(orders);
 					
 				
-				return jsonBoCai;
+				return "jiangsukuaisan";
 	}
 }

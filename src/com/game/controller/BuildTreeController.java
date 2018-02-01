@@ -3,6 +3,9 @@ package com.game.controller;
 import java.util.List;
 import java.util.Map;
 
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -27,9 +30,18 @@ public class BuildTreeController {
 	 * @return ึ๗าณ
 	 */
 	@RequestMapping(value = "/beijingsaiche")
-	public String name() {
-
-		return "beijingsaiche";
+	public String name(String a) {
+// JSONObject topJson = JSONObject.fromObject(a);
+		JSONArray jsonArray = JSONArray.fromObject(a);
+		for(int i=0;i<jsonArray.size(); i++){
+		JSONObject jsonJ = jsonArray.getJSONObject(i);
+		jsonJ.getInt("name");
+		jsonJ.getString("age");
+		
+		}
+System.out.println("adad");
+System.out.println(a);
+	return "beijingsaiche";
 
 	}
 /**

@@ -15,19 +15,45 @@ public class OrdersDynaSqlProvider {
 				if(orders.getOid() != null&& !orders.getOid().equals("")){
 					VALUES("oid", "'" + orders.getOid() + "'");
 				}
+				if(orders.getMid() != null&& !orders.getMid().equals("")){
 				VALUES("mid", "'" + orders.getMid() + "'");
-				VALUES("orderno", "'" + orders.getOrderno() + "'");
-				VALUES("status", "'" + orders.getStatus() + "'");
-				VALUES("hitflag", "'" + orders.getHitflag() + "'");
-				VALUES("bigflag", "'" + orders.getBigflag() + "'");
-				VALUES("ordertype", "'" + orders.getOrdertype() + "'");
-				VALUES("initamount", "'" + orders.getInitamount() + "'");
-				VALUES("hitamount", "'" + orders.getHitamount() + "'");
-				VALUES("orderdate", "'" + orders.getOrderdate() + "'");
-				VALUES("backamount", "'" + orders.getBackamount() + "'");
-				VALUES("bonusamount", "'" + orders.getBonusamount() + "'");
-				VALUES("orderstatus", "'" + orders.getOrderstatus() + "'");
-				VALUES("periodno", "'" + orders.getPeriodno() + "'");
+				}
+				if(orders.getOrderno() != null&& !orders.getOrderno().equals("")){
+					VALUES("orderno", "'" + orders.getOrderno() + "'");	
+				}
+				if(orders.getStatus() != null&& !orders.getStatus().equals("")){
+					VALUES("status", "'" + orders.getStatus() + "'");
+				}
+				if(orders.getHitflag() != null&& !orders.getHitflag().equals("")){
+					VALUES("hitflag", "'" + orders.getHitflag() + "'");
+				}
+				if(orders.getBigflag() != null&& !orders.getBigflag().equals("")){
+					VALUES("bigflag", "'" + orders.getBigflag() + "'");
+				}
+				if(orders.getOrdertype() != null&& !orders.getOrdertype().equals("")){
+					VALUES("ordertype", "'" + orders.getOrdertype() + "'");
+				}
+				if(orders.getInitamount() != null&& !orders.getInitamount().equals("")){
+					VALUES("initamount", "'" + orders.getInitamount() + "'");
+				}
+				if(orders.getHitamount() != null&& !orders.getHitamount().equals("")){
+					VALUES("hitamount", "'" + orders.getHitamount() + "'");
+				}
+				if(orders.getOrderdate() != null&& !orders.getOrderdate().equals("")){
+					VALUES("orderdate", "'" + orders.getOrderdate() + "'");
+				}
+				if(orders.getBackamount() != null&& !orders.getBackamount().equals("")){
+					VALUES("backamount", "'" + orders.getBackamount() + "'");
+				}
+				if(orders.getBonusamount() != null&& !orders.getBonusamount().equals("")){
+					VALUES("bonusamount", "'" + orders.getBonusamount() + "'");
+				}
+				if(orders.getOrderstatus() != null&& !orders.getOrderstatus().equals("")){
+					VALUES("orderstatus", "'" + orders.getOrderstatus() + "'");
+				}
+				if(orders.getPeriodno() != null&& !orders.getPeriodno().equals("")){
+					VALUES("periodno", "'" + orders.getPeriodno() + "'");
+				}
 			}
 		}.toString();
 	}

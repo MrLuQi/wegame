@@ -6,18 +6,17 @@ import java.util.List;
 import java.util.Map;
 
 import net.sf.json.JSONObject;
-
 /**
- * ���տ������淨�н�У����
+ * 江苏快三各玩法中奖校验类
  * @author LUQI
  *
  */
 public class Util_JSKS {
     /**
-     * �󣬲��Ҽ����н����
-     * @param jsonObject    Ͷע�ڵ�����
-     * @param para          ��У���һ����
-     * @return              �н����
+     * 大，并且计算中奖金额
+     * @param jsonObject    投注节点数据
+     * @param para          待校验的一个数
+     * @return              中奖金额
      */
 	public static double DA_DXTB(Double unitValue, Integer para1, Integer para2, Integer para3,double rate) {
 		double rt = 0.0;
@@ -29,12 +28,12 @@ public class Util_JSKS {
 		return rt;
 	}
 	/**
-	 * С�����Ҽ����н����
-	 * @param jsonObject Ͷע�ڵ�����
-	 * @param para1		��У���һ����
-	 * @param para2		��У���һ����
-	 * @param para3		��У���һ����
-	 * @return			�н����
+	 * 小，并且计算中奖金额
+	 * @param jsonObject 投注节点数据
+	 * @param para1		待校验的一个数
+	 * @param para2		待校验的一个数
+	 * @param para3		待校验的一个数
+	 * @return			中奖金额
 	 */
 	public static double XIAO_DXTB(Double unitValue, Integer para1, Integer para2, Integer para3,double rate) {
 		double rt = 0.0;
@@ -46,13 +45,13 @@ public class Util_JSKS {
 		return rt;
 	}
 	/**
-	 * ���������Ҽ����н����
-	 * @param jsonObject Ͷע�ڵ�����
-	 * @param para1		��У���һ����
-	 * @param para2		��У���һ����
-	 * @param para3		��У���һ����
-	 * @param mode		ѡ�����ӵ���
-	 * @return			�н����
+	 * 三军，并且计算中奖金额
+	 * @param jsonObject 投注节点数据
+	 * @param para1		待校验的一个数
+	 * @param para2		待校验的一个数
+	 * @param para3		待校验的一个数
+	 * @param mode		选中骰子点数
+	 * @return			中奖金额
 	 */
 	public static double SJ_DXTB(Double unitValue, Integer mode, Integer para1, Integer para2, Integer para3,double rate) {
 		double rt = 0.0;
@@ -70,12 +69,12 @@ public class Util_JSKS {
 		return rt;
 	}
 	/**
-	 * ȫ�������Ҽ����н����
-	 * @param jsonObject Ͷע�ڵ�����
-	 * @param para1		��У���һ����
-	 * @param para2		��У���һ����
-	 * @param para3		��У���һ����
-	 * @return			�н����
+	 * 全骰，并且计算中奖金额
+	 * @param jsonObject 投注节点数据
+	 * @param para1		待校验的一个数
+	 * @param para2		待校验的一个数
+	 * @param para3		待校验的一个数
+	 * @return			中奖金额
 	 */
 	public static double QT_DXTB(Double unitValue, Integer para1, Integer para2, Integer para3,double rate) {
 		double rt = 0.0;
@@ -87,13 +86,13 @@ public class Util_JSKS {
 		return rt;
 	}
 	/**
-	 * Χ�������Ҽ����н����
-	 * @param jsonObject Ͷע�ڵ�����
-	 * @param para1		��У���һ����
-	 * @param para2		��У���һ����
-	 * @param para3		��У���һ����
-	 * @param mode		ѡ�����ӵ���
-	 * @return			�н����
+	 * 围骰，并且计算中奖金额
+	 * @param jsonObject 投注节点数据
+	 * @param para1		待校验的一个数
+	 * @param para2		待校验的一个数
+	 * @param para3		待校验的一个数
+	 * @param mode		选中骰子点数
+	 * @return			中奖金额
 	 */
 	public static double WT_DXTB(Double unitValue, Integer mode, Integer para1, Integer para2, Integer para3,double rate) {
 		double rt = 0.0;
@@ -107,13 +106,13 @@ public class Util_JSKS {
 		return rt;
 	}
 	/**
-	 * ���������Ҽ����н����
-	 * @param jsonObject Ͷע�ڵ�����
-	 * @param para1		��У���һ����
-	 * @param para2		��У���һ����
-	 * @param para3		��У���һ����
-	 * @param mode		ѡ�����ӵ���
-	 * @return			�н����
+	 * 点数，并且计算中奖金额
+	 * @param jsonObject 投注节点数据
+	 * @param para1		待校验的一个数
+	 * @param para2		待校验的一个数
+	 * @param para3		待校验的一个数
+	 * @param mode		选中骰子点数
+	 * @return			中奖金额
 	 */
 	public static double DS_DXTB(Double unitValue,Integer mode, Integer para1, Integer para2, Integer para3 ,double rate) {
 		double rt = 0.0;
@@ -125,14 +124,14 @@ public class Util_JSKS {
 		return rt;
 	}
 	/**
-	 * ���ƣ����Ҽ����н����
-	 * @param jsonObject Ͷע�ڵ�����
-	 * @param para1		��У���һ����
-	 * @param para2		��У���һ����
-	 * @param para3		��У���һ����
-	 * @param mode		ѡ�����ӵ���
-	 * @param rate     	����
-	 * @return			�н����
+	 * 长牌，并且计算中奖金额
+	 * @param jsonObject 投注节点数据
+	 * @param para1		待校验的一个数
+	 * @param para2		待校验的一个数
+	 * @param para3		待校验的一个数
+	 * @param mode		选中骰子点数
+	 * @param rate     	倍率
+	 * @return			中奖金额
 	 */
 	public static double CP_DXTB(Double unitValue, Integer mode, Integer para1, Integer para2, Integer para3,double rate) {
 		double rt = 0.0;
@@ -154,14 +153,14 @@ public class Util_JSKS {
 		return rt;
 	}
 	/**
-	 * ���ƣ����Ҽ����н����
-	 * @param jsonObject Ͷע�ڵ�����
-	 * @param para1		��У���һ����
-	 * @param para2		��У���һ����
-	 * @param para3		��У���һ����
-	 * @param mode		ѡ�����ӵ���
-	 * @param rate     	����
-	 * @return			�н����
+	 * 短牌，并且计算中奖金额
+	 * @param jsonObject 投注节点数据
+	 * @param para1		待校验的一个数
+	 * @param para2		待校验的一个数
+	 * @param para3		待校验的一个数
+	 * @param mode		选中骰子点数
+	 * @param rate     	倍率
+	 * @return			中奖金额
 	 */
 	public static double DP_DXTB(Double unitValue,Integer mode, Integer para1, Integer para2, Integer para3,double rate) {
 		double rt = 0.0;

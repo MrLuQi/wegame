@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 /** 
  *  
  * 生成一个当前时间的JOB 
- * @author liZhongLin 
+ * @author yjw 
  * 
  */  
 public class DateJob implements Job{  
@@ -27,6 +27,7 @@ public class DateJob implements Job{
     @Override  
     public void execute(JobExecutionContext arg0) throws JobExecutionException {  
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
-        log.debug("现在的时间为：" + sdf.format(new Date()));  
+      //  log.debug("现在的时间为：" + sdf.format(new Date()));
+        System.out.println(sdf.format(new Date()));
     }  
 }  

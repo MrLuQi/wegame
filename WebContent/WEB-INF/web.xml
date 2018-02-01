@@ -47,7 +47,10 @@
 		<filter-name>characterEncodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
+	<!-- 配置用于初始化数据的监听器，一定要配置在spring的ContextLoaderListener之后 -->
+    <listener>
+    <listener-class>com.game.interceptor.TomcatListener</listener-class>
+    </listener>   
 	<!-- jsp的配置 -->
   <jsp-config>
     <jsp-property-group>

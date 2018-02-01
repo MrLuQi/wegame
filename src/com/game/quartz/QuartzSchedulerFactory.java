@@ -8,7 +8,7 @@ import org.quartz.impl.StdSchedulerFactory;
 
 /** 
 * 构建Scheduler工厂 
-* @author liZhongLin 
+* @author yjw 
 * 
 */  
 public class QuartzSchedulerFactory {  

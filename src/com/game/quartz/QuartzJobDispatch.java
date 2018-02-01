@@ -1,11 +1,11 @@
 package com.game.quartz;
 
 /** 
- * 任务调度测试类 
- * @author liZhongLin 
+ * 任务调度类 
+ * @author yjw
  * 
  */  
-public class QuartzJobTest {  
+public class QuartzJobDispatch {  
   
     /** 
      * 主方法 
@@ -14,7 +14,7 @@ public class QuartzJobTest {
      * @param args 
      * @throws Exception 
      */  
-    public static void main(String[] args) throws Exception {         
+    public static void gameQuart() throws Exception {         
           
       /*  QuartzParamsEntity paramsEntityOne = new QuartzParamsEntity();  
         paramsEntityOne.setJobClass(DateJob.class);  
@@ -24,17 +24,14 @@ public class QuartzJobTest {
         paramsEntityOne.setCronExpression("0/1 * * * * ?");//每个一秒执行一次  
 */          
         QuartzParamsEntity paramsEntityTwo = new QuartzParamsEntity();  
-        paramsEntityTwo.setJobClass(RandomJob.class);  
-        paramsEntityTwo.setJobName("myJobTwo");  
+        paramsEntityTwo.setJobClass(Quartpcdd.class);  
+        paramsEntityTwo.setJobName("myJobOne");  
         paramsEntityTwo.setGroupName("myGroup");  
-        paramsEntityTwo.setTriggerName("myTriggerTwo");  
-        paramsEntityTwo.setCronExpression("0/2 * * * * ?");//每个两秒执行一次  
-          
+        paramsEntityTwo.setTriggerName("myTriggerOne");  
+        paramsEntityTwo.setCronExpression("0/60 * * * * ?");//每个两秒执行一次  
        // QuartzJobStart.start(paramsEntityOne);  
         QuartzJobStart.start(paramsEntityTwo);  
-          
-      //  Thread.sleep(6000);//线程休眠六秒时间  
-          
-        QuartzJobStart.stop();  
+     //   Thread.sleep(6000);//线程休眠六秒时间  
+     //   QuartzJobStart.stop(paramsEntityTwo);  
     }  
 }  

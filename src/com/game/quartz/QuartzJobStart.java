@@ -12,7 +12,7 @@ import org.quartz.SchedulerException;
  * 3、Trigger代表一个调度参数的配置，什么时候去调用。 
  * 4、Scheduler代表一个调度容器,一个调度容器中可以注册多个JobDetail和Trigger。当Trigger与JobDetail组合,就可以被Scheduler容器调度了。 
  *  
- * @author liZhongLin 
+ * @author yjw 
  * 
  */  
 public class QuartzJobStart {  
@@ -49,7 +49,13 @@ public class QuartzJobStart {
      * Job线程关闭操作 
      * @throws SchedulerException 
      */  
-    public static void stop() throws SchedulerException {  
-        sched.shutdown(true);  
+    public static void stop(QuartzParamsEntity paramsEntity) throws SchedulerException { 
+
+        JobDetail job = QuartzJobDetail.getJobDetail(paramsEntity);  
+  
+        CronTrigger trigger = QuartzCronTrigger.getCronTrigger(paramsEntity);  
+  
+        sched.scheduleJob(job, trigger);  
+        sched.shutdown();  
     }  
 }  

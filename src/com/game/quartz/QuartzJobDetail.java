@@ -5,7 +5,7 @@ import static org.quartz.JobBuilder.newJob;
 
 /** 
  * 根据给定的参数获取JobDetail对象 
- * @author liZhongLin 
+ * @author yjw 
  * 
  */  
 public class QuartzJobDetail {  

@@ -2,7 +2,7 @@ package com.game.quartz;
 
 /** 
  * 定时任务参数实体 
- * @author liZhongLin 
+ * @author yjw 
  * 
  */  
 public class QuartzParamsEntity {  

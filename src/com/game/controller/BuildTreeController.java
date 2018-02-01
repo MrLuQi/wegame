@@ -37,6 +37,9 @@ public class BuildTreeController {
 		JSONObject jsonJ = jsonArray.getJSONObject(i);
 		jsonJ.getInt("name");
 		jsonJ.getString("age");
+		System.out.println("sss");
+		
+		
 		
 		}
 System.out.println("adad");

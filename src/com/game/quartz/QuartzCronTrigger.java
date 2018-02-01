@@ -6,7 +6,7 @@ import static org.quartz.TriggerBuilder.newTrigger;
 
 /** 
 * 根据给定的参数，获取CronTrigger 
-* @author liZhongLin 
+* @author yjw 
 * 
 */  
 public class QuartzCronTrigger {  

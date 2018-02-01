@@ -3,25 +3,25 @@ package com.game.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.game.pojo.User;
-import com.game.service.UserService;
+import com.game.pojo.Members;
+import com.game.service.MembersService;
 import com.game.util.common.gameConstants;
 
 @Controller
-public class UserController {
-
+public class MembersController {
 	/**
 	 * 自动注入SysUserService
 	 * */
 	@Autowired
-	@Qualifier("userService")
-	private UserService userService;
+	@Qualifier("membersService")
+	private MembersService membersService;
+	
 	
 	/**
 	 * 判断账号密码
@@ -29,31 +29,31 @@ public class UserController {
 	 */
 
 	@RequestMapping(value = "/UsernameAndPassword")
-	public ModelAndView UsernameAndPassword(@RequestParam("loginname") String loginname,@RequestParam("password") String password 
+	public ModelAndView UsernameAndPassword(@RequestParam("memberno") String memberno,@RequestParam("passpwd") String passpwd 
 			,HttpSession session,ModelAndView mv){
 		 if (session!=null)
 	     {
-		 session.removeAttribute(gameConstants.USER_SESSION);
+		 session.removeAttribute(gameConstants.MEMBER_SESSION);
 		 //session.invalidate();
 	     }
-		User user=userService.findUser(loginname,password);
-		//User userState=userService.findUserState(loginname,password);
-		if (user == null) {	
+		Members members=membersService.findMember(memberno,passpwd);
+		if (members == null) {	
 			// 设置登录失败提示信息
 			mv.addObject("message", "登录名或密码错误!请重新输入");
 			// 服务器内部跳转到登录页面
 			mv.setViewName("forward:/login");
 		}
 		else{
-			if(gameConstants.USER_STATE==user.getState()){
+			if(gameConstants.MEMBERS_STATE.equals(members.getStatus())){
 		
 			mv.addObject("message", "该账号已被注销");
 			// 服务器内部跳转到登录页面
 			mv.setViewName("forward:/login");
 			}else{
-			session.setAttribute(gameConstants.USER_SESSION,user);
+			session.setAttribute(gameConstants.MEMBER_SESSION,members);
 			// 客户端跳转到home页面
-			mv.setViewName("redirect:/main");}
+			mv.setViewName("redirect:/main");
+			}
 		}
 		
 	return mv;
@@ -70,7 +70,7 @@ public class UserController {
 	  {
 	   if (session!=null)
 	       {
-		   session.removeAttribute(gameConstants.USER_SESSION);
+		   session.removeAttribute(gameConstants.MEMBER_SESSION);
 		    session.invalidate();
 	       }
 	   mv.setViewName("forward:/login");

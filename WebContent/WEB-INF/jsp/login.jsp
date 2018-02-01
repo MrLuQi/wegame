@@ -116,10 +116,10 @@
 						</c:choose>
 									<input type="hidden" name="go" value="pc">
 									<div class="label">
-										<em class="ico-user"></em><input type="text" name="loginname" class="txt" placeholder="请输入您的账号">
+										<em class="ico-user"></em><input type="text" name="memberno" class="txt" placeholder="请输入您的账号">
 									</div>
 									<div class="label2">
-										<em class="ico-pwd"></em><input type="password" name="password" class="txt" placeholder="您的密码">
+										<em class="ico-pwd"></em><input type="password" name="passpwd" class="txt" placeholder="您的密码">
 									</div>
 									<div class="label2" style="width: 150px;float: left;">
 										<em class="ico-code"></em><input type="text" name="piccode" class="txt1" placeholder="验证码">

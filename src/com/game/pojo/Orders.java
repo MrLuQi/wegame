@@ -6,31 +6,31 @@ import java.util.Date;
 public class Orders {
     private Integer oid;
 
-    private Integer mid;
+    private Integer mid;//会员ID
 
-    private String orderno;
+    private String orderno;//注单号
 
-    private String status;
+    private String status;//注单状态
 
-    private String hitflag;
+    private String hitflag;//是否中奖
 
-    private String bigflag;
+    private String bigflag;//是否大额中奖
 
-    private String ordertype;
+    private String ordertype;//注单类型
 
-    private BigDecimal initamount;
+    private BigDecimal initamount;//注单原始金额
 
-    private BigDecimal hitamount;
+    private BigDecimal hitamount;//注单中奖金额
 
-    private Date orderdate;
+    private Date orderdate;//投注时间
 
-    private BigDecimal backamount;
+    private BigDecimal backamount;//退水金额
 
-    private String bonusamount;
+    private String bonusamount;//返点金额
 
-    private String orderstatus;
+    private String orderstatus;//下单数据
 
-    private String periodno;
+    private String periodno;//开奖期数
 
     public Integer getOid() {
         return oid;

@@ -20,19 +20,19 @@
 				<tr>
 					<td class="ptext"><span>会员编号</span></td>
 					<th class="pword">
-						<p>155825</p>
+						<p>${member_session.memberno }</p>
 					</th>
 				</tr>
 				<tr>
 					<td class="ptext"><span>用户状态</span></td>
 					<th class="pword">
-						<p>正常</p>
+						<p>${member_session.status.equals("1")?"正常":"冻结"}</p>
 					</th>
 				</tr>
 				<tr>
 					<td class="ptext"><span>金币：</span></td>
 					<th class="pword">
-						<p>0.00</p>
+						<p>${member_session.balance }</p>
 					</th>
 				</tr>
 			</thead>

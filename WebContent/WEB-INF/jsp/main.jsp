@@ -230,8 +230,8 @@
 
 				<div class="zhanghu" id="account">
 					<div class="info">
-						<label>编号：</label><span> 155825</span></div>
-					<div class="info"><label>金币：</label><span class="balance">0</span></div>
+						<label>编号：</label><span> ${member_session.memberno }</span></div>
+					<div class="info"><label>金币：</label><span class="balance"> ${member_session.balance }</span></div>
 					<div class="info"><label>未结算金额：</label><span class="betting">0</span></div>
 				</div>
 			</div>

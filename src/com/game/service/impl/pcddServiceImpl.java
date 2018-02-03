@@ -29,7 +29,7 @@ private PcddDao pcddDao;
 	@Override
 	public void kiangJiangjson() {
 		// TODO Auto-generated method stub
-		JSONObject httpRequest = json_KJ_Data.httpRequest(
+	JSONObject httpRequest = json_KJ_Data.httpRequest(
 				"http://f.apiplus.net/bjkl8-1.json", "GET");
 		// 开奖数据
 		String jsonData = httpRequest.get("data").toString();
@@ -156,25 +156,25 @@ private PcddDao pcddDao;
 					+ Util_PCDD.twentySeven_DM(dmwf.optDouble("TWENTY"), 20,
 							kaijiang, 22.00);
 			sum = sum
-					+ Util_PCDD.twentySeven_DM(dmwf.optDouble("TWENTY-ONE"),
+					+ Util_PCDD.twentySeven_DM(dmwf.optDouble("TWENTY_ONE"),
 							21, kaijiang, 28.00);
 			sum = sum
-					+ Util_PCDD.twentySeven_DM(dmwf.optDouble("TWENTY-TWO"),
+					+ Util_PCDD.twentySeven_DM(dmwf.optDouble("TWENTY_TWO"),
 							22, kaijiang, 38.00);
 			sum = sum
-					+ Util_PCDD.twentySeven_DM(dmwf.optDouble("TWENTY-THREE"),
+					+ Util_PCDD.twentySeven_DM(dmwf.optDouble("TWENTY_THREE"),
 							23, kaijiang, 53.00);
 			sum = sum
-					+ Util_PCDD.twentySeven_DM(dmwf.optDouble("TWENTY-FOUR"),
+					+ Util_PCDD.twentySeven_DM(dmwf.optDouble("TWENTY_FOUR"),
 							24, kaijiang, 80.00);
 			sum = sum
-					+ Util_PCDD.twentySeven_DM(dmwf.optDouble("TWENTY-FIVE"),
+					+ Util_PCDD.twentySeven_DM(dmwf.optDouble("TWENTY_FIVE"),
 							25, kaijiang, 130.00);
 			sum = sum
-					+ Util_PCDD.twentySeven_DM(dmwf.optDouble("TWENTY-SIX"),
+					+ Util_PCDD.twentySeven_DM(dmwf.optDouble("TWENTY_SIX"),
 							26, kaijiang, 260.00);
 			sum = sum
-					+ Util_PCDD.twentySeven_DM(dmwf.optDouble("TWENTY-SEVEN"),
+					+ Util_PCDD.twentySeven_DM(dmwf.optDouble("TWENTY_SEVEN"),
 							27, kaijiang, 800.00);
 
 		}

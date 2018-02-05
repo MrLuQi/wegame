@@ -12,6 +12,29 @@
 			var lottery = 'pk10';
 			var lotteryType = '0';
 			var template = 'pk10'
+				function submitdata(){
+				//投注金额
+				var valList = [];
+				//投注金额总数
+				 var sum = 0;
+				//把投注金额放入数组
+				   $('.ba').each(function(){					
+					//alert($(this).val());	
+					valList.push(parseInt($(this).val()));
+					}); 				 
+				 //投注金额求和
+				    for (var i = 0; i < valList.length; i++){ 
+					   if(!isNaN(valList[i])){
+						    sum += valList[i];
+					   } ; 
+					   }  
+				alert("购买成功，请等待开奖！祝你好运~");
+				for(var i=1;i<=37;i++){
+					var rate=$("#rate"+i+"").text();
+					//alert(aa+"    geshu:"+i);
+					$("#rate"+i+"").text("---");
+				}
+			}
 		</script>
 		<!--  -->
 	</head>
@@ -19,6 +42,7 @@
 	<body class="l_pk10 P_lm skin_red">
 		<input type="hidden" id="page" value="lm" name="page">
 		<div id="main">
+		<form id="JSTB" action="${pageContext.request.contextPath }/sscTHREEdata" method="post">
 			<div id="header">
 				<!--开奖-->
 				<div class="lottery_info">
@@ -44,436 +68,105 @@
 				<table class="table_lm" style="width: 98%;">
 					<tbody>
 						<tr class="head">
+							<th colspan="1">号</th>
+							<th colspan="1">赔率</th>
+							<th colspan="1">金额</th>
+							<th colspan="1">号</th>
+							<th colspan="1">赔率</th>
+							<th colspan="1">金额</th>
+							<th colspan="1">号</th>
+							<th colspan="1">赔率</th>
+							<th colspan="1">金额</th>
+							<th colspan="1">号</th>
+							<th colspan="1">赔率</th>
+							<th colspan="1">金额</th>
+							<th colspan="1">号</th>
+							<th colspan="1">赔率</th>
+							<th colspan="1">金额</th>
+						</tr>
+						<tr>
+							<th class="Ggysum_big name" id="t_gysum_big" title="冠、亚军和 大"><input type="hidden" id="k_gysum_big" value="GDX">0</th>
+							<td class="Ggysum_big odds" id="o_gysum_big">9.95</td>
+							<td class="Ggysum_big amount ha"><input name="ZERO1" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
+							<th class="Ggysum_small name" id="t_gysum_small" title="冠、亚军和 小"><input type="hidden" id="k_gysum_small" value="GDX">1</th>
+							<td class="Ggysum_small odds" id="o_gysum_small">9.95</td>
+							<td class="Ggysum_small amount ha"><input name="ONE1" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
+							<th class="Ggysum_dan name" id="t_gysum_dan" title="冠、亚军和 单"><input type="hidden" id="k_gysum_dan" value="GDX">2</th>
+							<td class="Ggysum_dan odds" id="o_gysum_dan">9.95</td>
+							<td class="Ggysum_dan amount ha"><input name="TWO1" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
+							<th class="Ggysum_shuang name" id="t_gysum_shuang" title="冠、亚军和 双"><input type="hidden" id="k_gysum_shuang" value="GDX">3</th>
+							<td class="Ggysum_shuang odds" id="o_gysum_shuang">9.95</td>
+							<td class="Ggysum_shuang amount ha"><input name="THREE1" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
+							<th class="Ggysum_shuang name" id="t_gysum_shuang" title="冠、亚军和 双"><input type="hidden" id="k_gysum_shuang" value="GDX">4</th>
+							<td class="Ggysum_shuang odds" id="o_gysum_shuang">9.95</td>
+							<td class="Ggysum_shuang amount ha"><input name="FOUR1" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
+						</tr>
+						<tr>
+							<th class="Ggysum_big name" id="t_gysum_big" title="冠、亚军和 大"><input type="hidden" id="k_gysum_big" value="GDX">5</th>
+							<td class="Ggysum_big odds" id="o_gysum_big">9.95</td>
+							<td class="Ggysum_big amount ha"><input name="FIVE1" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
+							<th class="Ggysum_small name" id="t_gysum_small" title="冠、亚军和 小"><input type="hidden" id="k_gysum_small" value="GDX">6</th>
+							<td class="Ggysum_small odds" id="o_gysum_small">9.95</td>
+							<td class="Ggysum_small amount ha"><input name="SIX1" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
+							<th class="Ggysum_dan name" id="t_gysum_dan" title="冠、亚军和 单"><input type="hidden" id="k_gysum_dan" value="GDX">7</th>
+							<td class="Ggysum_dan odds" id="o_gysum_dan">9.95</td>
+							<td class="Ggysum_dan amount ha"><input name="SEVEN1" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
+							<th class="Ggysum_shuang name" id="t_gysum_shuang" title="冠、亚军和 双"><input type="hidden" id="k_gysum_shuang" value="GDX">8</th>
+							<td class="Ggysum_shuang odds" id="o_gysum_shuang">9.95</td>
+							<td class="Ggysum_shuang amount ha"><input name="EIGHT1" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
+							<th class="Ggysum_shuang name" id="t_gysum_shuang" title="冠、亚军和 双"><input type="hidden" id="k_gysum_shuang" value="GDX">9</th>
+							<td class="Ggysum_shuang odds" id="o_gysum_shuang">9.95</td>
+							<td class="Ggysum_shuang amount ha"><input name="NINE1" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
+						</tr>
+						<tr>
+							<th class="Ggysum_big name" id="t_gysum_big" title="冠、亚军和 大"><input type="hidden" id="k_gysum_big" value="GDX">大</th>
+							<td class="Ggysum_big odds" id="o_gysum_big">1.99</td>
+							<td class="Ggysum_big amount ha"><input name="DA1" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
+							<th class="Ggysum_small name" id="t_gysum_small" title="冠、亚军和 小"><input type="hidden" id="k_gysum_small" value="GDX">小</th>
+							<td class="Ggysum_small odds" id="o_gysum_small">1.99</td>
+							<td class="Ggysum_small amount ha"><input name="XIAO1" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
+							<th class="Ggysum_dan name" id="t_gysum_dan" title="冠、亚军和 单"><input type="hidden" id="k_gysum_dan" value="GDX">单</th>
+							<td class="Ggysum_dan odds" id="o_gysum_dan">1.99</td>
+							<td class="Ggysum_dan amount ha"><input name="DAN1" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
+							<th class="Ggysum_dan name" id="t_gysum_dan" title="冠、亚军和 单"><input type="hidden" id="k_gysum_dan" value="GDX">双</th>
+							<td class="Ggysum_dan odds" id="o_gysum_dan">1.99</td>
+							<td class="Ggysum_dan amount ha"><input name="SHUANG1" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="table_lm" style="width: 98%;">
+					<tbody>
+						<tr class="head">
 							<th colspan="12">总和/龙虎和</th>
 						</tr>
 						<tr>
 							<th class="Ggysum_big name" id="t_gysum_big" title="冠、亚军和 大"><input type="hidden" id="k_gysum_big" value="GDX">大</th>
-							<td class="Ggysum_big odds" id="o_gysum_big">1.98</td>
-							<td class="Ggysum_big amount ha"><input name="gysum_big" class="ba"></td>
+							<td class="Ggysum_big odds" id="rate1">1.98</td>
+							<td class="Ggysum_big amount ha"><input name="DA" onkeyup="this.value=this.value.replace(/\D/g,'')"    class="ba"></td>
 							<th class="Ggysum_small name" id="t_gysum_small" title="冠、亚军和 小"><input type="hidden" id="k_gysum_small" value="GDX">小</th>
-							<td class="Ggysum_small odds" id="o_gysum_small">1.98</td>
-							<td class="Ggysum_small amount ha"><input name="gysum_small" class="ba"></td>
+							<td class="Ggysum_small odds" id="rate2">1.98</td>
+							<td class="Ggysum_small amount ha"><input name="XIAO" onkeyup="this.value=this.value.replace(/\D/g,'')"   class="ba"></td>
 							<th class="Ggysum_dan name" id="t_gysum_dan" title="冠、亚军和 单"><input type="hidden" id="k_gysum_dan" value="GDX">单</th>
-							<td class="Ggysum_dan odds" id="o_gysum_dan">1.98</td>
-							<td class="Ggysum_dan amount ha"><input name="gysum_dan" class="ba"></td>
+							<td class="Ggysum_dan odds" id="rate3">1.98</td>
+							<td class="Ggysum_dan amount ha"><input name="DAN" onkeyup="this.value=this.value.replace(/\D/g,'')"   class="ba"></td>
 							<th class="Ggysum_shuang name" id="t_gysum_shuang" title="冠、亚军和 双"><input type="hidden" id="k_gysum_shuang" value="GDX">双</th>
-							<td class="Ggysum_shuang odds" id="o_gysum_shuang">1.98</td>
-							<td class="Ggysum_shuang amount ha"><input name="gysum_shuang" class="ba"></td>
+							<td class="Ggysum_shuang odds" id="rate4">1.98</td>
+							<td class="Ggysum_shuang amount ha"><input name="SHUANG" onkeyup="this.value=this.value.replace(/\D/g,'')"   class="ba"></td>
 						</tr>
 						<tr>
 							<th class="Ggysum_big name" id="t_gysum_big" title="冠、亚军和 大"><input type="hidden" id="k_gysum_big" value="GDX">龙</th>
-							<td class="Ggysum_big odds" id="o_gysum_big">1.98</td>
-							<td class="Ggysum_big amount ha"><input name="gysum_big" class="ba"></td>
+							<td class="Ggysum_big odds" id="rate5">1.98</td>
+							<td class="Ggysum_big amount ha"><input name="LONG" onkeyup="this.value=this.value.replace(/\D/g,'')"   class="ba"></td>
 							<th class="Ggysum_small name" id="t_gysum_small" title="冠、亚军和 小"><input type="hidden" id="k_gysum_small" value="GDX">虎</th>
-							<td class="Ggysum_small odds" id="o_gysum_small">1.98</td>
-							<td class="Ggysum_small amount ha"><input name="gysum_small" class="ba"></td>
+							<td class="Ggysum_small odds" id="rate6">1.98</td>
+							<td class="Ggysum_small amount ha"><input name="HU" onkeyup="this.value=this.value.replace(/\D/g,'')"   class="ba"></td>
 							<th class="Ggysum_dan name" id="t_gysum_dan" title="冠、亚军和 单"><input type="hidden" id="k_gysum_dan" value="GDX">和</th>
-							<td class="Ggysum_dan odds" id="o_gysum_dan">8.80</td>
-							<td class="Ggysum_dan amount ha"><input name="gysum_dan" class="ba"></td>
+							<td class="Ggysum_dan odds" id="rate7">8.80</td>
+							<td class="Ggysum_dan amount ha"><input name="HE" onkeyup="this.value=this.value.replace(/\D/g,'')"   class="ba"></td>
 						
 						</tr>
 					</tbody>
 				</table>
-				
-					<!--万位-->
-					<table>
-						<tbody>
-							<tr class="head">
-								<th colspan="3">万位</th>
-							</tr>
-							<tr>
-								<th class="Gtitle1_big name" id="t_title1_big" title="冠军 大"><input type="hidden" id="k_title1_big" value="DX"><span class="b1">大</span></th>
-								<td class="Gtitle1_big odds" id="o_title1_big">1.99</td>
-								<td class="Gtitle1_big amount ha"><input name="title1_big" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Gtitle1_small name" id="t_title1_small" title="冠军 小"><input type="hidden" id="k_title1_small" value="DX"><span class="b2">小</span></th>
-								<td class="Gtitle1_small odds" id="o_title1_small">1.99</td>
-								<td class="Gtitle1_small amount ha"><input name="title1_small" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Gtitle1_dan name" id="t_title1_dan" title="冠军 单"><input type="hidden" id="k_title1_dan" value="DX"><span class="b3">单</span></th>
-								<td class="Gtitle1_dan odds" id="o_title1_dan">1.99</td>
-								<td class="Gtitle1_dan amount ha"><input name="title1_dan" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Gtitle1_shuang name" id="t_title1_shuang" title="冠军 双"><input type="hidden" id="k_title1_shuang" value="DX"><span class="b4">双</span></th>
-								<td class="Gtitle1_shuang odds" id="o_title1_shuang">1.99</td>
-								<td class="Gtitle1_shuang amount ha"><input name="title1_shuang" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">0</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10h name" id="t_longhu_1V10h" title="冠军 1V10虎"><input type="hidden" id="k_longhu_1V10h" value="DX"><span class="b4">1</span></th>
-								<td class="Glonghu_1V10h odds" id="o_longhu_1V10h">9.95</td>
-								<td class="Glonghu_1V10h amount ha"><input name="longhu_1V10h" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">2</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">3</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">4</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">5</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">6</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">7</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">8</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">9</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-						</tbody>
-					</table>	
-					<!--千-->
-					<table>
-						<tbody>
-							<tr class="head">
-								<th colspan="3">千位</th>
-							</tr>
-							<tr>
-								<th class="Gtitle1_big name" id="t_title1_big" title="冠军 大"><input type="hidden" id="k_title1_big" value="DX"><span class="b1">大</span></th>
-								<td class="Gtitle1_big odds" id="o_title1_big">1.99</td>
-								<td class="Gtitle1_big amount ha"><input name="title1_big" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Gtitle1_small name" id="t_title1_small" title="冠军 小"><input type="hidden" id="k_title1_small" value="DX"><span class="b2">小</span></th>
-								<td class="Gtitle1_small odds" id="o_title1_small">1.99</td>
-								<td class="Gtitle1_small amount ha"><input name="title1_small" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Gtitle1_dan name" id="t_title1_dan" title="冠军 单"><input type="hidden" id="k_title1_dan" value="DX"><span class="b3">单</span></th>
-								<td class="Gtitle1_dan odds" id="o_title1_dan">1.99</td>
-								<td class="Gtitle1_dan amount ha"><input name="title1_dan" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Gtitle1_shuang name" id="t_title1_shuang" title="冠军 双"><input type="hidden" id="k_title1_shuang" value="DX"><span class="b4">双</span></th>
-								<td class="Gtitle1_shuang odds" id="o_title1_shuang">1.99</td>
-								<td class="Gtitle1_shuang amount ha"><input name="title1_shuang" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">0</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10h name" id="t_longhu_1V10h" title="冠军 1V10虎"><input type="hidden" id="k_longhu_1V10h" value="DX"><span class="b4">1</span></th>
-								<td class="Glonghu_1V10h odds" id="o_longhu_1V10h">9.95</td>
-								<td class="Glonghu_1V10h amount ha"><input name="longhu_1V10h" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">2</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">3</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">4</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">5</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">6</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">7</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">8</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">9</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-						</tbody>
-					</table>	
-					
-					
-					<!--百-->
-					<table>
-						<tbody>
-							<tr class="head">
-								<th colspan="3">百位</th>
-							</tr>
-							<tr>
-								<th class="Gtitle1_big name" id="t_title1_big" title="冠军 大"><input type="hidden" id="k_title1_big" value="DX"><span class="b1">大</span></th>
-								<td class="Gtitle1_big odds" id="o_title1_big">1.99</td>
-								<td class="Gtitle1_big amount ha"><input name="title1_big" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Gtitle1_small name" id="t_title1_small" title="冠军 小"><input type="hidden" id="k_title1_small" value="DX"><span class="b2">小</span></th>
-								<td class="Gtitle1_small odds" id="o_title1_small">1.99</td>
-								<td class="Gtitle1_small amount ha"><input name="title1_small" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Gtitle1_dan name" id="t_title1_dan" title="冠军 单"><input type="hidden" id="k_title1_dan" value="DX"><span class="b3">单</span></th>
-								<td class="Gtitle1_dan odds" id="o_title1_dan">1.99</td>
-								<td class="Gtitle1_dan amount ha"><input name="title1_dan" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Gtitle1_shuang name" id="t_title1_shuang" title="冠军 双"><input type="hidden" id="k_title1_shuang" value="DX"><span class="b4">双</span></th>
-								<td class="Gtitle1_shuang odds" id="o_title1_shuang">1.99</td>
-								<td class="Gtitle1_shuang amount ha"><input name="title1_shuang" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">0</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10h name" id="t_longhu_1V10h" title="冠军 1V10虎"><input type="hidden" id="k_longhu_1V10h" value="DX"><span class="b4">1</span></th>
-								<td class="Glonghu_1V10h odds" id="o_longhu_1V10h">9.95</td>
-								<td class="Glonghu_1V10h amount ha"><input name="longhu_1V10h" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">2</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">3</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">4</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">5</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">6</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">7</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">8</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">9</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-						</tbody>
-					</table>	
-					
-					<!--十-->
-					<table>
-						<tbody>
-							<tr class="head">
-								<th colspan="3">十位</th>
-							</tr>
-							<tr>
-								<th class="Gtitle1_big name" id="t_title1_big" title="冠军 大"><input type="hidden" id="k_title1_big" value="DX"><span class="b1">大</span></th>
-								<td class="Gtitle1_big odds" id="o_title1_big">1.99</td>
-								<td class="Gtitle1_big amount ha"><input name="title1_big" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Gtitle1_small name" id="t_title1_small" title="冠军 小"><input type="hidden" id="k_title1_small" value="DX"><span class="b2">小</span></th>
-								<td class="Gtitle1_small odds" id="o_title1_small">1.99</td>
-								<td class="Gtitle1_small amount ha"><input name="title1_small" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Gtitle1_dan name" id="t_title1_dan" title="冠军 单"><input type="hidden" id="k_title1_dan" value="DX"><span class="b3">单</span></th>
-								<td class="Gtitle1_dan odds" id="o_title1_dan">1.99</td>
-								<td class="Gtitle1_dan amount ha"><input name="title1_dan" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Gtitle1_shuang name" id="t_title1_shuang" title="冠军 双"><input type="hidden" id="k_title1_shuang" value="DX"><span class="b4">双</span></th>
-								<td class="Gtitle1_shuang odds" id="o_title1_shuang">1.99</td>
-								<td class="Gtitle1_shuang amount ha"><input name="title1_shuang" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">0</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10h name" id="t_longhu_1V10h" title="冠军 1V10虎"><input type="hidden" id="k_longhu_1V10h" value="DX"><span class="b4">1</span></th>
-								<td class="Glonghu_1V10h odds" id="o_longhu_1V10h">9.95</td>
-								<td class="Glonghu_1V10h amount ha"><input name="longhu_1V10h" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">2</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">3</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">4</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">5</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">6</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">7</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">8</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">9</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-						</tbody>
-					</table>	
-					
-					
-					<!--个-->
-					<table>
-						<tbody>
-							<tr class="head">
-								<th colspan="3">个位</th>
-							</tr>
-							<tr>
-								<th class="Gtitle1_big name" id="t_title1_big" title="冠军 大"><input type="hidden" id="k_title1_big" value="DX"><span class="b1">大</span></th>
-								<td class="Gtitle1_big odds" id="o_title1_big">1.99</td>
-								<td class="Gtitle1_big amount ha"><input name="title1_big" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Gtitle1_small name" id="t_title1_small" title="冠军 小"><input type="hidden" id="k_title1_small" value="DX"><span class="b2">小</span></th>
-								<td class="Gtitle1_small odds" id="o_title1_small">1.99</td>
-								<td class="Gtitle1_small amount ha"><input name="title1_small" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Gtitle1_dan name" id="t_title1_dan" title="冠军 单"><input type="hidden" id="k_title1_dan" value="DX"><span class="b3">单</span></th>
-								<td class="Gtitle1_dan odds" id="o_title1_dan">1.99</td>
-								<td class="Gtitle1_dan amount ha"><input name="title1_dan" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Gtitle1_shuang name" id="t_title1_shuang" title="冠军 双"><input type="hidden" id="k_title1_shuang" value="DX"><span class="b4">双</span></th>
-								<td class="Gtitle1_shuang odds" id="o_title1_shuang">1.99</td>
-								<td class="Gtitle1_shuang amount ha"><input name="title1_shuang" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">0</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10h name" id="t_longhu_1V10h" title="冠军 1V10虎"><input type="hidden" id="k_longhu_1V10h" value="DX"><span class="b4">1</span></th>
-								<td class="Glonghu_1V10h odds" id="o_longhu_1V10h">9.95</td>
-								<td class="Glonghu_1V10h amount ha"><input name="longhu_1V10h" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">2</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">3</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">4</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">5</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">6</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">7</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">8</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-							<tr>
-								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">9</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">9.95</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
-							</tr>
-						</tbody>
-					</table>	
-					
-					
-					
-				
 				<table class="table_lm" style="width: 98%;">
 					<tbody>
 						<tr class="head">
@@ -481,20 +174,20 @@
 						</tr>
 						<tr>
 							<th class="Ggysum_big name" id="t_gysum_big" title="冠、亚军和 大"><input type="hidden" id="k_gysum_big" value="GDX">豹子</th>
-							<td class="Ggysum_big odds" id="o_gysum_big">69.00</td>
-							<td class="Ggysum_big amount ha"><input name="gysum_big" class="ba"></td>
+							<td class="Ggysum_big odds" id="rate78">69.00</td>
+							<td class="Ggysum_big amount ha"><input name="BAOZI" onkeyup="this.value=this.value.replace(/\D/g,'')"   class="ba"></td>
 							<th class="Ggysum_small name" id="t_gysum_small" title="冠、亚军和 小"><input type="hidden" id="k_gysum_small" value="GDX">顺子</th>
-							<td class="Ggysum_small odds" id="o_gysum_small">11.00</td>
-							<td class="Ggysum_small amount ha"><input name="gysum_small" class="ba"></td>
+							<td class="Ggysum_small odds" id="rate79">11.00</td>
+							<td class="Ggysum_small amount ha"><input name="SHUNZI" onkeyup="this.value=this.value.replace(/\D/g,'')"   class="ba"></td>
 							<th class="Ggysum_dan name" id="t_gysum_dan" title="冠、亚军和 单"><input type="hidden" id="k_gysum_dan" value="GDX">对子</th>
-							<td class="Ggysum_dan odds" id="o_gysum_dan">2.55</td>
-							<td class="Ggysum_dan amount ha"><input name="gysum_dan" class="ba"></td>
+							<td class="Ggysum_dan odds" id="rate80">2.55</td>
+							<td class="Ggysum_dan amount ha"><input name="DUIZI" onkeyup="this.value=this.value.replace(/\D/g,'')"  class="ba"></td>
 							<th class="Ggysum_shuang name" id="t_gysum_shuang" title="冠、亚军和 双"><input type="hidden" id="k_gysum_shuang" value="GDX">半顺</th>
-							<td class="Ggysum_shuang odds" id="o_gysum_shuang">1.80</td>
-							<td class="Ggysum_shuang amount ha"><input name="gysum_shuang" class="ba"></td>
+							<td class="Ggysum_shuang odds" id="rate81">1.80</td>
+							<td class="Ggysum_shuang amount ha"><input name="BANSHUN" onkeyup="this.value=this.value.replace(/\D/g,'')"   class="ba"></td>
 							<th class="Ggysum_shuang name" id="t_gysum_shuang" title="冠、亚军和 双"><input type="hidden" id="k_gysum_shuang" value="GDX">杂六</th>
-							<td class="Ggysum_shuang odds" id="o_gysum_shuang">2.00</td>
-							<td class="Ggysum_shuang amount ha"><input name="gysum_shuang" class="ba"></td>
+							<td class="Ggysum_shuang odds" id="rate82">2.00</td>
+							<td class="Ggysum_shuang amount ha"><input name="ZALIU" onkeyup="this.value=this.value.replace(/\D/g,'')"   class="ba"></td>
 						</tr>
 
 					</tbody>
@@ -506,23 +199,22 @@
 						</tr>
 						<tr>
 							<th class="Ggysum_big name" id="t_gysum_big" title="冠、亚军和 大"><input type="hidden" id="k_gysum_big" value="GDX">豹子</th>
-							<td class="Ggysum_big odds" id="o_gysum_big">69.00</td>
-							<td class="Ggysum_big amount ha"><input name="gysum_big" class="ba"></td>
+							<td class="Ggysum_big odds" id="rate78">69.00</td>
+							<td class="Ggysum_big amount ha"><input name="BAOZI1" onkeyup="this.value=this.value.replace(/\D/g,'')"   class="ba"></td>
 							<th class="Ggysum_small name" id="t_gysum_small" title="冠、亚军和 小"><input type="hidden" id="k_gysum_small" value="GDX">顺子</th>
-							<td class="Ggysum_small odds" id="o_gysum_small">11.00</td>
-							<td class="Ggysum_small amount ha"><input name="gysum_small" class="ba"></td>
+							<td class="Ggysum_small odds" id="rate79">11.00</td>
+							<td class="Ggysum_small amount ha"><input name="SHUNZI1" onkeyup="this.value=this.value.replace(/\D/g,'')"   class="ba"></td>
 							<th class="Ggysum_dan name" id="t_gysum_dan" title="冠、亚军和 单"><input type="hidden" id="k_gysum_dan" value="GDX">对子</th>
-							<td class="Ggysum_dan odds" id="o_gysum_dan">2.55</td>
-							<td class="Ggysum_dan amount ha"><input name="gysum_dan" class="ba"></td>
+							<td class="Ggysum_dan odds" id="rate80">2.55</td>
+							<td class="Ggysum_dan amount ha"><input name="DUIZI1" onkeyup="this.value=this.value.replace(/\D/g,'')"   class="ba"></td>
 							<th class="Ggysum_shuang name" id="t_gysum_shuang" title="冠、亚军和 双"><input type="hidden" id="k_gysum_shuang" value="GDX">半顺</th>
-							<td class="Ggysum_shuang odds" id="o_gysum_shuang">1.80</td>
-							<td class="Ggysum_shuang amount ha"><input name="gysum_shuang" class="ba"></td>
+							<td class="Ggysum_shuang odds" id="rate81">1.80</td>
+							<td class="Ggysum_shuang amount ha"><input name="BANSHUN1" onkeyup="this.value=this.value.replace(/\D/g,'')"   class="ba"></td>
 							<th class="Ggysum_shuang name" id="t_gysum_shuang" title="冠、亚军和 双"><input type="hidden" id="k_gysum_shuang" value="GDX">杂六</th>
-							<td class="Ggysum_shuang odds" id="o_gysum_shuang">2.00</td>
-							<td class="Ggysum_shuang amount ha"><input name="gysum_shuang" class="ba"></td>
+							<td class="Ggysum_shuang odds" id="rate82">2.00</td>
+							<td class="Ggysum_shuang amount ha"><input name="ZALIU1" onkeyup="this.value=this.value.replace(/\D/g,'')"   class="ba"></td>
 						</tr>
-						
-						</tr>
+
 					</tbody>
 				</table>
 				<table class="table_lm" style="width: 98%;">
@@ -532,23 +224,22 @@
 						</tr>
 						<tr>
 							<th class="Ggysum_big name" id="t_gysum_big" title="冠、亚军和 大"><input type="hidden" id="k_gysum_big" value="GDX">豹子</th>
-							<td class="Ggysum_big odds" id="o_gysum_big">69.00</td>
-							<td class="Ggysum_big amount ha"><input name="gysum_big" class="ba"></td>
+							<td class="Ggysum_big odds" id="rate78">69.00</td>
+							<td class="Ggysum_big amount ha"><input name="BAOZI2" onkeyup="this.value=this.value.replace(/\D/g,'')"   class="ba"></td>
 							<th class="Ggysum_small name" id="t_gysum_small" title="冠、亚军和 小"><input type="hidden" id="k_gysum_small" value="GDX">顺子</th>
-							<td class="Ggysum_small odds" id="o_gysum_small">11.00</td>
-							<td class="Ggysum_small amount ha"><input name="gysum_small" class="ba"></td>
+							<td class="Ggysum_small odds" id="rate79">11.00</td>
+							<td class="Ggysum_small amount ha"><input name="SHUNZI2" onkeyup="this.value=this.value.replace(/\D/g,'')"   class="ba"></td>
 							<th class="Ggysum_dan name" id="t_gysum_dan" title="冠、亚军和 单"><input type="hidden" id="k_gysum_dan" value="GDX">对子</th>
-							<td class="Ggysum_dan odds" id="o_gysum_dan">2.55</td>
-							<td class="Ggysum_dan amount ha"><input name="gysum_dan" class="ba"></td>
+							<td class="Ggysum_dan odds" id="rate80">2.55</td>
+							<td class="Ggysum_dan amount ha"><input name="DUIZI2" onkeyup="this.value=this.value.replace(/\D/g,'')"   class="ba"></td>
 							<th class="Ggysum_shuang name" id="t_gysum_shuang" title="冠、亚军和 双"><input type="hidden" id="k_gysum_shuang" value="GDX">半顺</th>
-							<td class="Ggysum_shuang odds" id="o_gysum_shuang">1.80</td>
-							<td class="Ggysum_shuang amount ha"><input name="gysum_shuang" class="ba"></td>
+							<td class="Ggysum_shuang odds" id="rate81">1.80</td>
+							<td class="Ggysum_shuang amount ha"><input name="BANSHUN2" onkeyup="this.value=this.value.replace(/\D/g,'')"   class="ba"></td>
 							<th class="Ggysum_shuang name" id="t_gysum_shuang" title="冠、亚军和 双"><input type="hidden" id="k_gysum_shuang" value="GDX">杂六</th>
-							<td class="Ggysum_shuang odds" id="o_gysum_shuang">2.00</td>
-							<td class="Ggysum_shuang amount ha"><input name="gysum_shuang" class="ba"></td>
+							<td class="Ggysum_shuang odds" id="rate82">2.00</td>
+							<td class="Ggysum_shuang amount ha"><input name="ZALIU2" onkeyup="this.value=this.value.replace(/\D/g,'')"   class="ba"></td>
 						</tr>
-						
-						</tr>
+
 					</tbody>
 				</table>
 				
@@ -562,11 +253,13 @@
 				<div class="lefts" style="display:none">已经选中 <span id="betcount"></span> 注</div>
 				<div class="buttons">
 					<label class="checkdefault"><input type="checkbox" class="checkbox"><span class="color_lv bold">预设</span></label>&nbsp;&nbsp;<label class="quickAmount"><span class="color_lv bold">金额</span> <input></label>
-					<input type="button" class="button" value="确定" onclick="bet()"><input type="button" class="button" value="重置" onclick="resetBets()">
+				<!-- 	<input type="button" class="button" value="确定" onclick="bet()"><input type="button" class="button" value="重置" onclick="resetBets()"> -->
+				<input type="submit" class="button" value="确定" onclick="submitdata()"><input type="button" class="button" value="重置" onclick="resetBets()">
 				</div>
 			</div>
-		</div>
-	</div>
+			</form>
+			</div>
+		
 		<!--排行-->
 		
 		

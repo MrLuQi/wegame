@@ -64,11 +64,11 @@
 						<tr>
 							<th class="Ggysum_big name"  title="1点"><input type="hidden" id="" value="1">1点</th>
 							<td class="Ggysum_big odds" id="rate1">1.99</td>
-							<td class="Ggysum_big amount ha"><input type="text" name="SANJUN1" class="ba" id="SANJUN1"></td>
+							<td class="Ggysum_big amount ha"><input type="text" name="SANJUN1" class="ba" id="SANJUN1" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"></td>
 							
 							<th class="Ggysum_small name"  title="2点"><input type="hidden" id="" value="2">2点</th>
 							<td class="Ggysum_small odds" id="rate2">1.99</td>
-							<td class="Ggysum_big amount ha"><input type="text" name="SANJUN2" class="ba" id="SANJUN2"></td>
+							<td class="Ggysum_big amount ha"><input type="text" name="SANJUN2" class="ba" id="SANJUN2" onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')"></td>
 							
 							<th class="Ggysum_dan name"  title="3点"><input type="hidden" id="" value="3">3点</th>
 							<td class="Ggysum_dan odds" id="rate3">1.99</td>

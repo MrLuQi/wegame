@@ -8,14 +8,14 @@
 		<link rel="stylesheet" href="css/Jiangsu.css" />
 		<script type="text/javascript" src="${ctx }/js/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript">
-		/* function submitdata(){
+		 function submitdata(){
 			alert("购买成功，请等待开奖！祝你好运~");
 			for(var i=1;i<=50;i++){
 				var rate=$("#rate"+i+"").text();
 				//alert(aa+"    geshu:"+i);
 				$("#rate"+i+"").text("---");
 			}
-		} */
+		} 
 		
 		
 		
@@ -61,42 +61,42 @@
 						</tr>
 						<tr>
 							<th class="Ggysum_big name" id="t_gysum_big" title="冠、亚军和 大"><input type="hidden" id="k_gysum_big" value="GDX" >大</th>
-							<td class="Ggysum_big odds" id="o_gysum_big">2.00</td>
-							<td class="Ggysum_big amount ha"><input  class="ba" name="DA" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
+							<td class="Ggysum_big odds" id="rate1">2.00</td>
+							<td class="Ggysum_big amount ha"><input  class="ba"   name="DA" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_small name" id="t_gysum_small" title="冠、亚军和 小"><input type="hidden" id="k_gysum_small" value="GDX">小</th>
-							<td class="Ggysum_small odds" id="o_gysum_small">2.00</td>
+							<td class="Ggysum_small odds" id="rate2">2.00</td>
 							<td class="Ggysum_small amount ha"><input  class="ba"  name="XIAO" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_dan name" id="t_gysum_dan" title="冠、亚军和 单"><input type="hidden" id="k_gysum_dan" value="GDX">单</th>
-							<td class="Ggysum_dan odds" id="o_gysum_dan">2.00</td>
+							<td class="Ggysum_dan odds" id="rate3">2.00</td>
 							<td class="Ggysum_dan amount ha"><input class="ba"  name="DAN" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_shuang name" id="t_gysum_shuang" title="冠、亚军和 双"><input type="hidden" id="k_gysum_shuang" value="GDX" >双</th>
-							<td class="Ggysum_shuang odds" id="o_gysum_shuang" >2.00</td>
+							<td class="Ggysum_shuang odds" id="rate4" >2.00</td>
 							<td class="Ggysum_shuang amount ha"><input  class="ba" name="SHUANG" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 						</tr>
 					</tbody>
 					<tbody>
 						<tr>
 							<th class="Ggysum_big name" id="t_gysum_big" title="冠、亚军和 大"><input type="hidden" id="k_gysum_big" value="GDX"  >大单</th>
-							<td class="Ggysum_big odds" id="o_gysum_big">4.10</td>
+							<td class="Ggysum_big odds" id="rate5">4.10</td>
 							<td class="Ggysum_big amount ha"><input class="ba" name="DADAN" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_small name" id="t_gysum_small" title="冠、亚军和 小"><input type="hidden" id="k_gysum_small" value="GDX">大双</th>
-							<td class="Ggysum_small odds" id="o_gysum_small">4.00</td>
+							<td class="Ggysum_small odds" id="rate6">4.00</td>
 							<td class="Ggysum_small amount ha"><input  class="ba"  name="DASHUANG" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_dan name" id="t_gysum_dan" title="冠、亚军和 单"><input type="hidden" id="k_gysum_dan" value="GDX">小单</th>
-							<td class="Ggysum_dan odds" id="o_gysum_dan">4.00</td>
+							<td class="Ggysum_dan odds" id="rate7">4.00</td>
 							<td class="Ggysum_dan amount ha"><input  class="ba"  name="XIAODAN" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_shuang name" id="t_gysum_shuang" title="冠、亚军和 双"><input type="hidden" id="k_gysum_shuang" value="GDX">小双</th>
-							<td class="Ggysum_shuang odds" id="o_gysum_shuang">4.10</td>
+							<td class="Ggysum_shuang odds" id="rate8">4.10</td>
 							<td class="Ggysum_shuang amount ha"><input class="ba"  name="XIAOSHUANG" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 						</tr>
 					</tbody>
 					<tbody>
 						<tr>
 							<th class="Ggysum_big name" id="t_gysum_big" title="冠、亚军和 大"><input type="hidden" id="k_gysum_big" value="GDX" >极大</th>
-							<td class="Ggysum_big odds" id="o_gysum_big">15.00</td>
+							<td class="Ggysum_big odds" id="rate9">15.00</td>
 							<td class="Ggysum_big amount ha"><input class="ba" name="JIDA" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_small name" id="t_gysum_small" title="冠、亚军和 小"><input type="hidden" id="k_gysum_small" value="GDX">极小</th>
-							<td class="Ggysum_small odds" id="o_gysum_small">15.00</td>
+							<td class="Ggysum_small odds" id="rate10">15.00</td>
 							<td class="Ggysum_small amount ha"><input  class="ba"  name="JIXIAO" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 						</tr>
 					</tbody>
@@ -113,112 +113,112 @@
 						</tr>
 						<tr>
 							<th class="Ggysum_big name" id="t_gysum_big" title="冠、亚军和 大"><input type="hidden" id="k_gysum_big" value="GDX">0</th>
-							<td class="Ggysum_big odds" id="o_gysum_big">800.00</td>
+							<td class="Ggysum_big odds" id="rate11">800.00</td>
 							<td class="Ggysum_big amount ha"><input  class="ba"  name="ZERO" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_small name" id="t_gysum_small" title="冠、亚军和 小"><input type="hidden" id="k_gysum_small" value="GDX" >1</th>
-							<td class="Ggysum_small odds" id="o_gysum_small">260.00</td>
+							<td class="Ggysum_small odds" id="rate12">260.00</td>
 							<td class="Ggysum_small amount ha"><input  class="ba" name="ONE" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_dan name" id="t_gysum_dan" title="冠、亚军和 单"><input type="hidden" id="k_gysum_dan" value="GDX" >2</th>
-							<td class="Ggysum_dan odds" id="o_gysum_dan">130.00</td>
+							<td class="Ggysum_dan odds" id="rate13">130.00</td>
 							<td class="Ggysum_dan amount ha"><input  class="ba" name="TWO" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_shuang name" id="t_gysum_shuang" title="冠、亚军和 双"><input type="hidden" id="k_gysum_shuang" value="GDX" >3</th>
-							<td class="Ggysum_shuang odds" id="o_gysum_shuang">80.00</td>
+							<td class="Ggysum_shuang odds" id="rate14">80.00</td>
 							<td class="Ggysum_shuang amount ha"><input  class="ba" name="THREE" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 						</tr>
 					</tbody>
 					<tbody>
 						<tr>
 							<th class="Ggysum_big name" id="t_gysum_big" title="冠、亚军和 大"><input type="hidden" id="k_gysum_big" value="GDX" >4</th>
-							<td class="Ggysum_big odds" id="o_gysum_big">53.00</td>
+							<td class="Ggysum_big odds" id="rate15">53.00</td>
 							<td class="Ggysum_big amount ha"><input  class="ba" name="FOUR"></td>
 							<th class="Ggysum_small name" id="t_gysum_small" title="冠、亚军和 小"><input type="hidden" id="k_gysum_small" value="GDX" >5</th>
-							<td class="Ggysum_small odds" id="o_gysum_small">38.00</td>
+							<td class="Ggysum_small odds" id="rate16">38.00</td>
 							<td class="Ggysum_small amount ha"><input  class="ba" name="FIVE" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_dan name" id="t_gysum_dan" title="冠、亚军和 单"><input type="hidden" id="k_gysum_dan" value="GDX" >6</th>
-							<td class="Ggysum_dan odds" id="o_gysum_dan">28.00</td>
+							<td class="Ggysum_dan odds" id="rate17">28.00</td>
 							<td class="Ggysum_dan amount ha"><input  class="ba" name="SIX" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_shuang name" id="t_gysum_shuang" title="冠、亚军和 双"><input type="hidden" id="k_gysum_shuang" value="GDX" >7</th>
-							<td class="Ggysum_shuang odds" id="o_gysum_shuang">22.00</td>
+							<td class="Ggysum_shuang odds" id="rate18">22.00</td>
 							<td class="Ggysum_shuang amount ha"><input  class="ba" name="SEVEN" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 						</tr>
 					</tbody>
 					<tbody>
 						<tr>
 							<th class="Ggysum_big name" id="t_gysum_big" title="冠、亚军和 大"><input type="hidden" id="k_gysum_big" value="GDX" >8</th>
-							<td class="Ggysum_big odds" id="o_gysum_big">18.00</td>
+							<td class="Ggysum_big odds" id="rate19">18.00</td>
 							<td class="Ggysum_big amount ha"><input class="ba" name="EIGHT" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_small name" id="t_gysum_small" title="冠、亚军和 小"><input type="hidden" id="k_gysum_small" value="GDX" >9</th>
-							<td class="Ggysum_small odds" id="o_gysum_small">15.00</td>
+							<td class="Ggysum_small odds" id="rate20">15.00</td>
 							<td class="Ggysum_small amount ha"><input  class="ba" name="NINE" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_dan name" id="t_gysum_dan" title="冠、亚军和 单"><input type="hidden" id="k_gysum_dan" value="GDX">10</th>
-							<td class="Ggysum_dan odds" id="o_gysum_dan">13.00</td>
+							<td class="Ggysum_dan odds" id="rate21">13.00</td>
 							<td class="Ggysum_dan amount ha"><input class="ba"  name="TEN" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_shuang name" id="t_gysum_shuang" title="冠、亚军和 双"><input type="hidden" id="k_gysum_shuang" value="GDX">11</th>
-							<td class="Ggysum_shuang odds" id="o_gysum_shuang">13.00</td>
+							<td class="Ggysum_shuang odds" id="rate22">13.00</td>
 							<td class="Ggysum_shuang amount ha"><input  class="ba"  name="ELEVEN" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 						</tr>
 					</tbody>
 					<tbody>
 						<tr>
 							<th class="Ggysum_big name" id="t_gysum_big" title="冠、亚军和 大"><input type="hidden" id="k_gysum_big" value="GDX" >12</th>
-							<td class="Ggysum_big odds" id="o_gysum_big">12.00</td>
+							<td class="Ggysum_big odds" id="rate23">12.00</td>
 							<td class="Ggysum_big amount ha"><input  class="ba"name="TWELVE" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_small name" id="t_gysum_small" title="冠、亚军和 小"><input type="hidden" id="k_gysum_small" value="GDX" >13</th>
-							<td class="Ggysum_small odds" id="o_gysum_small">12.00</td>
+							<td class="Ggysum_small odds" id="rate24">12.00</td>
 							<td class="Ggysum_small amount ha"><input  class="ba" name="THIRTEEN" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_dan name" id="t_gysum_dan" title="冠、亚军和 单"><input type="hidden" id="k_gysum_dan" value="GDX" >14</th>
-							<td class="Ggysum_dan odds" id="o_gysum_dan">12.00</td>
+							<td class="Ggysum_dan odds" id="rate25">12.00</td>
 							<td class="Ggysum_dan amount ha"><input  class="ba" name="FOURTEEN" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_shuang name" id="t_gysum_shuang" title="冠、亚军和 双"><input type="hidden" id="k_gysum_shuang" value="GDX" >15</th>
-							<td class="Ggysum_shuang odds" id="o_gysum_shuang">12.00</td>
+							<td class="Ggysum_shuang odds" id="rate26">12.00</td>
 							<td class="Ggysum_shuang amount ha"><input  class="ba"name="FIFTEEN" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 						</tr>
 					</tbody>
 					<tbody>
 						<tr>
 							<th class="Ggysum_big name" id="t_gysum_big" title="冠、亚军和 大"><input type="hidden" id="k_gysum_big" value="GDX" >16</th>
-							<td class="Ggysum_big odds" id="o_gysum_big">13.00</td>
+							<td class="Ggysum_big odds" id="rate27">13.00</td>
 							<td class="Ggysum_big amount ha"><input  class="ba" name="SIXTEEN" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_small name" id="t_gysum_small" title="冠、亚军和 小"><input type="hidden" id="k_gysum_small" value="GDX" >17</th>
-							<td class="Ggysum_small odds" id="o_gysum_small">13.00</td>
+							<td class="Ggysum_small odds" id="rate28">13.00</td>
 							<td class="Ggysum_small amount ha"><input  class="ba" name="SENENTEEN" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_dan name" id="t_gysum_dan" title="冠、亚军和 单"><input type="hidden" id="k_gysum_dan" value="GDX" >18</th>
-							<td class="Ggysum_dan odds" id="o_gysum_dan">15.00</td>
+							<td class="Ggysum_dan odds" id="rate29">15.00</td>
 							<td class="Ggysum_dan amount ha"><input  class="ba" name="EIGHTEEN" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_shuang name" id="t_gysum_shuang" title="冠、亚军和 双"><input type="hidden" id="k_gysum_shuang" value="GDX" >19</th>
-							<td class="Ggysum_shuang odds" id="o_gysum_shuang">18.00</td>
+							<td class="Ggysum_shuang odds" id="rate30">18.00</td>
 							<td class="Ggysum_shuang amount ha"><input  class="ba" name="NINETEEN" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 						</tr>
 					</tbody>
 					<tbody>
 						<tr>
 							<th class="Ggysum_big name" id="t_gysum_big" title="冠、亚军和 大"><input type="hidden" id="k_gysum_big" value="GDX" >20</th>
-							<td class="Ggysum_big odds" id="o_gysum_big">22.00</td>
+							<td class="Ggysum_big odds" id="rate31">22.00</td>
 							<td class="Ggysum_big amount ha"><input  class="ba" name="TWENTY" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_small name" id="t_gysum_small" title="冠、亚军和 小"><input type="hidden" id="k_gysum_small" value="GDX" >21</th>
-							<td class="Ggysum_small odds" id="o_gysum_small">28.00</td>
+							<td class="Ggysum_small odds" id="rate32">28.00</td>
 							<td class="Ggysum_small amount ha"><input  class="ba" name="TWENTY_ONE" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_dan name" id="t_gysum_dan" title="冠、亚军和 单"><input type="hidden" id="k_gysum_dan" value="GDX" >22</th>
-							<td class="Ggysum_dan odds" id="o_gysum_dan">38.00</td>
+							<td class="Ggysum_dan odds" id="rate33">38.00</td>
 							<td class="Ggysum_dan amount ha"><input  class="ba" name="TWENTY_TWO" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_shuang name" id="t_gysum_shuang" title="冠、亚军和 双"><input type="hidden" id="k_gysum_shuang" value="GDX" >23</th>
-							<td class="Ggysum_shuang odds" id="o_gysum_shuang">53.00</td>
+							<td class="Ggysum_shuang odds" id="rate34">53.00</td>
 							<td class="Ggysum_shuang amount ha"><input  class="ba" name="TWENTY_THREE" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 						</tr>
 					</tbody>
 					<tbody>
 						<tr>
 							<th class="Ggysum_big name" id="t_gysum_big" title="冠、亚军和 大"><input type="hidden" id="k_gysum_big" value="GDX" >24</th>
-							<td class="Ggysum_big odds" id="o_gysum_big">80.00</td>
+							<td class="Ggysum_big odds" id="rate35">80.00</td>
 							<td class="Ggysum_big amount ha"><input  class="ba" name="TWENTY_FOUR" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_small name" id="t_gysum_small" title="冠、亚军和 小"><input type="hidden" id="k_gysum_small" value="GDX" >25</th>
-							<td class="Ggysum_small odds" id="o_gysum_small">130.00</td>
+							<td class="Ggysum_small odds" id="rate36">130.00</td>
 							<td class="Ggysum_small amount ha"><input  class="ba" name="TWENTY_FIVE" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_dan name" id="t_gysum_dan" title="冠、亚军和 单"><input type="hidden" id="k_gysum_dan" value="GDX" >26</th>
-							<td class="Ggysum_dan odds" id="o_gysum_dan">260.00</td>
+							<td class="Ggysum_dan odds" id="rate37">260.00</td>
 							<td class="Ggysum_dan amount ha"><input  class="ba" name="TWENTY_SIX" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 							<th class="Ggysum_shuang name" id="t_gysum_shuang" title="冠、亚军和 双"><input type="hidden" id="k_gysum_shuang" value="GDX" >27</th>
-							<td class="Ggysum_shuang odds" id="o_gysum_shuang">800.00</td>
+							<td class="Ggysum_shuang odds" id="rate38">800.00</td>
 							<td class="Ggysum_shuang amount ha"><input  class="ba" name="TWENTY_SEVEN" onkeyup="this.value=this.value.replace(/\D/g,'')" ></td>
 						</tr>
 					</tbody>

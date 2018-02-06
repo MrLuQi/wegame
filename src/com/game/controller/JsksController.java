@@ -5,18 +5,22 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.game.pojo.JsonBoCai;
+import com.game.pojo.Members;
 import com.game.pojo.Orders;
 import com.game.service.JsksService;
+import com.game.util.common.gameConstants;
 
 
 
@@ -46,8 +50,15 @@ public class JsksController {
 	 * @param response
 	 * @return
 	 */
+	/**
+	 * @param request
+	 * @param response
+	 * @param session
+	 * @param times
+	 * @return
+	 */
 	@RequestMapping(value = "/tzdata")
-	public String JSKS_DXTB(HttpServletRequest request, HttpServletResponse response ){
+	public String JSKS_DXTB(HttpServletRequest request,HttpServletResponse response,HttpSession session,String times ){
 		//大小三军的玩法
 				JsonBoCai jsonBoCai = new JsonBoCai();
 				jsonBoCai.setCategory("JSKS");   //江苏快三
@@ -121,17 +132,37 @@ public class JsksController {
 				 if (!dsList.isEmpty())  jsonBoCai.getLeafList().put("DS", dsList);
 				 if (!cpList.isEmpty())  jsonBoCai.getLeafList().put("CP", cpList);
 				 if (!dpList.isEmpty())  jsonBoCai.getLeafList().put("DP", dpList);
-				
+				 
 				 JSONObject json_play = JSONObject.fromObject(jsonBoCai);
 				 String str_json_play=json_play.toString();
 					 //System.out.println(str_json_play);
 					 Orders orders= new Orders();
-					
-					 orders.setOid(4);
+					 Members members	=	(Members) session.getAttribute(gameConstants.MEMBER_SESSION); 
+					 //会员id
+					 orders.setMid(members.getMid());
+					 //注单号
+					 //注单状态
+					 orders.setStatus("0");//未结
+					 //是否中奖
+					 
+					 //是否大额中奖
+					 
+					 //注单原始金额
+					 
+					 //注单中奖金额
+					 
+					 //投注类型
+					 orders.setOrdertype("JSKS");
+					 //投注时间
+					 orders.setOrderdate(times);
+					 //退水金额
+					 //返点金额
+					 //开奖期数
+					 //下单数据
 					 orders.setOrderstatus(str_json_play);
 					 jsksService.insertData(orders);
 					
 				
-				return "jiangsukuaisan";
+				return "/jiangsukuaisan";
 	}
 }

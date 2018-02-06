@@ -12,6 +12,14 @@
 			var lottery = 'pk10';
 			var lotteryType = '0';
 			var template = 'pk10'
+				 function submitdata(){
+				alert("购买成功，请等待开奖！祝你好运~");
+				for(var i=1;i<=54;i++){
+					var rate=$("#rate"+i+"").text();
+					//alert(aa+"    geshu:"+i);
+					$("#rate"+i+"").text("---");
+				}
+			} 
 		</script>
 		<!--  -->
 	</head>
@@ -19,6 +27,7 @@
 	<body class="l_pk10 P_lm skin_red">
 		<input type="hidden" id="page" value="lm" name="page">
 		<div id="main">
+		<form id="JSTB" action="${pageContext.request.contextPath }/bjsclm" method="post">
 			<div id="header">
 				<!--开奖-->
 				<div class="lottery_info">
@@ -48,17 +57,17 @@
 						</tr>
 						<tr>
 							<th class="Ggysum_big name" id="t_gysum_big" title="冠、亚军和 大"><input type="hidden" id="k_gysum_big" value="GDX">大</th>
-							<td class="Ggysum_big odds" id="o_gysum_big">2.14</td>
-							<td class="Ggysum_big amount ha"><input name="gysum_big" class="ba"></td>
+							<td class="Ggysum_big odds" id="rate1">2.14</td>
+							<td class="Ggysum_big amount ha"><input name="LM0" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							<th class="Ggysum_small name" id="t_gysum_small" title="冠、亚军和 小"><input type="hidden" id="k_gysum_small" value="GDX">小</th>
-							<td class="Ggysum_small odds" id="o_gysum_small">1.75</td>
-							<td class="Ggysum_small amount ha"><input name="gysum_small" class="ba"></td>
+							<td class="Ggysum_small odds" id="rate2">1.75</td>
+							<td class="Ggysum_small amount ha"><input name="LM1" onkeyup="this.value=this.value.replace(/\D/g,'')"class="ba"></td>
 							<th class="Ggysum_dan name" id="t_gysum_dan" title="冠、亚军和 单"><input type="hidden" id="k_gysum_dan" value="GDX">单</th>
-							<td class="Ggysum_dan odds" id="o_gysum_dan">1.75</td>
-							<td class="Ggysum_dan amount ha"><input name="gysum_dan" class="ba"></td>
+							<td class="Ggysum_dan odds" id="rate3">1.75</td>
+							<td class="Ggysum_dan amount ha"><input name="LM2" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							<th class="Ggysum_shuang name" id="t_gysum_shuang" title="冠、亚军和 双"><input type="hidden" id="k_gysum_shuang" value="GDX">双</th>
-							<td class="Ggysum_shuang odds" id="o_gysum_shuang">2.14</td>
-							<td class="Ggysum_shuang amount ha"><input name="gysum_shuang" class="ba"></td>
+							<td class="Ggysum_shuang odds" id="rate4">2.14</td>
+							<td class="Ggysum_shuang amount ha"><input name="LM3" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 						</tr>
 					</tbody>
 				</table>
@@ -73,33 +82,33 @@
 							</tr>
 							<tr>
 								<th class="Gtitle1_big name" id="t_title1_big" title="冠军 大"><input type="hidden" id="k_title1_big" value="DX"><span class="b1">大</span></th>
-								<td class="Gtitle1_big odds" id="o_title1_big">1.99</td>
-								<td class="Gtitle1_big amount ha"><input name="title1_big" class="ba"></td>
+								<td class="Gtitle1_big odds" id="rate5">1.99</td>
+								<td class="Gtitle1_big amount ha"><input name="LM4" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle1_small name" id="t_title1_small" title="冠军 小"><input type="hidden" id="k_title1_small" value="DX"><span class="b2">小</span></th>
-								<td class="Gtitle1_small odds" id="o_title1_small">1.99</td>
-								<td class="Gtitle1_small amount ha"><input name="title1_small" class="ba"></td>
+								<td class="Gtitle1_small odds" id="rate6">1.99</td>
+								<td class="Gtitle1_small amount ha"><input name="LM5" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle1_dan name" id="t_title1_dan" title="冠军 单"><input type="hidden" id="k_title1_dan" value="DX"><span class="b3">单</span></th>
-								<td class="Gtitle1_dan odds" id="o_title1_dan">1.99</td>
-								<td class="Gtitle1_dan amount ha"><input name="title1_dan" class="ba"></td>
+								<td class="Gtitle1_dan odds" id="rate7">1.99</td>
+								<td class="Gtitle1_dan amount ha"><input name="LM6" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle1_shuang name" id="t_title1_shuang" title="冠军 双"><input type="hidden" id="k_title1_shuang" value="DX"><span class="b4">双</span></th>
-								<td class="Gtitle1_shuang odds" id="o_title1_shuang">1.99</td>
-								<td class="Gtitle1_shuang amount ha"><input name="title1_shuang" class="ba"></td>
+								<td class="Gtitle1_shuang odds" id="rate8">1.99</td>
+								<td class="Gtitle1_shuang amount ha"><input name="LM7" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Glonghu_1V10l name" id="t_longhu_1V10l" title="冠军 1V10龙"><input type="hidden" id="k_longhu_1V10l" value="DX"><span class="b4">1V10龙</span></th>
-								<td class="Glonghu_1V10l odds" id="o_longhu_1V10l">1.98</td>
-								<td class="Glonghu_1V10l amount ha"><input name="longhu_1V10l" class="ba"></td>
+								<td class="Glonghu_1V10l odds" id="rate9">1.98</td>
+								<td class="Glonghu_1V10l amount ha"><input name="LM8" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Glonghu_1V10h name" id="t_longhu_1V10h" title="冠军 1V10虎"><input type="hidden" id="k_longhu_1V10h" value="DX"><span class="b4">1V10虎</span></th>
-								<td class="Glonghu_1V10h odds" id="o_longhu_1V10h">1.98</td>
-								<td class="Glonghu_1V10h amount ha"><input name="longhu_1V10h" class="ba"></td>
+								<td class="Glonghu_1V10h odds" id="rate10">1.98</td>
+								<td class="Glonghu_1V10h amount ha"><input name="LM9" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -113,33 +122,33 @@
 							</tr>
 							<tr>
 								<th class="Gtitle2_big name" id="t_title2_big" title="亚军 大"><input type="hidden" id="k_title2_big" value="DX"><span class="b1">大</span></th>
-								<td class="Gtitle2_big odds" id="o_title2_big">1.99</td>
-								<td class="Gtitle2_big amount ha"><input name="title2_big" class="ba"></td>
+								<td class="Gtitle2_big odds" id="rate11">1.99</td>
+								<td class="Gtitle2_big amount ha"><input name="LM10" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle2_small name" id="t_title2_small" title="亚军 小"><input type="hidden" id="k_title2_small" value="DX"><span class="b2">小</span></th>
-								<td class="Gtitle2_small odds" id="o_title2_small">1.99</td>
-								<td class="Gtitle2_small amount ha"><input name="title2_small" class="ba"></td>
+								<td class="Gtitle2_small odds" id="rate12">1.99</td>
+								<td class="Gtitle2_small amount ha"><input name="LM11" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle2_dan name" id="t_title2_dan" title="亚军 单"><input type="hidden" id="k_title2_dan" value="DX"><span class="b3">单</span></th>
-								<td class="Gtitle2_dan odds" id="o_title2_dan">1.99</td>
-								<td class="Gtitle2_dan amount ha"><input name="title2_dan" class="ba"></td>
+								<td class="Gtitle2_dan odds" id="rate13">1.99</td>
+								<td class="Gtitle2_dan amount ha"><input name="LM12" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle2_shuang name" id="t_title2_shuang" title="亚军 双"><input type="hidden" id="k_title2_shuang" value="DX"><span class="b4">双</span></th>
-								<td class="Gtitle2_shuang odds" id="o_title2_shuang">1.99</td>
-								<td class="Gtitle2_shuang amount ha"><input name="title2_shuang" class="ba"></td>
+								<td class="Gtitle2_shuang odds" id="rate14">1.99</td>
+								<td class="Gtitle2_shuang amount ha"><input name="LM13" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Glonghu_2V9l name" id="t_longhu_2V9l" title="亚军 2V9龙"><input type="hidden" id="k_longhu_2V9l" value="DX"><span class="b4">2V9龙</span></th>
-								<td class="Glonghu_2V9l odds" id="o_longhu_2V9l">1.98</td>
-								<td class="Glonghu_2V9l amount ha"><input name="longhu_2V9l" class="ba"></td>
+								<td class="Glonghu_2V9l odds" id="rate15">1.98</td>
+								<td class="Glonghu_2V9l amount ha"><input name="LM14" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Glonghu_2V9h name" id="t_longhu_2V9h" title="亚军 2V9虎"><input type="hidden" id="k_longhu_2V9h" value="DX"><span class="b4">2V9虎</span></th>
-								<td class="Glonghu_2V9h odds" id="o_longhu_2V9h">1.98</td>
-								<td class="Glonghu_2V9h amount ha"><input name="longhu_2V9h" class="ba"></td>
+								<td class="Glonghu_2V9h odds" id="rate16">1.98</td>
+								<td class="Glonghu_2V9h amount ha"><input name="LM15" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -153,33 +162,33 @@
 							</tr>
 							<tr>
 								<th class="Gtitle3_big name" id="t_title3_big" title="第三名 大"><input type="hidden" id="k_title3_big" value="DX"><span class="b1">大</span></th>
-								<td class="Gtitle3_big odds" id="o_title3_big">1.99</td>
-								<td class="Gtitle3_big amount ha"><input name="title3_big" class="ba"></td>
+								<td class="Gtitle3_big odds" id="rate17">1.99</td>
+								<td class="Gtitle3_big amount ha"><input name="LM16" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle3_small name" id="t_title3_small" title="第三名 小"><input type="hidden" id="k_title3_small" value="DX"><span class="b2">小</span></th>
-								<td class="Gtitle3_small odds" id="o_title3_small">1.99</td>
-								<td class="Gtitle3_small amount ha"><input name="title3_small" class="ba"></td>
+								<td class="Gtitle3_small odds" id="rate18">1.99</td>
+								<td class="Gtitle3_small amount ha"><input name="LM17" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle3_dan name" id="t_title3_dan" title="第三名 单"><input type="hidden" id="k_title3_dan" value="DX"><span class="b3">单</span></th>
-								<td class="Gtitle3_dan odds" id="o_title3_dan">1.99</td>
-								<td class="Gtitle3_dan amount ha"><input name="title3_dan" class="ba"></td>
+								<td class="Gtitle3_dan odds" id="rate19">1.99</td>
+								<td class="Gtitle3_dan amount ha"><input name="LM18" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle3_shuang name" id="t_title3_shuang" title="第三名 双"><input type="hidden" id="k_title3_shuang" value="DX"><span class="b4">双</span></th>
-								<td class="Gtitle3_shuang odds" id="o_title3_shuang">1.99</td>
-								<td class="Gtitle3_shuang amount ha"><input name="title3_shuang" class="ba"></td>
+								<td class="Gtitle3_shuang odds" id="rate20">1.99</td>
+								<td class="Gtitle3_shuang amount ha"><input name="LM19" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Glonghu_3V8l name" id="t_longhu_3V8l" title="第三名 3V8龙"><input type="hidden" id="k_longhu_3V8l" value="DX"><span class="b4">3V8龙</span></th>
-								<td class="Glonghu_3V8l odds" id="o_longhu_3V8l">1.98</td>
-								<td class="Glonghu_3V8l amount ha"><input name="longhu_3V8l" class="ba"></td>
+								<td class="Glonghu_3V8l odds" id="rate21">1.98</td>
+								<td class="Glonghu_3V8l amount ha"><input name="LM20" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Glonghu_3V8h name" id="t_longhu_3V8h" title="第三名 3V8虎"><input type="hidden" id="k_longhu_3V8h" value="DX"><span class="b4">3V8虎</span></th>
-								<td class="Glonghu_3V8h odds" id="o_longhu_3V8h">1.98</td>
-								<td class="Glonghu_3V8h amount ha"><input name="longhu_3V8h" class="ba"></td>
+								<td class="Glonghu_3V8h odds" id="rate22">1.98</td>
+								<td class="Glonghu_3V8h amount ha"><input name="LM21" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -193,33 +202,33 @@
 							</tr>
 							<tr>
 								<th class="Gtitle4_big name" id="t_title4_big" title="第四名 大"><input type="hidden" id="k_title4_big" value="DX"><span class="b1">大</span></th>
-								<td class="Gtitle4_big odds" id="o_title4_big">1.99</td>
-								<td class="Gtitle4_big amount ha"><input name="title4_big" class="ba"></td>
+								<td class="Gtitle4_big odds" id="rate23">1.99</td>
+								<td class="Gtitle4_big amount ha"><input name="LM22" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle4_small name" id="t_title4_small" title="第四名 小"><input type="hidden" id="k_title4_small" value="DX"><span class="b2">小</span></th>
-								<td class="Gtitle4_small odds" id="o_title4_small">1.99</td>
-								<td class="Gtitle4_small amount ha"><input name="title4_small" class="ba"></td>
+								<td class="Gtitle4_small odds" id="rate24">1.99</td>
+								<td class="Gtitle4_small amount ha"><input name="LM23" onkeyup="this.value=this.value.replace(/\D/g,'')"class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle4_dan name" id="t_title4_dan" title="第四名 单"><input type="hidden" id="k_title4_dan" value="DX"><span class="b3">单</span></th>
-								<td class="Gtitle4_dan odds" id="o_title4_dan">1.99</td>
-								<td class="Gtitle4_dan amount ha"><input name="title4_dan" class="ba"></td>
+								<td class="Gtitle4_dan odds" id="rate25">1.99</td>
+								<td class="Gtitle4_dan amount ha"><input name="LM24" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle4_shuang name" id="t_title4_shuang" title="第四名 双"><input type="hidden" id="k_title4_shuang" value="DX"><span class="b4">双</span></th>
-								<td class="Gtitle4_shuang odds" id="o_title4_shuang">1.99</td>
-								<td class="Gtitle4_shuang amount ha"><input name="title4_shuang" class="ba"></td>
+								<td class="Gtitle4_shuang odds" id="rate26">1.99</td>
+								<td class="Gtitle4_shuang amount ha"><input name="LM25" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Glonghu_4V7l name" id="t_longhu_4V7l" title="第四名 4V7龙"><input type="hidden" id="k_longhu_4V7l" value="DX"><span class="b4">4V7龙</span></th>
-								<td class="Glonghu_4V7l odds" id="o_longhu_4V7l">1.98</td>
-								<td class="Glonghu_4V7l amount ha"><input name="longhu_4V7l" class="ba"></td>
+								<td class="Glonghu_4V7l odds" id="rate27">1.98</td>
+								<td class="Glonghu_4V7l amount ha"><input name="LM26" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Glonghu_4V7h name" id="t_longhu_4V7h" title="第四名 4V7虎"><input type="hidden" id="k_longhu_4V7h" value="DX"><span class="b4">4V7虎</span></th>
-								<td class="Glonghu_4V7h odds" id="o_longhu_4V7h">1.98</td>
-								<td class="Glonghu_4V7h amount ha"><input name="longhu_4V7h" class="ba"></td>
+								<td class="Glonghu_4V7h odds" id="rate28">1.98</td>
+								<td class="Glonghu_4V7h amount ha"><input name="LM27" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -233,33 +242,33 @@
 							</tr>
 							<tr>
 								<th class="Gtitle5_big name" id="t_title5_big" title="第五名 大"><input type="hidden" id="k_title5_big" value="DX"><span class="b1">大</span></th>
-								<td class="Gtitle5_big odds" id="o_title5_big">1.99</td>
-								<td class="Gtitle5_big amount ha"><input name="title5_big" class="ba"></td>
+								<td class="Gtitle5_big odds" id="rate29">1.99</td>
+								<td class="Gtitle5_big amount ha"><input name="LM28" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle5_small name" id="t_title5_small" title="第五名 小"><input type="hidden" id="k_title5_small" value="DX"><span class="b2">小</span></th>
-								<td class="Gtitle5_small odds" id="o_title5_small">1.99</td>
-								<td class="Gtitle5_small amount ha"><input name="title5_small" class="ba"></td>
+								<td class="Gtitle5_small odds" id="rate30">1.99</td>
+								<td class="Gtitle5_small amount ha"><input name="LM29" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle5_dan name" id="t_title5_dan" title="第五名 单"><input type="hidden" id="k_title5_dan" value="DX"><span class="b3">单</span></th>
-								<td class="Gtitle5_dan odds" id="o_title5_dan">1.99</td>
-								<td class="Gtitle5_dan amount ha"><input name="title5_dan" class="ba"></td>
+								<td class="Gtitle5_dan odds" id="rate31">1.99</td>
+								<td class="Gtitle5_dan amount ha"><input name="LM30" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle5_shuang name" id="t_title5_shuang" title="第五名 双"><input type="hidden" id="k_title5_shuang" value="DX"><span class="b4">双</span></th>
-								<td class="Gtitle5_shuang odds" id="o_title5_shuang">1.99</td>
-								<td class="Gtitle5_shuang amount ha"><input name="title5_shuang" class="ba"></td>
+								<td class="Gtitle5_shuang odds" id="rate32">1.99</td>
+								<td class="Gtitle5_shuang amount ha"><input name="LM31" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Glonghu_5V6l name" id="t_longhu_5V6l" title="第五名 5V6龙"><input type="hidden" id="k_longhu_5V6l" value="DX"><span class="b4">5V6龙</span></th>
-								<td class="Glonghu_5V6l odds" id="o_longhu_5V6l">1.98</td>
-								<td class="Glonghu_5V6l amount ha"><input name="longhu_5V6l" class="ba"></td>
+								<td class="Glonghu_5V6l odds" id="rate33">1.98</td>
+								<td class="Glonghu_5V6l amount ha"><input name="LM32" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Glonghu_5V6h name" id="t_longhu_5V6h" title="第五名 5V6虎"><input type="hidden" id="k_longhu_5V6h" value="DX"><span class="b4">5V6虎</span></th>
-								<td class="Glonghu_5V6h odds" id="o_longhu_5V6h">1.98</td>
-								<td class="Glonghu_5V6h amount ha"><input name="longhu_5V6h" class="ba"></td>
+								<td class="Glonghu_5V6h odds" id="rate34">1.98</td>
+								<td class="Glonghu_5V6h amount ha"><input name="LM33" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -273,23 +282,23 @@
 							</tr>
 							<tr>
 								<th class="Gtitle6_big name" id="t_title6_big" title="第六名 大"><input type="hidden" id="k_title6_big" value="DX"><span class="b1">大</span></th>
-								<td class="Gtitle6_big odds" id="o_title6_big">1.99</td>
-								<td class="Gtitle6_big amount ha"><input name="title6_big" class="ba"></td>
+								<td class="Gtitle6_big odds" id="rate35">1.99</td>
+								<td class="Gtitle6_big amount ha"><input name="LM34" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle6_small name" id="t_title6_small" title="第六名 小"><input type="hidden" id="k_title6_small" value="DX"><span class="b2">小</span></th>
-								<td class="Gtitle6_small odds" id="o_title6_small">1.99</td>
-								<td class="Gtitle6_small amount ha"><input name="title6_small" class="ba"></td>
+								<td class="Gtitle6_small odds" id="rate36">1.99</td>
+								<td class="Gtitle6_small amount ha"><input name="LM35" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle6_dan name" id="t_title6_dan" title="第六名 单"><input type="hidden" id="k_title6_dan" value="DX"><span class="b3">单</span></th>
-								<td class="Gtitle6_dan odds" id="o_title6_dan">1.99</td>
-								<td class="Gtitle6_dan amount ha"><input name="title6_dan" class="ba"></td>
+								<td class="Gtitle6_dan odds" id="rate37">1.99</td>
+								<td class="Gtitle6_dan amount ha"><input name="LM36" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle6_shuang name" id="t_title6_shuang" title="第六名 双"><input type="hidden" id="k_title6_shuang" value="DX"><span class="b4">双</span></th>
-								<td class="Gtitle6_shuang odds" id="o_title6_shuang">1.99</td>
-								<td class="Gtitle6_shuang amount ha"><input name="title6_shuang" class="ba"></td>
+								<td class="Gtitle6_shuang odds" id="rate38">1.99</td>
+								<td class="Gtitle6_shuang amount ha"><input name="LM37" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -303,23 +312,23 @@
 							</tr>
 							<tr>
 								<th class="Gtitle7_big name" id="t_title7_big" title="第七名 大"><input type="hidden" id="k_title7_big" value="DX"><span class="b1">大</span></th>
-								<td class="Gtitle7_big odds" id="o_title7_big">1.99</td>
-								<td class="Gtitle7_big amount ha"><input name="title7_big" class="ba"></td>
+								<td class="Gtitle7_big odds" id="rate39">1.99</td>
+								<td class="Gtitle7_big amount ha"><input name="LM38" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle7_small name" id="t_title7_small" title="第七名 小"><input type="hidden" id="k_title7_small" value="DX"><span class="b2">小</span></th>
-								<td class="Gtitle7_small odds" id="o_title7_small">1.99</td>
-								<td class="Gtitle7_small amount ha"><input name="title7_small" class="ba"></td>
+								<td class="Gtitle7_small odds" id="rate40">1.99</td>
+								<td class="Gtitle7_small amount ha"><input name="LM39" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle7_dan name" id="t_title7_dan" title="第七名 单"><input type="hidden" id="k_title7_dan" value="DX"><span class="b3">单</span></th>
-								<td class="Gtitle7_dan odds" id="o_title7_dan">1.99</td>
-								<td class="Gtitle7_dan amount ha"><input name="title7_dan" class="ba"></td>
+								<td class="Gtitle7_dan odds" id="rate41">1.99</td>
+								<td class="Gtitle7_dan amount ha"><input name="LM40" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle7_shuang name" id="t_title7_shuang" title="第七名 双"><input type="hidden" id="k_title7_shuang" value="DX"><span class="b4">双</span></th>
-								<td class="Gtitle7_shuang odds" id="o_title7_shuang">1.99</td>
-								<td class="Gtitle7_shuang amount ha"><input name="title7_shuang" class="ba"></td>
+								<td class="Gtitle7_shuang odds" id="rate42">1.99</td>
+								<td class="Gtitle7_shuang amount ha"><input name="LM41" onkeyup="this.value=this.value.replace(/\D/g,'')"  class="ba"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -333,23 +342,23 @@
 							</tr>
 							<tr>
 								<th class="Gtitle8_big name" id="t_title8_big" title="第八名 大"><input type="hidden" id="k_title8_big" value="DX"><span class="b1">大</span></th>
-								<td class="Gtitle8_big odds" id="o_title8_big">1.99</td>
-								<td class="Gtitle8_big amount ha"><input name="title8_big" class="ba"></td>
+								<td class="Gtitle8_big odds" id="rate43">1.99</td>
+								<td class="Gtitle8_big amount ha"><input name="LM42" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle8_small name" id="t_title8_small" title="第八名 小"><input type="hidden" id="k_title8_small" value="DX"><span class="b2">小</span></th>
-								<td class="Gtitle8_small odds" id="o_title8_small">1.99</td>
-								<td class="Gtitle8_small amount ha"><input name="title8_small" class="ba"></td>
+								<td class="Gtitle8_small odds" id="rate44">1.99</td>
+								<td class="Gtitle8_small amount ha"><input name="LM43" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle8_dan name" id="t_title8_dan" title="第八名 单"><input type="hidden" id="k_title8_dan" value="DX"><span class="b3">单</span></th>
-								<td class="Gtitle8_dan odds" id="o_title8_dan">1.99</td>
-								<td class="Gtitle8_dan amount ha"><input name="title8_dan" class="ba"></td>
+								<td class="Gtitle8_dan odds" id="rate45">1.99</td>
+								<td class="Gtitle8_dan amount ha"><input name="LM44" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle8_shuang name" id="t_title8_shuang" title="第八名 双"><input type="hidden" id="k_title8_shuang" value="DX"><span class="b4">双</span></th>
-								<td class="Gtitle8_shuang odds" id="o_title8_shuang">1.99</td>
-								<td class="Gtitle8_shuang amount ha"><input name="title8_shuang" class="ba"></td>
+								<td class="Gtitle8_shuang odds" id="rate46">1.99</td>
+								<td class="Gtitle8_shuang amount ha"><input name="LM45" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -363,23 +372,23 @@
 							</tr>
 							<tr>
 								<th class="Gtitle9_big name" id="t_title9_big" title="第九名 大"><input type="hidden" id="k_title9_big" value="DX"><span class="b1">大</span></th>
-								<td class="Gtitle9_big odds" id="o_title9_big">1.99</td>
-								<td class="Gtitle9_big amount ha"><input name="title9_big" class="ba"></td>
+								<td class="Gtitle9_big odds" id="rate47">1.99</td>
+								<td class="Gtitle9_big amount ha"><input name="LM46" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle9_small name" id="t_title9_small" title="第九名 小"><input type="hidden" id="k_title9_small" value="DX"><span class="b2">小</span></th>
-								<td class="Gtitle9_small odds" id="o_title9_small">1.99</td>
-								<td class="Gtitle9_small amount ha"><input name="title9_small" class="ba"></td>
+								<td class="Gtitle9_small odds" id="rate48">1.99</td>
+								<td class="Gtitle9_small amount ha"><input name="LM47" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle9_dan name" id="t_title9_dan" title="第九名 单"><input type="hidden" id="k_title9_dan" value="DX"><span class="b3">单</span></th>
-								<td class="Gtitle9_dan odds" id="o_title9_dan">1.99</td>
-								<td class="Gtitle9_dan amount ha"><input name="title9_dan" class="ba"></td>
+								<td class="Gtitle9_dan odds" id="rate49">1.99</td>
+								<td class="Gtitle9_dan amount ha"><input name="LM48" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle9_shuang name" id="t_title9_shuang" title="第九名 双"><input type="hidden" id="k_title9_shuang" value="DX"><span class="b4">双</span></th>
-								<td class="Gtitle9_shuang odds" id="o_title9_shuang">1.99</td>
-								<td class="Gtitle9_shuang amount ha"><input name="title9_shuang" class="ba"></td>
+								<td class="Gtitle9_shuang odds" id="rate50">1.99</td>
+								<td class="Gtitle9_shuang amount ha"><input name="LM49" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -393,23 +402,23 @@
 							</tr>
 							<tr>
 								<th class="Gtitle10_big name" id="t_title10_big" title="第十名 大"><input type="hidden" id="k_title10_big" value="DX"><span class="b1">大</span></th>
-								<td class="Gtitle10_big odds" id="o_title10_big">1.99</td>
-								<td class="Gtitle10_big amount ha"><input name="title10_big" class="ba"></td>
+								<td class="Gtitle10_big odds" id="rate51">1.99</td>
+								<td class="Gtitle10_big amount ha"><input name="LM50" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle10_small name" id="t_title10_small" title="第十名 小"><input type="hidden" id="k_title10_small" value="DX"><span class="b2">小</span></th>
-								<td class="Gtitle10_small odds" id="o_title10_small">1.99</td>
-								<td class="Gtitle10_small amount ha"><input name="title10_small" class="ba"></td>
+								<td class="Gtitle10_small odds" id="rate52">1.99</td>
+								<td class="Gtitle10_small amount ha"><input name="LM51" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle10_dan name" id="t_title10_dan" title="第十名 单"><input type="hidden" id="k_title10_dan" value="DX"><span class="b3">单</span></th>
-								<td class="Gtitle10_dan odds" id="o_title10_dan">1.99</td>
-								<td class="Gtitle10_dan amount ha"><input name="title10_dan" class="ba"></td>
+								<td class="Gtitle10_dan odds" id="rate53">1.99</td>
+								<td class="Gtitle10_dan amount ha"><input name="LM52" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 							<tr>
 								<th class="Gtitle10_shuang name" id="t_title10_shuang" title="第十名 双"><input type="hidden" id="k_title10_shuang" value="DX"><span class="b4">双</span></th>
-								<td class="Gtitle10_shuang odds" id="o_title10_shuang">1.99</td>
-								<td class="Gtitle10_shuang amount ha"><input name="title10_shuang" class="ba"></td>
+								<td class="Gtitle10_shuang odds" id="rate54">1.99</td>
+								<td class="Gtitle10_shuang amount ha"><input name="LM53" onkeyup="this.value=this.value.replace(/\D/g,'')" class="ba"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -424,11 +433,12 @@
 				<div class="lefts" style="display:none">已经选中 <span id="betcount"></span> 注</div>
 				<div class="buttons">
 					<label class="checkdefault"><input type="checkbox" class="checkbox"><span class="color_lv bold">预设</span></label>&nbsp;&nbsp;<label class="quickAmount"><span class="color_lv bold">金额</span> <input></label>
-					<input type="button" class="button" value="确定" onclick="bet()"><input type="button" class="button" value="重置" onclick="resetBets()">
+					<input type="submit" class="button" value="确定" onclick="submitdata()"><input type="button" class="button" value="重置" onclick="resetBets()">
 				</div>
 			</div>
+				</form>
 			</div>
-		
+	
 		<!--排行-->
 		
 		

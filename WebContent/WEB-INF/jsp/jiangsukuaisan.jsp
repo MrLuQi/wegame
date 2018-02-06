@@ -13,10 +13,11 @@
 		setInterval("getTime();", 1000); //每隔一秒执行一次 
 	})
 	//取得系统当前时间 
-	var times="";
+	var times = "";
 	function getTime() {
 		$.post("${ctx}/time", function(data) {
-			times=data.year + "/" + data.month + "/" + data.day + " "+ data.hour + ":" + data.minute  + ":" + data.second;	
+			times = data.year + "/" + data.month + "/" + data.day + " "
+					+ data.hour + ":" + data.minute + ":" + data.second;
 			if (data.hour < 10) {
 				var h = data.hour;
 				var hour = "0" + h;
@@ -73,17 +74,17 @@
 						$("#sub1").attr("disabled", true);
 						$("#sub2").attr("disabled", true);
 						//封盘
-						for(var i=1;i<=50;i++){
-							var rate=$("#rate"+i+"").text();
+						for (var i = 1; i <= 50; i++) {
+							var rate = $("#rate" + i + "").text();
 							//alert(aa+"    geshu:"+i);
-							$("#rate"+i+"").text("---");
+							$("#rate" + i + "").text("---");
 						}
 						//alert("封盘啦~");
 					} else {
 						$("#sub1").attr("disabled", false);
 						$("#sub2").attr("disabled", false);
 					}
-						/* 开奖  */
+					/* 开奖  */
 					if (surplusfen == 0 && surplusmiao == 1) {
 						//刷新页面--显示倍率
 						parent.location.reload();
@@ -94,14 +95,13 @@
 			}
 		})
 	}
-	function submitdata(){ 
-		JSTB.action="${ctx}/tzdata?times="+times;
-//	var time=document.getElementById("showDate").value;
-	//var time =$("#showDate").val();
+	function submitdata() {
+		JSTB.action = "${ctx}/tzdata?times=" + times;
+		//	var time=document.getElementById("showDate").value;
+		//var time =$("#showDate").val();
 		JSTB.submit();
-		
-	
-	} 
+
+	}
 </script>
 </head>
 <!--开奖时间-->
@@ -119,7 +119,7 @@
 							id="bresult">0</span></span>
 					</div>
 					<div class="lottery_info_right floatright">
-						<span id="showDate" ></span>&nbsp;&nbsp;<span id="drawNumber">663585</span>期&nbsp;&nbsp;距离封盘：<span
+						<span id="showDate"></span>&nbsp;&nbsp;<span id="drawNumber">663585</span>期&nbsp;&nbsp;距离封盘：<span
 							class="color_lv bold"><span id="cdClose"></span></span>&nbsp;&nbsp;距离开奖：<span
 							class="color_lv bold"> <span id="cdDraw"></span></span> <span
 							id="cdRefresh" style="float: right; width: 50px;"></span>
@@ -154,14 +154,18 @@
 								id="" value="1">1点</th>
 							<td class="Ggysum_big odds" id="rate1">1.99</td>
 							<td class="Ggysum_big amount ha"><input type="text"
-								name="SANJUN1" class="ba" id="SANJUN1"></td>
-
+								name="SANJUN1" class="ba" id="SANJUN1"
+								onkeyup="this.value=this.value.replace(/\D/g,'')"
+								onafterpaste="this.value=this.value.replace(/\D/g,'')"></td>
+								
 							<th class="Ggysum_small name" title="2点"><input
 								type="hidden" id="" value="2">2点</th>
 							<td class="Ggysum_small odds" id="rate2">1.99</td>
 							<td class="Ggysum_big amount ha"><input type="text"
-								name="SANJUN2" class="ba" id="SANJUN2"></td>
-
+								name="SANJUN2" class="ba" id="SANJUN2"
+								onkeyup="if(isNaN(value))execCommand('undo')"
+								onafterpaste="if(isNaN(value))execCommand('undo')"></td>
+								
 							<th class="Ggysum_dan name" title="3点"><input type="hidden"
 								id="" value="3">3点</th>
 							<td class="Ggysum_dan odds" id="rate3">1.99</td>

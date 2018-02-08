@@ -163,7 +163,13 @@ public class SscController {
 			 String str_json_play=json_play.toString();
 				 System.out.println(str_json_play);
 				 Orders orders= new Orders();
+				 orders.setMid(null);//会员ID
+				 orders.setStatus("未结");//注单状态
 				 orders.setOrderstatus(str_json_play);
+				 orders.setInitamount(null);//注单原始金额
+				 orders.setOrdertype("ssc");//游戏类型
+				 orders.setOrderdate(null);//下注时间
+				 orders.setPeriodno("1");	
 				 jsksService.insertData(orders);
 		return "ssc";
 
@@ -231,8 +237,15 @@ public class SscController {
 		 String str_json_play=json_play.toString();
 			 System.out.println(str_json_play);
 			 Orders orders= new Orders();
+			 orders.setMid(null);//会员ID
+			 orders.setStatus("未结");//注单状态
 			 orders.setOrderstatus(str_json_play);
-			// jsksService.insertData(orders);
+			 orders.setInitamount(null);//注单原始金额
+			 orders.setOrdertype("sscONE");//游戏类型
+			 orders.setOrderdate(null);//下注时间
+			 orders.setPeriodno("1");			
+			
+			 jsksService.insertData(orders);
 		return "sscONE";
 		
 	}
@@ -299,8 +312,14 @@ public class SscController {
 		 String str_json_play=json_play.toString();
 			 System.out.println(str_json_play);
 			 Orders orders= new Orders();
+			 orders.setMid(null);//会员ID
+			 orders.setStatus("未结");//注单状态
 			 orders.setOrderstatus(str_json_play);
-			// jsksService.insertData(orders);
+			 orders.setInitamount(null);//注单原始金额
+			 orders.setOrdertype("sscTWO");//游戏类型
+			 orders.setOrderdate(null);//下注时间
+			 orders.setPeriodno("1");					
+			 jsksService.insertData(orders);
 		return "sscTWO";
 		
 	}
@@ -367,8 +386,14 @@ public class SscController {
 		 String str_json_play=json_play.toString();
 			 System.out.println(str_json_play);
 			 Orders orders= new Orders();
+			 orders.setMid(null);//会员ID
+			 orders.setStatus("未结");//注单状态
 			 orders.setOrderstatus(str_json_play);
-			// jsksService.insertData(orders);
+			 orders.setInitamount(null);//注单原始金额
+			 orders.setOrdertype("sscTHREE");//游戏类型
+			 orders.setOrderdate(null);//下注时间
+			 orders.setPeriodno("1");			
+			 jsksService.insertData(orders);
 		return "sscTHREE";
 		
 	}
@@ -435,8 +460,14 @@ public class SscController {
 		 String str_json_play=json_play.toString();
 			 System.out.println(str_json_play);
 			 Orders orders= new Orders();
+			 orders.setMid(null);//会员ID
+			 orders.setStatus("未结");//注单状态
 			 orders.setOrderstatus(str_json_play);
-			// jsksService.insertData(orders);
+			 orders.setInitamount(null);//注单原始金额
+			 orders.setOrdertype("sscFOUR");//游戏类型
+			 orders.setOrderdate(null);//下注时间
+			 orders.setPeriodno("1");		 
+			 jsksService.insertData(orders);
 		return "sscFOUR";
 		
 	}
@@ -503,8 +534,14 @@ public class SscController {
 		 String str_json_play=json_play.toString();
 			 System.out.println(str_json_play);
 			 Orders orders= new Orders();
+			 orders.setMid(null);//会员ID
+			 orders.setStatus("未结");//注单状态
 			 orders.setOrderstatus(str_json_play);
-			// jsksService.insertData(orders);
+			 orders.setInitamount(null);//注单原始金额
+			 orders.setOrdertype("sscFOUR");//游戏类型
+			 orders.setOrderdate(null);//下注时间
+			 orders.setPeriodno("1");
+			 jsksService.insertData(orders);
 		return "sscFIVE";
 		
 	}

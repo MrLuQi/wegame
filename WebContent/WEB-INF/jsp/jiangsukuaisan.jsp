@@ -43,15 +43,10 @@
 			var time = data.year + "/" + data.month + "/" + data.day + " "
 					+ hour + ":" + fen + ":" + second;
 			$("#showDate").html(time);
-
+			var timeString=""+data.hour+""+""+fen+"";
 			//游戏开始时间8:40-22:10
 			//判断时间是否在游戏时间内
-			if (8 <= hour < 23) {
-				if ((data.hour == 8 && data.minute < 40)
-						|| (data.hour == 22 && data.minute > 10)) {
-					//游戏时间之外  
-					alert("stop!");
-				} else {
+			if (840<=parseInt(timeString)&&parseInt(timeString)<=2210) {
 					//游戏时间之内
 					var surplusfen = 9 - parseInt(minute); //剩余分钟
 					var surplusmiao = 60 - parseInt(data.second);//剩余秒钟
@@ -91,8 +86,13 @@
 						alert("开奖啦~");
 					}
 
+				}else{
+					//游戏时间之外  
+					//alert("stop!");
+					console.log("stop!");
 				}
-			}
+			
+		
 		})
 	}
 	//确认按钮

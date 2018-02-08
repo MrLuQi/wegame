@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
@@ -15,9 +16,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.game.pojo.JsonBoCai;
+import com.game.pojo.Members;
 import com.game.pojo.Orders;
 import com.game.service.JsksService;
 import com.game.util.common.RandomUtil;
+import com.game.util.common.gameConstants;
 
 @Controller
 public class PcddController {
@@ -35,7 +38,7 @@ public class PcddController {
 	
 	
 	@RequestMapping(value="/pcddxzdata")
-	public String PCDD_HH_DM(HttpServletRequest request, HttpServletResponse response){
+	public String PCDD_HH_DM(HttpServletRequest request, HttpServletResponse response,HttpSession session,String times ){
 		JsonBoCai jsonBoCai = new JsonBoCai();
 		jsonBoCai.setCategory("PCDD");   //PC蛋蛋
 		jsonBoCai.setSubCategory("PC");   //pc蛋蛋玩法
@@ -91,17 +94,39 @@ public class PcddController {
 		 JSONObject json_play = JSONObject.fromObject(jsonBoCai);
 		 String str_json_play=json_play.toString();
 			 System.out.println(str_json_play);
-			 Orders orders= new Orders();
 			
-			 //orders.setOid(10);
+			 Orders orders= new Orders();
+			 Members members	=	(Members) session.getAttribute(gameConstants.MEMBER_SESSION); 
+			 //会员id
+			 orders.setMid(members.getMid());
+			 //注单号
+			orders.setOrderno(RandomUtil.getRandomFileName()); 
+			 //注单状态
+			 orders.setStatus("1");//未结
+			 //是否中奖
+			 
+			 //是否大额中奖
+			 
+			 //注单原始金额
+			 
+			 //注单中奖金额
+			 
+			 //投注类型
 			 orders.setOrdertype("pcdd_PCDD");
-			orders.setOrderno(RandomUtil.getRandomFileName());//订单号
-			orders.setStatus("1");//1表示未结
-			orders.setOrderstatus(str_json_play);
+			 //投注时间
+			 orders.setOrderdate(times);
+			 //退水金额
+			 //返点金额
+			 //开奖期数
+			 //下单数据
+			 orders.setOrderstatus(str_json_play);
 			 jsksService.insertData(orders);
 		 
 		 
-		 return "redirect:/pcdd";
+			 
+			 
+			 
+		 return "pcdd";
 	}
 
 }

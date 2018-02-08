@@ -126,7 +126,7 @@ public class PcddController {
 			 
 			 
 			 
-		 return "pcdd";
+		 return "redirect:/pcdd";
 	}
 
 }

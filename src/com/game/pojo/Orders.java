@@ -22,7 +22,7 @@ public class Orders {
 
     private BigDecimal hitamount;//注单中奖金额
 
-    private Date orderdate;//投注时间
+    private String orderdate;//投注时间
 
     private BigDecimal backamount;//退水金额
 
@@ -104,11 +104,11 @@ public class Orders {
         this.hitamount = hitamount;
     }
 
-    public Date getOrderdate() {
+    public String getOrderdate() {
         return orderdate;
     }
 
-    public void setOrderdate(Date orderdate) {
+    public void setOrderdate(String orderdate) {
         this.orderdate = orderdate;
     }
 

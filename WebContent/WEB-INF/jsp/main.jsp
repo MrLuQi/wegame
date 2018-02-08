@@ -62,6 +62,18 @@
 			opacity: 1;
 			visibility: visible;
 		}
+		.b5{
+			background: url(images/ball4.gif) no-repeat 7px 1px;
+			    height: 28px;
+    width: 44px;
+    margin: 6px;
+    float: left;
+		}
+		.t_k3{
+			    float: left;
+    height: 45px;
+    width: 48%;
+		}
 	</style>
 	<script type="text/javascript">
 		window.onload = function main() {
@@ -85,17 +97,11 @@
 						<div>江苏快3</div>
 						<div>20180124048期开奖</div>
 					</div>
-					<a id="result_balls" target="_blank" class="t_k3 l_jsk3">
-						<span>
-                		<b class="b5">5</b>
-                	</span>
-						<span>
-                		<b class="b5">5</b>
-                	</span>
-						<span>
-                		<b class="b5">5</b>
-                	</span>
-					</a>
+					<div id="result_balls" target="_blank" class="t_k3 l_jsk3">
+						<div class="b5"></div>
+						<div class="b5"></div>
+						<div class="b5"></div>
+					</div>
 				</div>
 
 				<!--选项-->
@@ -148,28 +154,28 @@
 			<div id="content-box">
 				<div class="contents contents-checked">
 					<li>
-						<a href="${ctx }/jsks" target="Exhibition">大小骰宝</a>
+						<a href="Jiang.html" target="Exhibition">大小骰宝</a>
 					</li>
 				</div>
 				<div class="contents">
 					<li>
-						<a href="${ctx }/bjsc" target="Exhibition">两面</a>
+						<a href="Beijing.html" target="Exhibition">两面</a>
 					</li>
 					<li>
-						<a href="${ctx }/bjscDH" target="Exhibition">1~10</a>
+						<a href="BJtow.html" target="Exhibition">1~10</a>
 					</li>
 					<li>
-						<a href="${ctx }/bjscGYJZH" target="Exhibition">冠军组合</a>
-					</li>
-				</div>
-				<div class="contents">
-					<li>
-						<a href="${ctx }/pcdd" target="Exhibition">PC蛋蛋</a>
+						<a href="BJthree.html" target="Exhibition">冠军组合</a>
 					</li>
 				</div>
 				<div class="contents">
 					<li>
-						<a href="${ctx }/ssc" target="Exhibition">特码</a>
+						<a href="PC.html" target="Exhibition">PC蛋蛋</a>
+					</li>
+				</div>
+				<div class="contents">
+					<li>
+						<a>特码</a>
 					</li>
 					<li>
 						<a>色波</a>
@@ -230,17 +236,17 @@
 
 				<div class="zhanghu" id="account">
 					<div class="info">
-						<label>编号：</label><span> ${member_session.memberno }</span></div>
+						<label>编号：</label><span> ${member_session.mid }</span></div>
 					<div class="info"><label>金币：</label><span class="balance"> ${member_session.balance }</span></div>
 					<div class="info"><label>未结算金额：</label><span class="betting">0</span></div>
 				</div>
 			</div>
 			<div class="betdone" id="drawOfficial">
 				<div class="title">
-					<a href="" target="frame">在线充值</a>
+					<a href="${ctx }/pay" target="Exhibition">在线充值</a>
 				</div>
 				<div class="title">
-					<a href="" target="frame">在线提款</a>
+					<a href="${ctx }/pay02" target="Exhibition">在线提款</a>
 				</div>
 			</div>
 			<div class="betdone" id="lastBets">
@@ -248,7 +254,7 @@
 				<ul class="bets"></ul>
 			</div>
 			<div style="display:none" id="betResultPanel">
-
+				
 				<div class="control s0">
 					<a href="">返 回</a>
 				</div>
@@ -257,6 +263,7 @@
 					<ul class="bets" id="betReulstList"></ul>
 					<table class="total s0">
 						<tbody>
+							
 							<tr>
 								<td class="label">下注金额</td>
 								<td id="betResultCount"></td>

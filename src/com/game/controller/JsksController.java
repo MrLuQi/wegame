@@ -127,15 +127,8 @@ public class JsksController {
 					 //System.out.println(str_json_play);
 					 Orders orders= new Orders();
 					
-					 //orders.setOid(4);
-					 //orders.setOrderstatus(str_json_play);
-					 orders.setMid(null);//会员ID
-					 orders.setStatus("未结");//注单状态
+					 orders.setOid(4);
 					 orders.setOrderstatus(str_json_play);
-					 orders.setInitamount(null);//注单原始金额
-					 orders.setOrdertype("jsks");//游戏类型
-					 orders.setOrderdate(null);//下注时间
-					 orders.setPeriodno("1");	
 					 jsksService.insertData(orders);
 					
 				

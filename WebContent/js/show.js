@@ -29,16 +29,15 @@ return false;
 
 
 function showback(obj) {
+if(obj.style.display == 'block') {
 
-　　if(obj.style.display == 'block') {
+ obj.style.display = 'none';
 
-　　 obj.style.display = 'none';
+} else {
 
-　　} else {
+obj.style.display = 'block';
 
-　　　　　obj.style.display = 'block';
-
-　　}
+}
 
 }
 

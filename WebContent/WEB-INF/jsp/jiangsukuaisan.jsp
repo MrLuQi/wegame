@@ -144,7 +144,7 @@
 	     inputArray.each(//使用数组的循环函数 循环这个input数组  
 	         function (){  
 	             var input =$(this);//循环中的每一个input元素  
-	         	  $('#'+input.attr("id")).val(" ");
+	         	  $('#'+input.attr("id")).val("");
 	         }  
 	     )  
 		

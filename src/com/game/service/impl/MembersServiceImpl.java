@@ -19,4 +19,11 @@ public class MembersServiceImpl implements MembersService {
 		return membersDao.findMember(memberno,passpwd);
 	}
 
+
+	@Override
+	public Integer findMemberBalance(Integer mid) {
+		// TODO Auto-generated method stub
+		return membersDao.findMemberBalance(mid);
+	}
+
 }

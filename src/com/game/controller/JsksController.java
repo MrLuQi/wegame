@@ -44,13 +44,11 @@ public class JsksController {
 	public String jsks(){
 		return "jiangsukuaisan";
 	}
+
+	
+	
 	/**
 	 * 投注数据
-	 * @param request
-	 * @param response
-	 * @return
-	 */
-	/**
 	 * @param request
 	 * @param response
 	 * @param session
@@ -148,16 +146,21 @@ public class JsksController {
 					 //是否大额中奖
 					 
 					 //注单原始金额
-					 
+					 orders.setInitamount(null);//注单原始金额
+
 					 //注单中奖金额
 					 
 					 //投注类型
-					 orders.setOrdertype("JSKS");
+					 orders.setOrdertype("jsks");
 					 //投注时间
 					 orders.setOrderdate(times);
 					 //退水金额
 					 //返点金额
 					 //开奖期数
+					
+					 //开奖期数
+					 orders.setPeriodno("1");
+					 
 					 //下单数据
 					 orders.setOrderstatus(str_json_play);
 					 jsksService.insertData(orders);

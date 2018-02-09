@@ -10,4 +10,6 @@ public interface MembersService {
 
 	Members findMember(String memberno, String passpwd);
 
+	Integer findMemberBalance(Integer mid);
+	
 }

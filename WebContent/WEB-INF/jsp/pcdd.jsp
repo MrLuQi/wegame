@@ -13,6 +13,8 @@ $(function() {
 })
 //取得系统当前时间 
 var times = "";
+//投注金额
+var sum=0;
 function getTime() {
 	$.post("${ctx}/time", function(data) {
 		times = data.year + "/" + data.month + "/" + data.day + " "
@@ -48,10 +50,12 @@ function getTime() {
 		var time = data.year + "/" + data.month + "/" + data.day + " "
 				+ hour + ":" + fen + ":" + second;
 		$("#showDate").html(time);
-		var timeString=""+data.hour+""+""+fen+"";
-		//游戏开始时间8:40-22:10
-		//判断时间是否在游戏时间内
-		if (900<=parseInt(timeString)&&parseInt(timeString)<=2355) {
+		if ((9 <data.hour&&data.hour < 23)||(data.hour == 9 && data.minute >=0)
+				|| (data.hour == 23 && data.minute <= 55)) {
+					//8:40时刷新页面
+					if(data.hour == 9 && data.minute==0&&data.second==0){
+						parent.location.reload();
+					}
 				//游戏时间之内
 				var surplusfen = 4 - parseInt(minute); //剩余分钟
 				var surplusmiao = 60 - parseInt(data.second);//剩余秒钟
@@ -94,19 +98,53 @@ function getTime() {
 			}else{
 				//游戏时间之外  
 				//alert("stop!");
-				console.log("stop!");
+				//console.log("stop!");
+				$("#cdClose").html("请等待游戏开盘");
+				$("#cdDraw").html("请等待游戏开盘");
+				//按钮禁止点击
+				$("#sub1").attr("disabled", true);
+				$("#sub2").attr("disabled", true);
+				//
+				for (var i = 1; i <= 50; i++) {
+						var rate = $("#rate" + i + "").text();
+						//alert(aa+"    geshu:"+i);
+						$("#rate" + i + "").text("---");
+					}
 			}
 		
 	
 	})
 }
-//确认按钮
 function submitdata() {
-	JSTB.action = "${ctx}/pcddxzdata?times=" + times;
+	var valList = [];
+	//投注金额总数
+	
+	//把投注金额放入数组
+	   $('.ba').each(function(){					
+		//alert($(this).val());	
+		valList.push(parseInt($(this).val()));
+		}); 				 
+	 //投注金额求和
+	    for (var i = 0; i < valList.length; i++){ 
+		   if(!isNaN(valList[i])){
+			    sum += valList[i];
+		   } ; 
+		   }  
+	JSTB.action = "${ctx}/pcddxzdata?times=" + times+"&initamount="+sum;
 	//	var time=document.getElementById("showDate").value;
 	//var time =$("#showDate").val();
-	JSTB.submit();
-	alert("投注成功,请耐心等待开奖结果,谢谢~");
+    //获取用户余额data
+    $.post("${ctx}/balance",function(data){
+    	//alert(data);
+    	//alert(sum);
+    	if(sum>data){
+	   		alert("不好意思,您投注金额大于余额,请重新投注!");
+	   	}else{
+	   		JSTB.submit();
+			alert("投注成功,请耐心等待开奖结果,谢谢~");
+	   	} 
+    })
+
 }
 //重置按钮
 function resetBets(){

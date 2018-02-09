@@ -31,8 +31,17 @@ public class Orders {
     private String orderstatus;//下单数据
 
     private String periodno;//开奖期数
+    private String orderwanfa;//游戏玩法自添
 
-    public Integer getOid() {
+    public String getOrderwanfa() {
+		return orderwanfa;
+	}
+
+	public void setOrderwanfa(String orderwanfa) {
+		this.orderwanfa = orderwanfa;
+	}
+
+	public Integer getOid() {
         return oid;
     }
 

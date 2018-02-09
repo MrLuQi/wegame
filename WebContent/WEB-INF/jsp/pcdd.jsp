@@ -29,14 +29,14 @@ function getTime() {
 			var minutes = "0" + m;
 			var minute = minutes.substring(1, 2);
 			if(minute>=5){
-				minute="0"+(9-parseInt(minute));
+				minute="0"+parseInt(minute)-5
 			}
 		} else {
 			fen = data.minute;
 			minutes = "" + data.minute + "";
 			minute = minutes.substring(1, 2);
 			if(minute>=5){
-				minute="0"+(9-parseInt(minute));
+				minute=""+parseInt(minute)-5
 			}
 		}
 		if (data.second < 10) {
@@ -48,15 +48,10 @@ function getTime() {
 		var time = data.year + "/" + data.month + "/" + data.day + " "
 				+ hour + ":" + fen + ":" + second;
 		$("#showDate").html(time);
-
+		var timeString=""+data.hour+""+""+fen+"";
 		//游戏开始时间8:40-22:10
-		//游戏开始时间9:00-23:50
 		//判断时间是否在游戏时间内
-		if (data.hour<9||data.hour>=23) {
-			if ((data.hour == 23 && data.minute > 55)) {
-				//游戏时间之外  
-				alert("stop!");
-			} else {
+		if (900<=parseInt(timeString)&&parseInt(timeString)<=2355) {
 				//游戏时间之内
 				var surplusfen = 4 - parseInt(minute); //剩余分钟
 				var surplusmiao = 60 - parseInt(data.second);//剩余秒钟
@@ -96,8 +91,13 @@ function getTime() {
 					alert("开奖啦~");
 				}
 
+			}else{
+				//游戏时间之外  
+				//alert("stop!");
+				console.log("stop!");
 			}
-		}
+		
+	
 	})
 }
 //确认按钮
@@ -105,28 +105,6 @@ function submitdata() {
 	JSTB.action = "${ctx}/pcddxzdata?times=" + times;
 	//	var time=document.getElementById("showDate").value;
 	//var time =$("#showDate").val();
-	//投注金额
-	var valList = [];
-	//投注金额总数
-	 var sum = 0;
-	//把投注金额放入数组
-	   $('.ba').each(function(){					
-		//alert($(this).val());	
-		valList.push(parseInt($(this).val()));
-		}); 				 
-	 //投注金额求和
-	    for (var i = 0; i < valList.length; i++){ 
-		   if(!isNaN(valList[i])){
-			    sum += valList[i];
-		   } ; 
-		   }  
-//	 alert(sum);
-	alert("购买成功，请等待开奖！祝你好运~");
-	for(var i=1;i<=50;i++){
-		var rate=$("#rate"+i+"").text();
-		//alert(aa+"    geshu:"+i);
-		$("#rate"+i+"").text("---");
-	}	
 	JSTB.submit();
 	alert("投注成功,请耐心等待开奖结果,谢谢~");
 }
@@ -142,7 +120,6 @@ function resetBets(){
 	
 	
 }
-
 </script>
 </head>
 

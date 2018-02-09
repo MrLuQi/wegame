@@ -5,8 +5,11 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.apache.logging.log4j.core.config.Order;
 import org.springframework.web.servlet.HandlerInterceptor;
+
+import com.game.pojo.Members;
 import com.game.util.common.gameConstants;
 
 /**
@@ -57,9 +60,9 @@ public class LoginInterceptor implements HandlerInterceptor {
         	 return false;
        }
         
-        Order order=(Order)session.getAttribute(gameConstants.MEMBER_SESSION);
+        Members members=(Members)session.getAttribute(gameConstants.MEMBER_SESSION);
         
-        if (order == null) {
+        if (members == null) {
             //System.out.println(request.getContextPath());
            // logger.info("Pedirect to login page");
         	@SuppressWarnings("unused")

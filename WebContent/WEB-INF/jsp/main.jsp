@@ -146,6 +146,9 @@
 					<a href="${ctx }/ssc"target="Exhibition" class="list-item">
 						<span>重庆时时彩</span>
 					</a>
+					<a href="${ctx }/jsft"target="Exhibition" class="list-item">
+						<span>急速飞艇</span>
+					</a>
 				</div>
 			</div>
 
@@ -225,6 +228,17 @@
 					</li>
 					<li>
 						<a href="${ctx }/sscFIVE" target="Exhibition">第五球</a>
+					</li>
+				</div>
+								<div class="contents">
+					<li>
+						<a href="${ctx }/bjsc" target="Exhibition">两面</a>
+					</li>
+					<li>
+						<a href="${ctx }/jsftDH" target="Exhibition">1~10</a>
+					</li>
+					<li>
+						<a href="${ctx }/jsftGYJZH" target="Exhibition">冠军组合</a>
 					</li>
 				</div>
 			</div>

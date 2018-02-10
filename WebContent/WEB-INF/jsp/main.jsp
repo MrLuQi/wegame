@@ -154,23 +154,23 @@
 			<div id="content-box">
 				<div class="contents contents-checked">
 					<li>
-						<a href="Jiang.html" target="Exhibition">大小骰宝</a>
+						<a href="${ctx }/jiangsukuaisan" target="Exhibition">大小骰宝</a>
 					</li>
 				</div>
 				<div class="contents">
 					<li>
-						<a href="Beijing.html" target="Exhibition">两面</a>
+						<a href="${ctx }/bjsc" target="Exhibition">两面</a>
 					</li>
 					<li>
-						<a href="BJtow.html" target="Exhibition">1~10</a>
+						<a href="${ctx }/bjscDH" target="Exhibition">1~10</a>
 					</li>
 					<li>
-						<a href="BJthree.html" target="Exhibition">冠军组合</a>
+						<a href="${ctx }/bjscGYJZH" target="Exhibition">冠军组合</a>
 					</li>
 				</div>
 				<div class="contents">
 					<li>
-						<a href="PC.html" target="Exhibition">PC蛋蛋</a>
+						<a href="${ctx }/pcdd" target="Exhibition">PC蛋蛋</a>
 					</li>
 				</div>
 				<div class="contents">

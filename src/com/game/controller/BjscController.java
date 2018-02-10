@@ -1,10 +1,12 @@
 package com.game.controller;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
@@ -14,8 +16,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.game.pojo.JsonBoCai;
+import com.game.pojo.Members;
 import com.game.pojo.Orders;
 import com.game.service.JsksService;
+import com.game.util.common.RandomUtil;
+import com.game.util.common.gameConstants;
 @Controller
 public class BjscController {
 	
@@ -35,7 +40,7 @@ public class BjscController {
 }
 
 	@RequestMapping(value="/bjsclm")
-	public String BJSC_LM_Data(HttpServletRequest request, HttpServletResponse response){
+	public String BJSC_LM_Data(HttpServletRequest request, HttpServletResponse response ,HttpSession session,String times, String  initamount){
 	
 	JsonBoCai jsonBoCai = new JsonBoCai();
 	jsonBoCai.setCategory("BJSC");   //北京赛车
@@ -141,20 +146,40 @@ public class BjscController {
 			 String str_json_play=json_play.toString();
 				 System.out.println(str_json_play);
 				 Orders orders= new Orders();
-				
-				 orders.setStatus("0");//注单状态
-				 orders.setOrderstatus(str_json_play);
-				 orders.setInitamount(null);//注单原始金额
-				 orders.setOrdertype("bjscLM");//游戏类型
-				 orders.setOrderdate(null);//下注时间
-				 orders.setPeriodno("1");	
-				 jsksService.insertData(orders);
-			 return  "redirect:/bjsc";
+				 Members members	=	(Members) session.getAttribute(gameConstants.MEMBER_SESSION); 
+				 //会员id
+				 orders.setMid(members.getMid());
+				 //注单号
+				orders.setOrderno(RandomUtil.getRandomFileName()); 
+				 //注单状态
+				 orders.setStatus("0");//未结
+				 //是否中奖
+				 
+				 //是否大额中奖
+				 
+				 //注单原始金额
+				 orders.setInitamount(new BigDecimal(initamount));
+				 //注单中奖金额
+				 
+				 //投注类型
+				 orders.setOrdertype("bjsc_LM");
+				 //投注时间
+				 orders.setOrderdate(times);
+				 //退水金额
+				 
+				 //返点金额
+				 
+				 //开奖期数
+				 
+				 //下单数据
+				orders.setOrderstatus(str_json_play);
+		        jsksService.insertData(orders);
+			 return  "bjsc";
 }
 	
 	
 	@RequestMapping(value="/bjscdhdata")
-	public String BJSC_DH_Data(HttpServletRequest request, HttpServletResponse response){
+	public String BJSC_DH_Data(HttpServletRequest request, HttpServletResponse response,HttpSession session,String times, String  initamount){
 		JsonBoCai jsonBoCai = new JsonBoCai();
 		jsonBoCai.setCategory("BJSC");   //北京赛车
 		jsonBoCai.setSubCategory("DHWF");   //单号玩法
@@ -298,22 +323,42 @@ public class BjscController {
 		 
 		 JSONObject json_play = JSONObject.fromObject(jsonBoCai);
 		 String str_json_play=json_play.toString();
-			 System.out.println(str_json_play);
-			 Orders orders= new Orders();
-			
-			 orders.setStatus("0");//注单状态
-			 orders.setOrderstatus(str_json_play);
-			 orders.setInitamount(null);//注单原始金额
-			 orders.setOrdertype("bjscDH");//游戏类型
-			 orders.setOrderdate(null);//下注时间
-			 orders.setPeriodno("1");	
-			 jsksService.insertData(orders);
+		 System.out.println(str_json_play);
+		 Orders orders= new Orders();
+		 Members members	=	(Members) session.getAttribute(gameConstants.MEMBER_SESSION); 
+		 //会员id
+		 orders.setMid(members.getMid());
+		 //注单号
+		orders.setOrderno(RandomUtil.getRandomFileName()); 
+		 //注单状态
+		 orders.setStatus("0");//未结
+		 //是否中奖
+		 
+		 //是否大额中奖
+		 
+		 //注单原始金额
+		 orders.setInitamount(new BigDecimal(initamount));
+		 //注单中奖金额
+		 
+		 //投注类型
+		 orders.setOrdertype("bjsc_DH");
+		 //投注时间
+		 orders.setOrderdate(times);
+		 //退水金额
+		 
+		 //返点金额
+		 
+		 //开奖期数
+		 
+		 //下单数据
+		orders.setOrderstatus(str_json_play);
+        jsksService.insertData(orders);
 		 
 		 return  "bjscDH";
 		
 	}
 	@RequestMapping(value="/bjscgyzhdata")
-	public String BJSC_GY_Data(HttpServletRequest request, HttpServletResponse response){
+	public String BJSC_GY_Data(HttpServletRequest request, HttpServletResponse response,HttpSession session,String times, String  initamount){
 		
 		JsonBoCai jsonBoCai = new JsonBoCai();
 		jsonBoCai.setCategory("BJSC");   //北京赛车
@@ -347,20 +392,38 @@ public class BjscController {
 		 
 		 JSONObject json_play = JSONObject.fromObject(jsonBoCai);
 		 String str_json_play=json_play.toString();
-			 System.out.println(str_json_play);
-			 Orders orders= new Orders();
-			
-			 //orders.setOid(10);
-			orders.setOrderstatus(str_json_play);
-			 jsksService.insertData(orders);
-			 orders.setStatus("0");//注单状态
-			 orders.setOrderstatus(str_json_play);
-			 orders.setInitamount(null);//注单原始金额
-			 orders.setOrdertype("bjscGYJZH");//游戏类型
-			 orders.setOrderdate(null);//下注时间
-			 orders.setPeriodno("1");	
-			 jsksService.insertData(orders);
+		 System.out.println(str_json_play);
+		 Orders orders= new Orders();
+		 Members members	=	(Members) session.getAttribute(gameConstants.MEMBER_SESSION); 
+		 //会员id
+		 orders.setMid(members.getMid());
+		 //注单号
+		orders.setOrderno(RandomUtil.getRandomFileName()); 
+		 //注单状态
+		 orders.setStatus("0");//未结
+		 //是否中奖
+		 
+		 //是否大额中奖
+		 
+		 //注单原始金额
+		 orders.setInitamount(new BigDecimal(initamount));
+		 //注单中奖金额
+		 
+		 //投注类型
+		 orders.setOrdertype("bjsc_GYJZH");
+		 //投注时间
+		 orders.setOrderdate(times);
+		 //退水金额
+		 
+		 //返点金额
+		 
+		 //开奖期数
+		 
+		 //下单数据
+		orders.setOrderstatus(str_json_play);
+        jsksService.insertData(orders);
+		 
+
 		 return "bjscGYJZH";
 	}
 }
-s

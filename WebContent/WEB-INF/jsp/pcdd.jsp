@@ -13,8 +13,6 @@ $(function() {
 })
 //取得系统当前时间 
 var times = "";
-//投注金额
-var sum=0;
 function getTime() {
 	$.post("${ctx}/time", function(data) {
 		times = data.year + "/" + data.month + "/" + data.day + " "
@@ -50,10 +48,13 @@ function getTime() {
 		var time = data.year + "/" + data.month + "/" + data.day + " "
 				+ hour + ":" + fen + ":" + second;
 		$("#showDate").html(time);
+		
+		//游戏开始时间9:00-23:55
+		//判断时间是否在游戏时间内
 		if ((9 <data.hour&&data.hour < 23)||(data.hour == 9 && data.minute >=0)
 				|| (data.hour == 23 && data.minute <= 55)) {
 					//8:40时刷新页面
-					if(data.hour == 9 && data.minute==0&&data.second==0){
+					if(data.hour == 9 && data.minute==00&&data.second==0){
 						parent.location.reload();
 					}
 				//游戏时间之内
@@ -115,7 +116,13 @@ function getTime() {
 	
 	})
 }
+//确认按钮
 function submitdata() {
+	//投注金额
+	var sum=0;
+	//JSTB.action = "${ctx}/tzdata?times=" + times;
+	//	var time=document.getElementById("showDate").value;
+	//var time =$("#showDate").val();
 	var valList = [];
 	//投注金额总数
 	
@@ -129,22 +136,21 @@ function submitdata() {
 		   if(!isNaN(valList[i])){
 			    sum += valList[i];
 		   } ; 
-		   }  
-	JSTB.action = "${ctx}/pcddxzdata?times=" + times+"&initamount="+sum;
-	//	var time=document.getElementById("showDate").value;
-	//var time =$("#showDate").val();
-    //获取用户余额data
+		   } 
+	    JSTB.action = "${ctx}/pcddxzdata?times=" + times+"&initamount="+sum;
+     //获取用户余额data
     $.post("${ctx}/balance",function(data){
     	//alert(data);
     	//alert(sum);
     	if(sum>data){
 	   		alert("不好意思,您投注金额大于余额,请重新投注!");
 	   	}else{
-	   		JSTB.submit();
+	   		//JSTB.submit();
 			alert("投注成功,请耐心等待开奖结果,谢谢~");
 	   	} 
     })
-
+    	
+	
 }
 //重置按钮
 function resetBets(){
@@ -152,7 +158,7 @@ function resetBets(){
      inputArray.each(//使用数组的循环函数 循环这个input数组  
          function (){  
              var input =$(this);//循环中的每一个input元素  
-         	  $('#'+input.attr("id")).val(" ");
+         	  $('#'+input.attr("id")).val("");
          }  
      )  
 	
@@ -165,8 +171,8 @@ function resetBets(){
 	<input type="hidden" id="page" value="lm" name="page">
 	<div id="main">
 		<!---->
-		<form id="JSTB"
-			action="${pageContext.request.contextPath }/pcddxzdata" method="post">
+	<%-- 	action="${pageContext.request.contextPath }/pcddxzdata" method="post" --%>
+		<form id="JSTB" action="${pageContext.request.contextPath }/pcddxzdata" method="post">
 			<div id="header">
 				<div class="lottery_info">
 					<div class="lottery_info_left floatleft">
@@ -175,7 +181,7 @@ function resetBets(){
 							id="bresult">0</span></span>
 					</div>
 					<div class="lottery_info_right floatright">
-					<span id="showDate"></span>&nbsp;&nbsp;<span id="showDate"></span>&nbsp;&nbsp;<span id="drawNumber">663585</span>期&nbsp;&nbsp;距离封盘：<span
+					<span id="showDate"></span>&nbsp;&nbsp;<span id="drawNumber">663585</span>期&nbsp;&nbsp;距离封盘：<span
 							class="color_lv bold"><span id="cdClose"></span></span>&nbsp;&nbsp;距离开奖：<span
 							class="color_lv bold"> <span id="cdDraw"></span></span> <span
 							id="cdRefresh" style="float: right; width: 50px;"></span>

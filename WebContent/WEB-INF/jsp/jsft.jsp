@@ -132,7 +132,7 @@
 			}
 			;
 		}
-		JSTB.action = "${ctx}/bjsclm?times=" + times + "&initamount=" + sum;
+		JSTB.action = "${ctx}/jsftlm?times=" + times + "&initamount=" + sum;
 		//	var time=document.getElementById("showDate").value;
 		//var time =$("#showDate").val();
 		//获取用户余额data

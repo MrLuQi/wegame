@@ -132,7 +132,7 @@
 			}
 			;
 		}
-		JSTB.action = "${ctx}/bjscdhdata?times=" + times + "&initamount=" + sum;
+		JSTB.action = "${ctx}/jsftdhdata?times=" + times + "&initamount=" + sum;
 		//	var time=document.getElementById("showDate").value;
 		//var time =$("#showDate").val();
 		//获取用户余额data
@@ -167,7 +167,7 @@
 	<input type="hidden" id="page" value="lm" name="page">
 	<div id="main">
 		<form id="JSTB"
-			action="${pageContext.request.contextPath }/bjscdhdata" method="post">
+			action="${pageContext.request.contextPath }/jsftdhdata" method="post">
 			<div id="header">
 				<!--开奖-->
 				<div class="lottery_info">

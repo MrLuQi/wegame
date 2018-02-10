@@ -8,6 +8,126 @@
 <title></title>
 <link rel="stylesheet" href="${ctx }/css/Jiangsu.css" />
 <script type="text/javascript" src="${ctx }/js/jquery-3.2.1.min.js"></script>
+<style type="text/css">
+.one{
+	background: url(images/ball4.gif) no-repeat 14px 1px;
+	height: 28px;
+    width: 44px;
+    margin: 6px;
+    float: left;
+}
+.two{
+	background: url(images/ball4.gif) no-repeat 14px -27px;
+	height: 28px;
+    width: 44px;
+    margin: 6px;
+    float: left;
+}
+.three{
+	background: url(images/ball4.gif) no-repeat 14px -55px;
+	height: 28px;
+    width: 44px;
+    margin: 6px;
+    float: left;
+}
+.four{
+	background: url(images/ball4.gif) no-repeat 14px -81px;
+	height: 28px;
+    width: 44px;
+    margin: 6px;
+    float: left;
+}
+.five{
+	background: url(images/ball4.gif) no-repeat 14px -108px;
+	height: 28px;
+    width: 44px;
+    margin: 6px;
+    float: left;
+}
+.six{
+	background: url(images/ball4.gif) no-repeat 14px -135px;
+	height: 28px;
+    width: 44px;
+    margin: 6px;
+    float: left;
+}
+
+.cpone{
+    background: url(images/ball4.gif) no-repeat 4px 1px;
+    height: 30px;
+    width: 32px;
+    margin: 0px;
+    float: left;
+}
+.cptwo{
+	background: url(images/ball4.gif) no-repeat 12px -27px;
+    height: 29px;
+    width: 41px;
+    margin: 1px;
+    float: left;
+}
+.cpthree{
+	background: url(images/ball4.gif) no-repeat 12px -55px;
+    height: 29px;
+    width: 41px;
+    margin: 1px;
+    float: left;
+}
+.cpfour{
+	background: url(images/ball4.gif) no-repeat 12px -81px;
+    height: 29px;
+    width: 41px;
+    margin: 1px;
+    float: left;
+}
+.cpfive{
+	background: url(images/ball4.gif) no-repeat 12px -108px;
+    height: 29px;
+    width: 41px;
+    margin: 1px;
+    float: left;
+}
+.cpsix{
+	background: url(images/ball4.gif) no-repeat 12px -135px;
+    height: 29px;
+    width: 41px;
+    margin: 1px;
+    float: left;
+}
+.cptwo1{
+    background: url(images/ball4.gif) no-repeat 4px -27px;
+    height: 30px;
+    width: 32px;
+    margin: 0px;
+    float: left;
+}
+.cpthree1{
+    background: url(images/ball4.gif) no-repeat 4px -55px;
+    height: 30px;
+    width: 32px;
+    margin: 0px;
+    float: left;
+}
+.cpfour1{
+    background: url(images/ball4.gif) no-repeat 4px -81px;
+    height: 30px;
+    width: 32px;
+    margin: 0px;
+    float: left;
+}
+.cpfive1{
+    background: url(images/ball4.gif) no-repeat 4px -106px;
+    height: 30px;
+    width: 32px;
+    margin: 0px;
+    float: left;
+}
+.white{
+    width: 10px;
+    height: 1px;
+    float: left;
+}
+</style>
 <script type="text/javascript">
 	$(function() {
 		setInterval("getTime();", 1000); //每隔一秒执行一次 
@@ -125,13 +245,17 @@
 	         }  
 	     )
 	     //获取用户余额data
-	    $.post("${ctx}/balance",function(data){
+	    $.post("${ctx}/balance?consume=-1",function(data){
 	    	//alert(data);
 	    	//alert(sum);
 	    	if(sum>data){
 		   		alert("不好意思,您投注金额大于余额,请重新投注!");
 		   	}else{
 		   		JSTB.submit();
+		   		var consume=data-sum;
+		   		$.post("${ctx}/balance?consume="+consume,function(data1){
+		   			
+		   		})
 				alert("投注成功,请耐心等待开奖结果,谢谢~");
 		   	} 
 	    })
@@ -151,6 +275,7 @@
 		
 	}
 </script>
+
 </head>
 <!--开奖时间-->
 <body class="l_pk10 P_lm skin_red">
@@ -199,7 +324,7 @@
 						</tr>
 						<tr>
 							<th class="Ggysum_big name" title="1点"><input type="hidden"
-								id="" value="1">1点</th>
+								id="" value="1"><div class="one"></div></th>
 							<td class="Ggysum_big odds" id="rate1">1.99</td>
 							<td class="Ggysum_big amount ha"><input type="text"
 								name="SANJUN1" class="ba" id="SANJUN1"
@@ -207,7 +332,7 @@
 								></td>
 								
 							<th class="Ggysum_small name" title="2点"><input
-								type="hidden" id="" value="2">2点</th>
+								type="hidden" id="" value="2"><div class="two"></div></th>
 							<td class="Ggysum_small odds" id="rate2">1.99</td>
 							<td class="Ggysum_big amount ha"><input type="text"
 								name="SANJUN2" class="ba" id="SANJUN2"
@@ -215,14 +340,14 @@
 								></td>
 								
 							<th class="Ggysum_dan name" title="3点"><input type="hidden"
-								id="" value="3">3点</th>
+								id="" value="3"><div class="three"></div></th>
 							<td class="Ggysum_dan odds" id="rate3">1.99</td>
 							<td class="Ggysum_big amount ha"><input type="text"
 								name="SANJUN3" class="ba" id="SANJUN3" onkeyup="this.value=this.value.replace(/\D/g,'')"
 								></td>
 
 							<th class="Ggysum_shuang name" title="4点"><input
-								type="hidden" id="" value="4">4点</th>
+								type="hidden" id="" value="4"><div class="four"></div></th>
 							<td class="Ggysum_shuang odds" id="rate4">1.99</td>
 							<td class="Ggysum_big amount ha"><input type="text"
 								name="SANJUN4" class="ba" id="SANJUN4" onkeyup="this.value=this.value.replace(/\D/g,'')"
@@ -232,14 +357,14 @@
 					<tbody>
 						<tr>
 							<th class="Ggysum_big name" title="5点"><input type="hidden"
-								id="" value="5">5点</th>
+								id="" value="5"><div class="five"></div></th>
 							<td class="Ggysum_big odds" id="rate5">1.99</td>
 							<td class="Ggysum_big amount ha"><input type="text"
 								name="SANJUN5" class="ba" id="SANJUN5" onkeyup="this.value=this.value.replace(/\D/g,'')"
 								></td>
 
 							<th class="Ggysum_small name" title="6点"><input
-								type="hidden" id="" value="6">6点</th>
+								type="hidden" id="" value="6"><div class="six"></div></th>
 							<td class="Ggysum_small odds" id="rate6">1.99</td>
 							<td class="Ggysum_big amount ha"><input type="text"
 								name="SANJUN6" class="ba" id="SANJUN6" onkeyup="this.value=this.value.replace(/\D/g,'')"
@@ -273,21 +398,21 @@
 						</tr>
 						<tr>
 							<th class="Ggysum_big name" title="1点"><input type="hidden"
-								id="" value="1">1点</th>
+								id="" value="1"><div class="white"></div><div class="one"></div></th>
 							<td class="Ggysum_big odds" id="rate9">185.00</td>
 							<td class="Ggysum_big amount ha"><input name="WEI1" type="text"
 								class="ba" id="WEI1" onkeyup="this.value=this.value.replace(/\D/g,'')"
 								></td>
 
 							<th class="Ggysum_small name" title="2点"><input
-								type="hidden" id="" value="2">2点</th>
+								type="hidden" id="" value="2"><div class="white"></div><div class="two"></div></th>
 							<td class="Ggysum_small odds" id="rate10">185.00</td>
 							<td class="Ggysum_small amount ha"><input name="WEI2" type="text"
 								class="ba" id="WEI2" onkeyup="this.value=this.value.replace(/\D/g,'')"
 								></td>
 
 							<th class="Ggysum_dan name" title="3点"><input type="hidden"
-								id="" value="3">3点</th>
+								id="" value="3"><div class="white"></div><div class="three"></div></th>
 							<td class="Ggysum_dan odds" id="rate11">185.00</td>
 							<td class="Ggysum_dan amount ha"><input name="WEI3" type="text"
 								class="ba" id="WEI3" onkeyup="this.value=this.value.replace(/\D/g,'')"
@@ -298,21 +423,21 @@
 					<tbody>
 						<tr>
 							<th class="Ggysum_big name" title="4点"><input type="hidden"
-								id="" value="4">4点</th>
+								id="" value="4"><div class="white"></div><div class="four"></div></th>
 							<td class="Ggysum_big odds" id="rate12">185.00</td>
 							<td class="Ggysum_big amount ha"><input name="WEI4" type="text"
 								class="ba" id="WEI4" onkeyup="this.value=this.value.replace(/\D/g,'')"
 								></td>
 
 							<th class="Ggysum_small name" title="5点"><input
-								type="hidden" id="" value="5">5点</th>
+								type="hidden" id="" value="5"><div class="white"></div><div class="five"></div></th>
 							<td class="Ggysum_small odds" id="rate13">185.00</td>
 							<td class="Ggysum_small amount ha"><input name="WEI5" type="text"
 								class="ba" id="WEI5" onkeyup="this.value=this.value.replace(/\D/g,'')"
 								></td>
 
 							<th class="Ggysum_dan name" title="6点"><input type="hidden"
-								id="" value="6">6点</th>
+								id="" value="6"><div class="white"></div><div class="six"></div></th>
 							<td class="Ggysum_dan odds" id="rate14">185.00</td>
 							<td class="Ggysum_dan amount ha"><input name="WEI6" type="text"
 								class="ba" id="WEI6" onkeyup="this.value=this.value.replace(/\D/g,'')"
@@ -472,21 +597,21 @@
 						</tr>
 						<tr>
 							<th class="Ggysum_small name" title="1,2"><input
-								type="hidden" id="" value="1">1,2</th>
+								type="hidden" id="" value="1"><div class="cpone"></div><div class="cptwo"></div></th>
 							<td class="Ggysum_small odds" id="rate30">6.70</td>
 							<td class="Ggysum_small amount ha"><input name="cp1" type="text"
 								class="ba" id="cp1" onkeyup="this.value=this.value.replace(/\D/g,'')"
 								></td>
 
 							<th class="Ggysum_dan name" title="1,3"><input type="hidden"
-								id="" value="2">1,3</th>
+								id="" value="2"><div class="cpone"></div><div class="cpthree"></div></th>
 							<td class="Ggysum_dan odds" id="rate31">6.70</td>
 							<td class="Ggysum_dan amount ha"><input name="cp2" type="text"
 								class="ba" id="cp2" onkeyup="this.value=this.value.replace(/\D/g,'')"
 								></td>
 
 							<th class="Ggysum_shuang name" title="1,4"><input
-								type="hidden" id="" value="3">1,4</th>
+								type="hidden" id="" value="3"><div class="cpone"></div><div class="cpfour"></div></th>
 							<td class="Ggysum_shuang odds" id="rate32">6.70</td>
 							<td class="Ggysum_shuang amount ha"><input name="cp3" type="text"
 								class="ba" id="cp3" onkeyup="this.value=this.value.replace(/\D/g,'')"
@@ -496,21 +621,21 @@
 					<tbody>
 						<tr>
 							<th class="Ggysum_big name" title="1,5"><input type="hidden"
-								id="" value="4">1,5</th>
+								id="" value="4"><div class="cpone"></div><div class="cpfive"></div></th>
 							<td class="Ggysum_big odds" id="rate33">6.70</td>
 							<td class="Ggysum_big amount ha"><input name="cp4" type="text"
 								class="ba" id="cp4" onkeyup="this.value=this.value.replace(/\D/g,'')"
 								></td>
 
 							<th class="Ggysum_small name" title="1,6"><input
-								type="hidden" id="" value="5">1,6</th>
+								type="hidden" id="" value="5"><div class="cpone"></div><div class="cpsix"></div></th>
 							<td class="Ggysum_small odds" id="rate34">6.70</td>
 							<td class="Ggysum_small amount ha"><input name="cp5" type="text"
 								class="ba" id="cp5" onkeyup="this.value=this.value.replace(/\D/g,'')"
 								></td>
 
 							<th class="Ggysum_dan name" title="2,3"><input type="hidden"
-								id="" value="6">2,3</th>
+								id="" value="6"><div class="cptwo1"></div><div class="cpthree"></div></th>
 							<td class="Ggysum_dan odds" id="rate35">6.70</td>
 							<td class="Ggysum_dan amount ha"><input name="cp6" type="text"
 								class="ba" id="cp6" onkeyup="this.value=this.value.replace(/\D/g,'')"
@@ -521,21 +646,21 @@
 					<tbody>
 						<tr>
 							<th class="Ggysum_big name" title="2,4"><input type="hidden"
-								id="" value="7">2,4</th>
+								id="" value="7"><div class="cptwo1"></div><div class="cpfour"></div></th>
 							<td class="Ggysum_big odds" id="rate36">6.70</td>
 							<td class="Ggysum_big amount ha"><input name="cp7" type="text"
 								class="ba" id="cp7" onkeyup="this.value=this.value.replace(/\D/g,'')"
 								></td>
 
 							<th class="Ggysum_small name" title="2,5"><input
-								type="hidden" id="" value="8">2,5</th>
+								type="hidden" id="" value="8"><div class="cptwo1"></div><div class="cpfive"></div></th>
 							<td class="Ggysum_small odds" id="rate37">6.70</td>
 							<td class="Ggysum_small amount ha"><input name="cp8" type="text"
 								class="ba" id="cp8" onkeyup="this.value=this.value.replace(/\D/g,'')"
 								></td>
 
 							<th class="Ggysum_dan name" title="2,6"><input type="hidden"
-								id="" value="9">2,6</th>
+								id="" value="9"><div class="cptwo1"></div><div class="cpsix"></div></th>
 							<td class="Ggysum_dan odds" id="rate38">6.70</td>
 							<td class="Ggysum_dan amount ha"><input name="cp9" type="text"
 								class="ba" id="cp9" onkeyup="this.value=this.value.replace(/\D/g,'')"
@@ -546,21 +671,21 @@
 					<tbody>
 						<tr>
 							<th class="Ggysum_big name" title="3,4"><input type="hidden"
-								id="" value="10">3,4</th>
+								id="" value="10"><div class="cpthree1"></div><div class="cpfour"></div></th>
 							<td class="Ggysum_big odds" id="rate39">6.70</td>
 							<td class="Ggysum_big amount ha"><input name="cp10" type="text"
 								class="ba" id="cp10" onkeyup="this.value=this.value.replace(/\D/g,'')"
 								></td>
 
 							<th class="Ggysum_small name" title="3,5"><input
-								type="hidden" id="" value="11">3,5</th>
+								type="hidden" id="" value="11"><div class="cpthree1"></div><div class="cpfive"></div></th>
 							<td class="Ggysum_small odds" id="rate40">6.70</td>
 							<td class="Ggysum_small amount ha"><input name="cp11" type="text"
 								class="ba" id="cp11" onkeyup="this.value=this.value.replace(/\D/g,'')"
 								></td>
 
 							<th class="Ggysum_dan name" title="3,6"><input type="hidden"
-								id="" value="12">3,6</th>
+								id="" value="12"><div class="cpthree1"></div><div class="cpsix"></div></th>
 							<td class="Ggysum_dan odds" id="rate41">6.70</td>
 							<td class="Ggysum_dan amount ha"><input name="cp12" type="text"
 								class="ba" id="cp12" onkeyup="this.value=this.value.replace(/\D/g,'')"
@@ -571,21 +696,21 @@
 					<tbody>
 						<tr>
 							<th class="Ggysum_big name" title="4,5"><input type="hidden"
-								id="" value="13">4,5</th>
+								id="" value="13"><div class="cpfour1"></div><div class="cpfive"></div></th>
 							<td class="Ggysum_big odds" id="rate42">6.70</td>
 							<td class="Ggysum_big amount ha"><input name="cp13" type="text"
 								class="ba" id="cp13" onkeyup="this.value=this.value.replace(/\D/g,'')"
 								></td>
 
 							<th class="Ggysum_small name" title="4,6"><input
-								type="hidden" id="" value="14">4,6</th>
+								type="hidden" id="" value="14"><div class="cpfour1"></div><div class="cpsix"></div></th>
 							<td class="Ggysum_small odds" id="rate43">6.70</td>
 							<td class="Ggysum_small amount ha"><input name="cp14" type="text"
 								class="ba" id="cp14" onkeyup="this.value=this.value.replace(/\D/g,'')"
 								></td>
 
 							<th class="Ggysum_dan name" title="5,6"><input type="hidden"
-								id="" value="15">5,6</th>
+								id="" value="15"><div class="cpfive1"></div><div class="cpsix"></div></th>
 							<td class="Ggysum_dan odds" id="rate44">6.70</td>
 							<td class="Ggysum_dan amount ha"><input name="cp15" type="text"
 								class="ba" id="cp15" onkeyup="this.value=this.value.replace(/\D/g,'')"
@@ -606,21 +731,21 @@
 						</tr>
 						<tr>
 							<th class="Ggysum_big name" title="1"><input type="hidden"
-								id="" value="1">1点</th>
+								id="" value="1"><div class="white"></div><div class="one"></div></th>
 							<td class="Ggysum_big odds" id="rate45">11.00</td>
 							<td class="Ggysum_big amount ha"><input name="dp1" type="text"
 								class="ba" id="dp1" onkeyup="this.value=this.value.replace(/\D/g,'')"
 								></td>
 
 							<th class="Ggysum_small name" title="2"><input type="hidden"
-								id="" value="2">2点</th>
+								id="" value="2"><div class="white"></div><div class="two"></div></th>
 							<td class="Ggysum_small odds" id="rate46">11.00</td>
 							<td class="Ggysum_small amount ha"><input name="dp2" type="text"
 								class="ba" id="dp2" onkeyup="this.value=this.value.replace(/\D/g,'')"
 								></td>
 
 							<th class="Ggysum_dan name" title="3"><input type="hidden"
-								id="" value="3">3点</th>
+								id="" value="3"><div class="white"></div><div class="three"></div></th>
 							<td class="Ggysum_dan odds" id="rate47">11.00</td>
 							<td class="Ggysum_dan amount ha"><input name="dp3" type="text"
 								class="ba" id="dp3" onkeyup="this.value=this.value.replace(/\D/g,'')"
@@ -631,21 +756,21 @@
 					<tbody>
 						<tr>
 							<th class="Ggysum_big name" title="4"><input type="hidden"
-								id="" value="4">4点</th>
+								id="" value="4"><div class="white"></div><div class="four"></div></th>
 							<td class="Ggysum_big odds" id="rate48">11.00</td>
 							<td class="Ggysum_big amount ha"><input name="dp4" type="text"
 								class="ba" id="dp4" onkeyup="this.value=this.value.replace(/\D/g,'')"
 								></td>
 
 							<th class="Ggysum_small name" title="5"><input type="hidden"
-								id="" value="5">5点</th>
+								id="" value="5"><div class="white"></div><div class="five"></div></th>
 							<td class="Ggysum_small odds" id="rate49">11.00</td>
 							<td class="Ggysum_small amount ha"><input name="dp5" type="text"
 								class="ba" id="dp5" onkeyup="this.value=this.value.replace(/\D/g,'')"
 								></td>
 
 							<th class="Ggysum_dan name" title="6"><input type="hidden"
-								id="" value="6">6点</th>
+								id="" value="6"><div class="white"></div><div class="six"></div></th>
 							<td class="Ggysum_dan odds" id="rate50">11.00</td>
 							<td class="Ggysum_dan amount ha"><input name="dp6" type="text"
 								class="ba" id="dp6" onkeyup="this.value=this.value.replace(/\D/g,'')"

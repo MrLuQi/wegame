@@ -41,7 +41,7 @@ public class SscController {
 	 * @return 主页
 	 */
 	@RequestMapping(value = "/sscLMdata")
-	public String sscLMdata(HttpServletRequest request, HttpServletResponse response) {
+	public String sscLMdata(HttpServletRequest request, HttpServletResponse response,String times,String Periodno) {
 		// 时时彩中两面 玩法 的投注数据
 				JsonBoCai jsonBoCai = new JsonBoCai();
 				jsonBoCai.setCategory("SSC");   //重庆时时彩
@@ -164,12 +164,12 @@ public class SscController {
 				 System.out.println(str_json_play);
 				 Orders orders= new Orders();
 				 orders.setMid(null);//会员ID
-				 orders.setStatus("未结");//注单状态
+				  orders.setStatus("0");//注单状态
 				 orders.setOrderstatus(str_json_play);
 				 orders.setInitamount(null);//注单原始金额
-				 orders.setOrdertype("ssc");//游戏类型
-				 orders.setOrderdate(null);//下注时间
-				 orders.setPeriodno("1");	
+				 orders.setOrdertype("sscLM");//游戏类型
+				 orders.setOrderdate(times);//下注时间
+				 orders.setPeriodno(Periodno);	
 				 jsksService.insertData(orders);
 		return "ssc";
 
@@ -238,7 +238,7 @@ public class SscController {
 			 System.out.println(str_json_play);
 			 Orders orders= new Orders();
 			 orders.setMid(null);//会员ID
-			 orders.setStatus("未结");//注单状态
+			  orders.setStatus("0");//注单状态
 			 orders.setOrderstatus(str_json_play);
 			 orders.setInitamount(null);//注单原始金额
 			 orders.setOrdertype("sscONE");//游戏类型
@@ -313,7 +313,7 @@ public class SscController {
 			 System.out.println(str_json_play);
 			 Orders orders= new Orders();
 			 orders.setMid(null);//会员ID
-			 orders.setStatus("未结");//注单状态
+			  orders.setStatus("0");//注单状态
 			 orders.setOrderstatus(str_json_play);
 			 orders.setInitamount(null);//注单原始金额
 			 orders.setOrdertype("sscTWO");//游戏类型
@@ -387,7 +387,7 @@ public class SscController {
 			 System.out.println(str_json_play);
 			 Orders orders= new Orders();
 			 orders.setMid(null);//会员ID
-			 orders.setStatus("未结");//注单状态
+			  orders.setStatus("0");//注单状态
 			 orders.setOrderstatus(str_json_play);
 			 orders.setInitamount(null);//注单原始金额
 			 orders.setOrdertype("sscTHREE");//游戏类型
@@ -461,7 +461,7 @@ public class SscController {
 			 System.out.println(str_json_play);
 			 Orders orders= new Orders();
 			 orders.setMid(null);//会员ID
-			 orders.setStatus("未结");//注单状态
+			  orders.setStatus("0");//注单状态
 			 orders.setOrderstatus(str_json_play);
 			 orders.setInitamount(null);//注单原始金额
 			 orders.setOrdertype("sscFOUR");//游戏类型
@@ -476,7 +476,7 @@ public class SscController {
 	 * @return 主页
 	 */
 	@RequestMapping(value = "/sscFIVEdata")
-	public String sscFIVEdata(HttpServletRequest request, HttpServletResponse response) {
+	public String sscFIVEdata(HttpServletRequest request, HttpServletResponse response,String times,String Periodno) {
 		// 时时彩中两面 玩法 的投注数据
 		JsonBoCai jsonBoCai = new JsonBoCai();
 		jsonBoCai.setCategory("SSC");   //重庆时时彩
@@ -535,7 +535,7 @@ public class SscController {
 			 System.out.println(str_json_play);
 			 Orders orders= new Orders();
 			 orders.setMid(null);//会员ID
-			 orders.setStatus("未结");//注单状态
+			  orders.setStatus("0");//注单状态
 			 orders.setOrderstatus(str_json_play);
 			 orders.setInitamount(null);//注单原始金额
 			 orders.setOrdertype("sscFOUR");//游戏类型

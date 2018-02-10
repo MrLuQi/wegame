@@ -22,7 +22,7 @@ import com.game.service.JsksService;
 import com.game.util.common.RandomUtil;
 import com.game.util.common.gameConstants;
 @Controller
-public class BjscController {
+public class JsftController {
 	
 	
 	@Autowired
@@ -31,19 +31,19 @@ public class BjscController {
 
 	
 	
-@RequestMapping(value="/bjsc")
+@RequestMapping(value="/jsft")
 	public String bjsc() {
 	System.out.println("aaa");
 	System.out.println("成功进来");
 	
-	return "bjsc";
+	return "jsft";
 }
 
-	@RequestMapping(value="/bjsclm")
+	@RequestMapping(value="/jsftlm")
 	public String BJSC_LM_Data(HttpServletRequest request, HttpServletResponse response ,HttpSession session,String times, String  initamount){
 	
 	JsonBoCai jsonBoCai = new JsonBoCai();
-	jsonBoCai.setCategory("BJSC");   //北京赛车
+	jsonBoCai.setCategory("JSFT");   //北京赛车
 	jsonBoCai.setSubCategory("LMWF");   //北京赛车两面玩法
 	
 	
@@ -162,7 +162,7 @@ public class BjscController {
 				 //注单中奖金额
 				 
 				 //投注类型
-				 orders.setOrdertype("bjsc_LM");
+				 orders.setOrdertype("jsft_LM");
 				 //投注时间
 				 orders.setOrderdate(times);
 				 //退水金额
@@ -174,11 +174,11 @@ public class BjscController {
 				 //下单数据
 				orders.setOrderstatus(str_json_play);
 		        jsksService.insertData(orders);
-			 return  "bjsc";
+			 return  "jsft";
 }
 	
 	
-	@RequestMapping(value="/bjscdhdata")
+	@RequestMapping(value="/jsftdhdata")
 	public String BJSC_DH_Data(HttpServletRequest request, HttpServletResponse response,HttpSession session,String times, String  initamount){
 		JsonBoCai jsonBoCai = new JsonBoCai();
 		jsonBoCai.setCategory("BJSC");   //北京赛车
@@ -341,7 +341,7 @@ public class BjscController {
 		 //注单中奖金额
 		 
 		 //投注类型
-		 orders.setOrdertype("bjsc_DH");
+		 orders.setOrdertype("jsft_DH");
 		 //投注时间
 		 orders.setOrderdate(times);
 		 //退水金额
@@ -357,7 +357,7 @@ public class BjscController {
 		 return  "bjscDH";
 		
 	}
-	@RequestMapping(value="/bjscgyzhdata")
+	@RequestMapping(value="/jsftgyzhdata")
 	public String BJSC_GY_Data(HttpServletRequest request, HttpServletResponse response,HttpSession session,String times, String  initamount){
 		
 		JsonBoCai jsonBoCai = new JsonBoCai();
@@ -410,7 +410,7 @@ public class BjscController {
 		 //注单中奖金额
 		 
 		 //投注类型
-		 orders.setOrdertype("bjsc_GYJZH");
+		 orders.setOrdertype("jsft_GYJZH");
 		 //投注时间
 		 orders.setOrderdate(times);
 		 //退水金额
@@ -424,6 +424,6 @@ public class BjscController {
         jsksService.insertData(orders);
 		 
 
-		 return "bjscGYJZH";
+		 return "jsftGYJZH";
 	}
 }

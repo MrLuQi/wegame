@@ -132,7 +132,7 @@
 			}
 			;
 		}
-		JSTB.action = "${ctx}/bjscgyzhdata?times=" + times + "&initamount=" + sum;
+		JSTB.action = "${ctx}/jsftgyzhdata?times=" + times + "&initamount=" + sum;
 		//	var time=document.getElementById("showDate").value;
 		//var time =$("#showDate").val();
 		//获取用户余额data
@@ -167,7 +167,7 @@
 	<input type="hidden" id="page" value="lm" name="page">
 	<div id="main">
 		<form id="JSTB"
-			action="${pageContext.request.contextPath }/bjscgyzhdata"
+			action="${pageContext.request.contextPath }/jsftgyzhdata"
 			method="post">
 			<div id="header">
 				<!--开奖-->

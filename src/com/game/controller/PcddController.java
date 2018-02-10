@@ -20,6 +20,7 @@ import com.game.pojo.JsonBoCai;
 import com.game.pojo.Members;
 import com.game.pojo.Orders;
 import com.game.service.JsksService;
+import com.game.service.MembersService;
 import com.game.util.common.RandomUtil;
 import com.game.util.common.gameConstants;
 
@@ -29,7 +30,10 @@ public class PcddController {
 	@Autowired
 	@Qualifier("jsksService")
 	private JsksService jsksService;
-
+	
+	@Autowired
+	@Qualifier("membersService")
+	private MembersService membersService;
 	@RequestMapping(value = "/pcdd")
 	public String pcdd(){
 		return "pcdd";
@@ -109,10 +113,10 @@ public class PcddController {
 			 //是否大额中奖
 			 
 			 //注单原始金额
-			//BigDecimal bd=new BigDecimal(initamount);
+			 //BigDecimal bd=new BigDecimal(initamount);
 			 orders.setInitamount(new BigDecimal(initamount));
 			 //注单中奖金额
-			 
+		
 			 //投注类型
 			 orders.setOrdertype("pcdd_PCDD");
 			 //投注时间
@@ -123,11 +127,12 @@ public class PcddController {
 			 //下单数据
 			 orders.setOrderstatus(str_json_play);
 			 jsksService.insertData(orders);
-		 
-		 
-			 
-			 
-			 
+		 //获取下注前的余额
+		 Integer oldBalance = membersService.findMemberBalance(members.getMid());
+		 //下注后的余额
+		 Integer newBalance=oldBalance-Integer.parseInt(initamount);
+			 //更新用户余额
+		 membersService.updateMemberBalance(members.getMid(), newBalance);
 		 return "redirect:/pcdd";
 	}
 

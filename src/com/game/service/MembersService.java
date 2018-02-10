@@ -12,4 +12,5 @@ public interface MembersService {
 
 	Integer findMemberBalance(Integer mid);
 	
+	 void updateMemberBalance(Integer id,Integer newBalance);
 }

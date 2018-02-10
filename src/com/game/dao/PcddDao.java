@@ -16,6 +16,7 @@ public interface PcddDao {
 	
 	@Select("SELECT SUBSTRING(periodNo,2,15)AS A FROM orders ORDER BY A LIMIT 1")
 	String selectPeriodNo();
+	
 	@Select("select * from orders where periodNo=#{periodNo}")
    List<Orders> selectHitamount(String periodNo );
 }

@@ -2,7 +2,7 @@ package com.game.dao;
 
 import org.apache.ibatis.annotations.SelectProvider;
 
-import com.game.dao.provider.OrdersDynaSqlProvider;
+import com.game.dao.mapper.OrdersDynaSqlProvider;
 import com.game.pojo.Orders;
 
 

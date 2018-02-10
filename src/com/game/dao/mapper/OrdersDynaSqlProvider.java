@@ -1,4 +1,4 @@
-package com.game.dao.provider;
+package com.game.dao.mapper;
 
 import static com.game.util.common.gameConstants.GAME_ORDERS;
 

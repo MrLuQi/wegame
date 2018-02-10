@@ -9,6 +9,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +21,6 @@ import com.game.util.common.gameConstants;
 
 /**
  * top部分
- * @author LUQI
  *
  */
 
@@ -31,6 +31,7 @@ public class TopController {
 	 * @return
 	 */
 	@Autowired
+	@Qualifier("topService")
 	private TopService topService;
 	
 	@RequestMapping(value = "/alone")
@@ -72,7 +73,7 @@ public class TopController {
 	 * 报表查询
 	 * @return
 	 */
-/*	@Autowired
+/*	
 	@RequestMapping(value = "/alone")
 	public String alone(){
 		return "alone";
@@ -81,7 +82,6 @@ public class TopController {
 	 * 开奖结果
 	 * @return
 	 */
-	@Autowired
 	@RequestMapping(value = "/result")
 	public String result(){
 		return "result";
@@ -90,7 +90,6 @@ public class TopController {
 	 * 个人资讯
 	 * @return
 	 */
-	@Autowired
 	@RequestMapping(value = "/information")
 	public String information(){
 		return "information";
@@ -99,7 +98,6 @@ public class TopController {
 	 * 修改密码
 	 * @return
 	 */
-	@Autowired
 	@RequestMapping(value = "/change")
 	public String change(){
 		return "change";
@@ -108,7 +106,7 @@ public class TopController {
 	 * 游戏规则
 	 * @return
 	 */
-/*	@Autowired
+/*	
 	@RequestMapping(value = "/alone")
 	public String alone(){
 		return "alone";
@@ -117,9 +115,24 @@ public class TopController {
 	 * 更换皮肤
 	 * @return
 	 */
-/*	@Autowired
+/*	
 	@RequestMapping(value = "/alone")
 	public String jsks(){
 		return "alone";
 	}*/
+	/**
+	 * 未结算金额
+	 * @return
+	 */
+	@RequestMapping(value = "/nobalance")
+	public String nobalance(HttpSession session){
+		int sum=0;
+		Members members	=	(Members) session.getAttribute(gameConstants.MEMBER_SESSION); 
+		 //Orders orders= new Orders();
+		String a[]= topService.getNobalance(members.getMid());
+		for (int i = 0; i < a.length; i++) {
+			System.out.println(a[i]+"  ");
+		}
+		return null;
+	}
 }

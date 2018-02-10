@@ -29,5 +29,10 @@ private TopDao topDao;
 		List<Orders> selectNowDateOrder = topDao.selectNowDateOrder(id, date);
 		return selectNowDateOrder;
 	}
+	@Override
+	public String[] getNobalance(Integer mid) {
+		// TODO Auto-generated method stub
+		return topDao.getNobalance(mid);
+	}
 
 }

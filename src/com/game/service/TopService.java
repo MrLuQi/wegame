@@ -14,4 +14,5 @@ public interface TopService {
 	 */
 List<Orders> selectorders(int id, String startime,String endtime);
 List<Orders> selectNowDateOrder(int id);
+String[] getNobalance(Integer mid);
 }

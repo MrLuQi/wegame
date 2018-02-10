@@ -138,7 +138,7 @@
 						<span>北京赛车</span>
 					</a>
 					<a href="${ctx }/pcdd" target="Exhibition" class="list-item">
-						<span>PC蛋蛋</span>
+			 			<span>PC蛋蛋</span>
 					</a>
 					<a href="${ctx }/lhc" target="Exhibition" class="list-item">
 						<span>六合彩</span>
@@ -155,6 +155,8 @@
 				<div class="contents contents-checked">
 					<li>
 						<a href="${ctx }/jiangsukuaisan" target="Exhibition">大小骰宝</a>
+
+						<a href="${ctx }/jsks" target="Exhibition">大小骰宝</a>
 					</li>
 				</div>
 				<div class="contents">
@@ -243,7 +245,7 @@
 			</div>
 			<div class="betdone" id="drawOfficial">
 				<div class="title">
-					<a href="${ctx }/pay" target="Exhibition">在线充值</a>
+					<a href="">请联系客服充值</a>
 				</div>
 				<div class="title">
 					<a href="${ctx }/pay02" target="Exhibition">在线提款</a>
@@ -279,6 +281,7 @@
 		</div>
 		<div class="iframes">
 			<iframe id="Exhibition" name="Exhibition" src="${ctx }/jsks" marginheight="0" marginwidth="0" frameborder="0" scrolling="yes" style="position: relative;left: 10px;top: 10px;width: 100%;height: 100%;"></iframe>
+		</div>
 		</div>
 </body>
 

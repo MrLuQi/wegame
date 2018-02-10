@@ -142,8 +142,12 @@ public class BjscController {
 				 System.out.println(str_json_play);
 				 Orders orders= new Orders();
 				
-				 //orders.setOid(10);
-				orders.setOrderstatus(str_json_play);
+				 orders.setStatus("0");//注单状态
+				 orders.setOrderstatus(str_json_play);
+				 orders.setInitamount(null);//注单原始金额
+				 orders.setOrdertype("bjscLM");//游戏类型
+				 orders.setOrderdate(null);//下注时间
+				 orders.setPeriodno("1");	
 				 jsksService.insertData(orders);
 			 return  "redirect:/bjsc";
 }
@@ -297,8 +301,12 @@ public class BjscController {
 			 System.out.println(str_json_play);
 			 Orders orders= new Orders();
 			
-			 //orders.setOid(10);
-			orders.setOrderstatus(str_json_play);
+			 orders.setStatus("0");//注单状态
+			 orders.setOrderstatus(str_json_play);
+			 orders.setInitamount(null);//注单原始金额
+			 orders.setOrdertype("bjscDH");//游戏类型
+			 orders.setOrderdate(null);//下注时间
+			 orders.setPeriodno("1");	
 			 jsksService.insertData(orders);
 		 
 		 return  "bjscDH";
@@ -345,8 +353,13 @@ public class BjscController {
 			 //orders.setOid(10);
 			orders.setOrderstatus(str_json_play);
 			 jsksService.insertData(orders);
-		 
-
+			 orders.setStatus("0");//注单状态
+			 orders.setOrderstatus(str_json_play);
+			 orders.setInitamount(null);//注单原始金额
+			 orders.setOrdertype("bjscGYJZH");//游戏类型
+			 orders.setOrderdate(null);//下注时间
+			 orders.setPeriodno("1");	
+			 jsksService.insertData(orders);
 		 return "bjscGYJZH";
 	}
 }

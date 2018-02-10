@@ -1,6 +1,7 @@
 package com.game.controller;
 
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,11 +39,11 @@ public class PcddController {
 	
 	
 	@RequestMapping(value="/pcddxzdata")
-	public String PCDD_HH_DM(HttpServletRequest request, HttpServletResponse response,HttpSession session,String times ){
+	public String PCDD_HH_DM(HttpServletRequest request, HttpServletResponse response,HttpSession session,String times, String  initamount ){
 		JsonBoCai jsonBoCai = new JsonBoCai();
 		jsonBoCai.setCategory("PCDD");   //PC蛋蛋
 		jsonBoCai.setSubCategory("PC");   //pc蛋蛋玩法
-		
+		System.out.println(initamount+"下注金额");
 		
 		 Map<String,Integer>  ghList=new HashMap<String,Integer>(); //混合投注数据 
 		 ghList.put("DA", (request.getParameter("DA")=="")?0:Integer.parseInt(request.getParameter("DA"))); 
@@ -102,13 +103,14 @@ public class PcddController {
 			 //注单号
 			orders.setOrderno(RandomUtil.getRandomFileName()); 
 			 //注单状态
-			 orders.setStatus("1");//未结
+			 orders.setStatus("0");//未结
 			 //是否中奖
 			 
 			 //是否大额中奖
 			 
 			 //注单原始金额
-			 
+			//BigDecimal bd=new BigDecimal(initamount);
+			 orders.setInitamount(new BigDecimal(initamount));
 			 //注单中奖金额
 			 
 			 //投注类型
@@ -126,7 +128,7 @@ public class PcddController {
 			 
 			 
 			 
-		 return "pcdd";
+		 return "redirect:/pcdd";
 	}
 
 }

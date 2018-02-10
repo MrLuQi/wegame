@@ -31,6 +31,30 @@ table th, table td {
 	overflow: hidden;
 }
 
+/* qq客服联系 */
+.kefu{
+				right: 3px;
+    position: absolute;
+    padding: 0;
+    height: 200px;
+    width: 100px;
+    text-align: center;
+    border: 1px solid #2196F3;
+    margin: 0;
+    top: 138px;
+			}
+			.ke-top{
+				    height: 53px;
+    line-height: 55px;
+    background: #2196F3;
+    color: #FFF;
+			}
+			.active:visited{
+			color: #006DCC;
+			}
+			.speak{
+				margin-top: 19px;
+			}
 .bold {
 	font-weight: bold;
 }

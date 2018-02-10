@@ -1,4 +1,4 @@
-package com.game.interceptor;
+package com.game.dao.provider;
 
 import static com.game.util.common.gameConstants.GAME_ORDERS;
 

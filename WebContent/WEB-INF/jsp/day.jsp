@@ -21,9 +21,20 @@
 			            <th class="ths">结果</th>
 			       	</tr>
 		    	</thead>
+		    	<tbody>
+		    	<c:forEach items="${selectNowDateOrder}" var="selectNowDateOrder">
 					<tr>
-						<th colspan="7" class="tds">暂无数据！</th>
+							<td>${selectNowDateOrder.orderno}</td>
+							<td>${selectNowDateOrder.orderdate}</td>
+							<td>${selectNowDateOrder.ordertype}</td>
+							<td>${selectNowDateOrder.orderwanfa}</td>
+							<td>${selectNowDateOrder.initamount}</td>
+							<td>${selectNowDateOrder.backamount}</td>
+							<td>${selectNowDateOrder.hitamount}</td>
 					</tr>
+					</c:forEach>
+					<th colspan="7" class="tds">暂无数据！</th>
+					</tbody>
 					<thead>
 				        <tr>
 				            <th class="tha"></th>

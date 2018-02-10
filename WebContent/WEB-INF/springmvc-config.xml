@@ -27,10 +27,10 @@
     	<!--  	 <bean class="com.fumehood.interceptor.LoginInterceptor"/> 
     	</mvc:interceptor>
     </mvc:interceptors> -->
-  <!--   <mvc:interceptors>
+    <mvc:interceptors>
     <mvc:interceptor>
         <mvc:mapping path="/**" />
-        <bean class="com.fumehood.interceptor.LoginInterceptor">
+        <bean class="com.game.interceptor.LoginInterceptor">
             <property name="excludedUrls">
                 <list>
                 	<value>/UsernameAndPassword</value>
@@ -38,15 +38,14 @@
                     <value>/toLogin</value>
                     <value>/loginForget</value>
                     <value>/fonts/</value>
-                    <value>/dist/</value>
-                    <value>/img/</value>
+                    <value>/images/</value>
                     <value>/css/</value>
                     <value>/js/</value>
                 </list>
             </property>
         </bean>
     </mvc:interceptor>
-</mvc:interceptors>  -->
+</mvc:interceptors>  
     
     <!-- 视图解析器  -->
      <bean id="viewResolver"

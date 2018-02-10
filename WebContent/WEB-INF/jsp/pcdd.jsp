@@ -13,6 +13,8 @@ $(function() {
 })
 //取得系统当前时间 
 var times = "";
+//投注金额
+var sum=0;
 function getTime() {
 	$.post("${ctx}/time", function(data) {
 		times = data.year + "/" + data.month + "/" + data.day + " "
@@ -29,14 +31,14 @@ function getTime() {
 			var minutes = "0" + m;
 			var minute = minutes.substring(1, 2);
 			if(minute>=5){
-				minute="0"+(9-parseInt(minute));
+				minute="0"+parseInt(minute)-5
 			}
 		} else {
 			fen = data.minute;
 			minutes = "" + data.minute + "";
 			minute = minutes.substring(1, 2);
 			if(minute>=5){
-				minute="0"+(9-parseInt(minute));
+				minute=""+parseInt(minute)-5
 			}
 		}
 		if (data.second < 10) {
@@ -48,15 +50,12 @@ function getTime() {
 		var time = data.year + "/" + data.month + "/" + data.day + " "
 				+ hour + ":" + fen + ":" + second;
 		$("#showDate").html(time);
-
-		//游戏开始时间8:40-22:10
-		//游戏开始时间9:00-23:50
-		//判断时间是否在游戏时间内
-		if (data.hour<9||data.hour>=23) {
-			if ((data.hour == 23 && data.minute > 55)) {
-				//游戏时间之外  
-				alert("stop!");
-			} else {
+		if ((9 <data.hour&&data.hour < 23)||(data.hour == 9 && data.minute >=0)
+				|| (data.hour == 23 && data.minute <= 55)) {
+					//8:40时刷新页面
+					if(data.hour == 9 && data.minute==0&&data.second==0){
+						parent.location.reload();
+					}
 				//游戏时间之内
 				var surplusfen = 4 - parseInt(minute); //剩余分钟
 				var surplusmiao = 60 - parseInt(data.second);//剩余秒钟
@@ -96,19 +95,30 @@ function getTime() {
 					alert("开奖啦~");
 				}
 
+			}else{
+				//游戏时间之外  
+				//alert("stop!");
+				//console.log("stop!");
+				$("#cdClose").html("请等待游戏开盘");
+				$("#cdDraw").html("请等待游戏开盘");
+				//按钮禁止点击
+				$("#sub1").attr("disabled", true);
+				$("#sub2").attr("disabled", true);
+				//
+				for (var i = 1; i <= 50; i++) {
+						var rate = $("#rate" + i + "").text();
+						//alert(aa+"    geshu:"+i);
+						$("#rate" + i + "").text("---");
+					}
 			}
-		}
+		
+	
 	})
 }
-//确认按钮
 function submitdata() {
-	JSTB.action = "${ctx}/pcddxzdata?times=" + times;
-	//	var time=document.getElementById("showDate").value;
-	//var time =$("#showDate").val();
-	//投注金额
 	var valList = [];
 	//投注金额总数
-	 var sum = 0;
+	
 	//把投注金额放入数组
 	   $('.ba').each(function(){					
 		//alert($(this).val());	
@@ -120,15 +130,21 @@ function submitdata() {
 			    sum += valList[i];
 		   } ; 
 		   }  
-//	 alert(sum);
-	alert("购买成功，请等待开奖！祝你好运~");
-	for(var i=1;i<=50;i++){
-		var rate=$("#rate"+i+"").text();
-		//alert(aa+"    geshu:"+i);
-		$("#rate"+i+"").text("---");
-	}	
-	JSTB.submit();
-	alert("投注成功,请耐心等待开奖结果,谢谢~");
+	JSTB.action = "${ctx}/pcddxzdata?times=" + times+"&initamount="+sum;
+	//	var time=document.getElementById("showDate").value;
+	//var time =$("#showDate").val();
+    //获取用户余额data
+    $.post("${ctx}/balance",function(data){
+    	//alert(data);
+    	//alert(sum);
+    	if(sum>data){
+	   		alert("不好意思,您投注金额大于余额,请重新投注!");
+	   	}else{
+	   		JSTB.submit();
+			alert("投注成功,请耐心等待开奖结果,谢谢~");
+	   	} 
+    })
+
 }
 //重置按钮
 function resetBets(){
@@ -142,7 +158,6 @@ function resetBets(){
 	
 	
 }
-
 </script>
 </head>
 

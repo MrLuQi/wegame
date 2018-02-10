@@ -5,6 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>欢迎光临</title>
 	<link rel="stylesheet" href="${ctx}/css/main.css" />
+	<script type="text/javascript" src="${ctx }/js/jquery-3.2.1.min.js"></script>
 	<script>
 		//tap切换导航
 		function Tabs(tabs_name, contents_name, tabs_checked_style, contents_checked_style) {
@@ -80,6 +81,11 @@
 			Tabs(".list-item", ".contents", "list-item-checked", "contents-checked");
 
 		}
+		$(function() {
+			 $.post("${ctx}/balance",function(data){
+				$("#balance").html(data+".00");	 
+			 })
+		})
 	</script>
 </head>
 
@@ -251,7 +257,7 @@
 				<div class="zhanghu" id="account">
 					<div class="info">
 						<label>编号：</label><span> ${member_session.mid }</span></div>
-					<div class="info"><label>金币：</label><span class="balance"> ${member_session.balance }</span></div>
+					<div class="info"><label>余额：</label><span class="balance" id="balance"></span></div>
 					<div class="info"><label>未结算金额：</label><span class="betting">0</span></div>
 				</div>
 			</div>
@@ -296,9 +302,6 @@
 		</div>
 		</div>
 </body>
+</html>
 
-<<<<<<< HEAD
-</html>
-=======
-</html>
->>>>>>> branch 'master' of https://github.com/MrLuQi/wegame.git
+

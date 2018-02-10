@@ -215,7 +215,7 @@
 					//游戏时间之外  
 					//alert("stop!");
 					//console.log("stop!");
-					$("#cdClose").html("请等待游戏开盘");
+				 	$("#cdClose").html("请等待游戏开盘");
 					$("#cdDraw").html("请等待游戏开盘");
 					//按钮禁止点击
 					$("#sub1").attr("disabled", true);
@@ -225,7 +225,7 @@
 							var rate = $("#rate" + i + "").text();
 							//alert(aa+"    geshu:"+i);
 							$("#rate" + i + "").text("---");
-						}
+						} 
 				}
 			
 		
@@ -233,9 +233,6 @@
 	}
 	//确认按钮
 	function submitdata() {
-		JSTB.action = "${ctx}/tzdata?times=" + times;
-		//	var time=document.getElementById("showDate").value;
-		//var time =$("#showDate").val();
 		var sum=0;
 		var inputArray=$("input[type='text']");//取到所有的input text 并且放到一个数组中  
 	     inputArray.each(//使用数组的循环函数 循环这个input数组  
@@ -244,19 +241,20 @@
 	       			sum+=Number($('#'+input.attr("id")).val());
 	         }  
 	     )
+		JSTB.action = "${ctx}/tzdata?times=" + times+"&initamount="+sum;
+		//	var time=document.getElementById("showDate").value;
+		//var time =$("#showDate").val();
+	
 	     //获取用户余额data
-	    $.post("${ctx}/balance?consume=-1",function(data){
+	    $.post("${ctx}/balance",function(data){
 	    	//alert(data);
 	    	//alert(sum);
 	    	if(sum>data){
 		   		alert("不好意思,您投注金额大于余额,请重新投注!");
 		   	}else{
 		   		JSTB.submit();
-		   		var consume=data-sum;
-		   		$.post("${ctx}/balance?consume="+consume,function(data1){
-		   			
-		   		})
 				alert("投注成功,请耐心等待开奖结果,谢谢~");
+				parent.location.reload();
 		   	} 
 	    })
 	    	

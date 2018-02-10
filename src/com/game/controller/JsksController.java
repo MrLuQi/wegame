@@ -1,5 +1,6 @@
 package com.game.controller;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,10 +16,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
+
+
+
+
 import com.game.pojo.JsonBoCai;
 import com.game.pojo.Members;
 import com.game.pojo.Orders;
 import com.game.service.JsksService;
+import com.game.service.MembersService;
 import com.game.util.common.gameConstants;
 
 
@@ -38,7 +44,9 @@ public class JsksController {
 	@Qualifier("jsksService")
 	private JsksService jsksService;
 	*/
-
+	@Autowired
+	@Qualifier("membersService")
+	private MembersService membersService;
 	@RequestMapping(value = "/jsks")
 	public String jsks(){
 		return "jiangsukuaisan";
@@ -55,11 +63,12 @@ public class JsksController {
 	 * @return
 	 */
 	@RequestMapping(value = "/tzdata")
-	public String JSKS_DXTB(HttpServletRequest request,HttpServletResponse response,HttpSession session,String times ){
+	public String JSKS_DXTB(HttpServletRequest request,HttpServletResponse response,HttpSession session,String times,String initamount ){
 		//大小三军的玩法
 				JsonBoCai jsonBoCai = new JsonBoCai();
 				jsonBoCai.setCategory("JSKS");   //江苏快三
 				jsonBoCai.setSubCategory("DXTB");   //大小骰宝玩法
+				System.out.println("下注金额:"+initamount);
 				/**-下列代码中模拟用户投注金额20, 实际投注中用户不一定每项都投-**/
 				 Map<String,Integer>  sjList=new HashMap<String,Integer>(); //三军投注数据
 				 sjList.put("SANJUN1", (request.getParameter("SANJUN1")=="")?0:Integer.parseInt(request.getParameter("SANJUN1"))); 
@@ -145,7 +154,7 @@ public class JsksController {
 					 //是否大额中奖
 					 
 					 //注单原始金额
-					 orders.setInitamount(null);//注单原始金额
+					 orders.setInitamount(new BigDecimal(initamount));
 
 					 //注单中奖金额
 					 
@@ -159,7 +168,12 @@ public class JsksController {
 					
 					 //开奖期数
 					 orders.setPeriodno("1");
-					 
+					 //获取下注前的余额
+					 Integer oldBalance = membersService.findMemberBalance(members.getMid());
+					 //下注后的余额
+					 Integer newBalance=oldBalance-Integer.parseInt(initamount);
+						 //更新用户余额
+					 membersService.updateMemberBalance(members.getMid(), newBalance);
 					 //下单数据
 					 orders.setOrderstatus(str_json_play);
 					 jsksService.insertData(orders);

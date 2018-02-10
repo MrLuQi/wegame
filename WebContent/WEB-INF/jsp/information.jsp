@@ -6,6 +6,14 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<link rel="stylesheet" href="${ctx }/css/change.css" />
+		<script type="text/javascript" src="${ctx }/js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+		$(function() {
+			 $.post("${ctx}/balance",function(data){
+				$("#balance").html(data+".00");	 
+			 })
+		})
+		</script>
 	</head>
 	<body>
 		<table border="1" cellspacing="0" cellpadding="0">
@@ -32,7 +40,7 @@
 				<tr>
 					<td class="ptext"><span>金币：</span></td>
 					<th class="pword">
-						<p>${member_session.balance }</p>
+						<p id="balance"></p>
 					</th>
 				</tr>
 			</thead>

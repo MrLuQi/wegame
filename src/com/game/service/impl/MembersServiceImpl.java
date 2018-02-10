@@ -26,4 +26,11 @@ public class MembersServiceImpl implements MembersService {
 		return membersDao.findMemberBalance(mid);
 	}
 
+
+	@Override
+	public void updateMemberBalance( Integer id, Integer newBalance) {
+		membersDao.updateBalance(id, newBalance);
+		
+	}
+
 }

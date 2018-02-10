@@ -154,6 +154,8 @@
 			<div id="content-box">
 				<div class="contents contents-checked">
 					<li>
+						<a href="${ctx }/jiangsukuaisan" target="Exhibition">大小骰宝</a>
+
 						<a href="${ctx }/jsks" target="Exhibition">大小骰宝</a>
 					</li>
 				</div>

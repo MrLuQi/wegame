@@ -164,7 +164,7 @@ public class SscController {
 				 System.out.println(str_json_play);
 				 Orders orders= new Orders();
 				 orders.setMid(null);//会员ID
-				 orders.setStatus("未结");//注单状态
+				  orders.setStatus("0");//注单状态
 				 orders.setOrderstatus(str_json_play);
 				 orders.setInitamount(null);//注单原始金额
 				 orders.setOrdertype("ssc");//游戏类型
@@ -238,7 +238,7 @@ public class SscController {
 			 System.out.println(str_json_play);
 			 Orders orders= new Orders();
 			 orders.setMid(null);//会员ID
-			 orders.setStatus("未结");//注单状态
+			  orders.setStatus("0");//注单状态
 			 orders.setOrderstatus(str_json_play);
 			 orders.setInitamount(null);//注单原始金额
 			 orders.setOrdertype("sscONE");//游戏类型
@@ -313,7 +313,7 @@ public class SscController {
 			 System.out.println(str_json_play);
 			 Orders orders= new Orders();
 			 orders.setMid(null);//会员ID
-			 orders.setStatus("未结");//注单状态
+			  orders.setStatus("0");//注单状态
 			 orders.setOrderstatus(str_json_play);
 			 orders.setInitamount(null);//注单原始金额
 			 orders.setOrdertype("sscTWO");//游戏类型
@@ -387,7 +387,7 @@ public class SscController {
 			 System.out.println(str_json_play);
 			 Orders orders= new Orders();
 			 orders.setMid(null);//会员ID
-			 orders.setStatus("未结");//注单状态
+			  orders.setStatus("0");//注单状态
 			 orders.setOrderstatus(str_json_play);
 			 orders.setInitamount(null);//注单原始金额
 			 orders.setOrdertype("sscTHREE");//游戏类型
@@ -461,7 +461,7 @@ public class SscController {
 			 System.out.println(str_json_play);
 			 Orders orders= new Orders();
 			 orders.setMid(null);//会员ID
-			 orders.setStatus("未结");//注单状态
+			  orders.setStatus("0");//注单状态
 			 orders.setOrderstatus(str_json_play);
 			 orders.setInitamount(null);//注单原始金额
 			 orders.setOrdertype("sscFOUR");//游戏类型
@@ -535,7 +535,7 @@ public class SscController {
 			 System.out.println(str_json_play);
 			 Orders orders= new Orders();
 			 orders.setMid(null);//会员ID
-			 orders.setStatus("未结");//注单状态
+			  orders.setStatus("0");//注单状态
 			 orders.setOrderstatus(str_json_play);
 			 orders.setInitamount(null);//注单原始金额
 			 orders.setOrdertype("sscFOUR");//游戏类型

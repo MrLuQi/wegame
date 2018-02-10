@@ -8,7 +8,6 @@ import java.util.Map;
 import net.sf.json.JSONObject;
 /**
  * 江苏快三各玩法中奖校验类
- * @author LUQI
  *
  */
 public class Util_JSKS {

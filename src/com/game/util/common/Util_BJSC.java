@@ -3,7 +3,6 @@ package com.game.util.common;
 
 /**
  * 北京赛车各玩法中奖校验类
- * @author 杨佳伟
  *
  */
 public class Util_BJSC {

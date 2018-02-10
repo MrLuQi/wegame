@@ -2,11 +2,6 @@ package com.game.util.common;
 
 
 
-/**
- * 
- * @author 杨佳伟
- *
- */
 public class Util_PCDD {
 /**
  * 	  混合玩法中---一个数判断是否大数，并且计算中奖金额

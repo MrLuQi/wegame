@@ -14,13 +14,16 @@ import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.game.pojo.JsonBoCai;
 import com.game.pojo.Members;
 import com.game.pojo.Orders;
 import com.game.service.JsksService;
 import com.game.service.MembersService;
+import com.game.util.common.PCDD_Periods;
 import com.game.util.common.RandomUtil;
 import com.game.util.common.gameConstants;
 
@@ -43,7 +46,8 @@ public class PcddController {
 	
 	
 	@RequestMapping(value="/pcddxzdata")
-	public String PCDD_HH_DM(HttpServletRequest request, HttpServletResponse response,HttpSession session,String times, String  initamount ){
+	public String PCDD_HH_DM(HttpServletRequest request, HttpServletResponse response,HttpSession session,String times, String  initamount ,String pp){
+		System.out.println(pp);
 		JsonBoCai jsonBoCai = new JsonBoCai();
 		jsonBoCai.setCategory("PCDD");   //PC蛋蛋
 		jsonBoCai.setSubCategory("PC");   //pc蛋蛋玩法
@@ -136,4 +140,14 @@ public class PcddController {
 		 return "redirect:/pcdd";
 	}
 
+	
+	@RequestMapping(value="/periods")
+	@ResponseBody
+	public String periods(Model model){
+		String plus = PCDD_Periods.Plus();
+	//	model.addAttribute("plus", plus);
+		return plus;
+		
+		
+	}
 }

@@ -13,9 +13,6 @@ import com.game.util.common.gameConstants;
 
 /**
  * 动态页面跳转控制器
- * 
- * @author luqi
- * @date 2017/9/1
  */
 @Controller
 public class FormController {

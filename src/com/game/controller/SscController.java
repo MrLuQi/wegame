@@ -16,17 +16,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.game.pojo.Building;
 import com.game.pojo.JsonBoCai;
 import com.game.pojo.Orders;
-import com.game.service.BuildingSercice;
 import com.game.service.JsksService;
 
-/**
- * 
- * @author 杨佳伟 2018年1月6日下午4:08:10
- * @parms
- */
 @Controller
 public class SscController {
 	/**

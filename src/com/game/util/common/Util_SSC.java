@@ -4,11 +4,7 @@ import java.util.Arrays;
 
 import net.sf.json.JSONObject;
 
-/**
- * 
- * @author �Ӵ���
- *
- */
+
 public class Util_SSC {
 	/**
      * �����淨��--��������֮���ж��Ƿ���������Ҽ����н����

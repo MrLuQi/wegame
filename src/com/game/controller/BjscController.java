@@ -68,9 +68,9 @@ public class BjscController {
 	 yjList.put("DA", (request.getParameter("LM10")=="")?0:Integer.parseInt(request.getParameter("LM10")));
 	 yjList.put("XIAO", (request.getParameter("LM11")=="")?0:Integer.parseInt(request.getParameter("LM11")));
 	 yjList.put("DAN", (request.getParameter("LM12")=="")?0:Integer.parseInt(request.getParameter("LM12")));
-	 yjList.put("LONG2", (request.getParameter("LM13")=="")?0:Integer.parseInt(request.getParameter("LM13")));
-	 yjList.put("HU2", (request.getParameter("LM14")=="")?0:Integer.parseInt(request.getParameter("LM14")));
-	 yjList.put("LM15", (request.getParameter("LM15")=="")?0:Integer.parseInt(request.getParameter("LM115")));
+	 yjList.put("SHUANG", (request.getParameter("LM13")=="")?0:Integer.parseInt(request.getParameter("LM13")));
+	 yjList.put("LONG2", (request.getParameter("LM14")=="")?0:Integer.parseInt(request.getParameter("LM14")));
+	 yjList.put("HU2", (request.getParameter("LM15")=="")?0:Integer.parseInt(request.getParameter("LM15")));
 	 
 	 Map<String,Integer>  dsmList=new HashMap<String,Integer>(); //第三名投注数据
 	 dsmList.put("DA", (request.getParameter("LM16")=="")?0:Integer.parseInt(request.getParameter("LM16")));

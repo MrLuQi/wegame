@@ -9,10 +9,191 @@
 <link rel="stylesheet" href="css/Jiangsu.css" />
 		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript">
-			var lottery = 'pk10';
-			var lotteryType = '0';
-			var template = 'pk10'
-				function submitdata(){
+		$(function() {
+			setInterval("getTime();", 1000); //每隔一秒执行一次 
+		})
+		//取得系统当前时间 
+		var times = "";
+		var Periodno="";
+		var p=1;		
+		function getTime() {
+			$.post("${ctx}/time", function(data) {
+				times = data.year + "/" + data.month + "/" + data.day + " "
+						+ data.hour + ":" + data.minute + ":" + data.second;
+				if (data.hour < 10) {
+					var h = data.hour;
+					var hour = "0" + h;
+				} else {
+					hour = data.hour;
+				}
+				 if (data.minute < 10) {
+						var m = data.minute;
+						var fen = "0" + m;
+						var minutes = "0" + m;
+						var minute = minutes.substring(1, 2);
+						if(minute>=5){
+							minute="0"+parseInt(minute)-5
+						}
+					} else {
+						fen = data.minute;
+						minutes = "" + data.minute + "";
+						minute = minutes.substring(1, 2);
+						if(minute>=5){
+							minute=""+parseInt(minute)-5
+						}
+					}
+				if (data.second < 10) {
+					var s = data.second;
+					var second = "0" + s;
+				} else {
+					second = data.second;
+				}
+				var time = data.year + "/" + data.month + "/" + data.day + " "
+						+ hour + ":" + fen + ":" + second;
+				Periodno=data.year +""+ data.month +""+ data.day+"";
+				$("#showDate").html(time);
+				$("#drawNumber").html(Periodno+"00"+p);
+				//游戏开始时间10:00-22:10
+				//判断时间是否在游戏时间内
+				if ((10 < data.hour&&data.hour < 22)||(data.hour == 10 && data.minute >=0)
+						|| (data.hour == 22 && data.minute <= 0)) {
+							//10:00时刷新页面
+							if(data.hour == 10 && data.minute==0&&data.second==0){
+								parent.location.reload();
+							}
+						//游戏时间之内
+						var surplusfen = 9 - parseInt(minute); //剩余分钟
+						var surplusmiao = 60 - parseInt(data.second);//剩余秒钟
+						var closefen = surplusfen - 2;//封盘剩余分钟
+						$("#cdRefresh").html(surplusmiao + "秒");
+						//秒+00
+						if (surplusmiao < 10) {
+							var aa = "0" + surplusmiao;
+							//alert(aa);
+							$("#cdClose").html(closefen + ":" + aa);
+							$("#cdDraw").html(surplusfen + ":" + aa);
+						} else {
+							$("#cdDraw").html(surplusfen + ":" + surplusmiao);
+							$("#cdClose").html(closefen + ":" + surplusmiao);
+						}
+						//surplusmiao 不会等于0	   
+						/* 封盘，禁止投注 */
+						if ((closefen == 0 && surplusmiao == 1) || closefen < 0) {
+							$("#cdClose").html("00:00");
+							$("#sub1").attr("disabled", true);
+							$("#sub2").attr("disabled", true);
+							//封盘
+							for (var i = 1; i <= 50; i++) {
+								var rate = $("#rate" + i + "").text();
+								//alert(aa+"    geshu:"+i);
+								$("#rate" + i + "").text("---");
+							}
+							//alert("封盘啦~");
+						} else {
+							$("#sub1").attr("disabled", false);
+							$("#sub2").attr("disabled", false);
+						}
+						/* 开奖  */
+						if (surplusfen == 0 && surplusmiao == 1) {
+							p++;
+							if(p<10){
+								Periodno=Periodno + "00"+p	
+							}else{
+								Periodno=Periodno + "0"+p	
+							}							
+							$("#drawNumber").html(Periodno);
+							//刷新页面--显示倍率
+							parent.location.reload();
+							alert("开奖啦~");
+						}
+
+					}else{
+						//游戏时间之外  
+						//alert("stop!");
+						//console.log("stop!");
+						$("#cdClose").html("请等待游戏开盘");
+						$("#cdDraw").html("请等待游戏开盘");
+						//按钮禁止点击
+						$("#sub1").attr("disabled", true);
+						$("#sub2").attr("disabled", true);
+						//
+						for (var i = 1; i <= 50; i++) {
+								var rate = $("#rate" + i + "").text();
+								//alert(aa+"    geshu:"+i);
+								$("#rate" + i + "").text("---");
+							}
+						//游戏开始时间22:00-2:00
+						//判断时间是否在游戏时间内
+						if (!(2 < data.hour&&data.hour < 22)||(data.hour == 10 && data.minute >=0)
+								|| (data.hour == 22 && data.minute <= 0)) {
+									//22:00时刷新页面
+									if(data.hour == 22 && data.minute==0&&data.second==0){
+										parent.location.reload();
+									}
+								//游戏时间之内
+								var surplusfen = 4 - parseInt(minute); //剩余分钟
+								var surplusmiao = 60 - parseInt(data.second);//剩余秒钟
+								var closefen = surplusfen - 2;//封盘剩余分钟
+								$("#cdRefresh").html(surplusmiao + "秒");
+								//秒+00
+								if (surplusmiao < 10) {
+									var aa = "0" + surplusmiao;
+									//alert(aa);
+									$("#cdClose").html(closefen + ":" + aa);
+									$("#cdDraw").html(surplusfen + ":" + aa);
+								} else {
+									$("#cdDraw").html(surplusfen + ":" + surplusmiao);
+									$("#cdClose").html(closefen + ":" + surplusmiao);
+								}
+								//surplusmiao 不会等于0	   
+								/* 封盘，禁止投注 */
+								if ((closefen == 0 && surplusmiao == 1) || closefen < 0) {
+									$("#cdClose").html("00:00");
+									$("#sub1").attr("disabled", true);
+									$("#sub2").attr("disabled", true);
+									//封盘
+									for (var i = 1; i <= 50; i++) {
+										var rate = $("#rate" + i + "").text();
+										//alert(aa+"    geshu:"+i);
+										$("#rate" + i + "").text("---");
+									}
+									//alert("封盘啦~");
+								} else {
+									$("#sub1").attr("disabled", false);
+									$("#sub2").attr("disabled", false);
+								}
+								/* 开奖  */
+								if (surplusfen == 0 && surplusmiao == 1) {
+									//刷新页面--显示倍率
+									parent.location.reload();
+									alert("开奖啦~");
+								}
+
+							}else{
+								//游戏时间之外  
+								//alert("stop!");
+								//console.log("stop!");
+								$("#cdClose").html("请等待游戏开盘");
+								$("#cdDraw").html("请等待游戏开盘");
+								//按钮禁止点击
+								$("#sub1").attr("disabled", true);
+								$("#sub2").attr("disabled", true);
+								//
+								for (var i = 1; i <= 50; i++) {
+										var rate = $("#rate" + i + "").text();
+										//alert(aa+"    geshu:"+i);
+										$("#rate" + i + "").text("---");
+									}
+							}
+					}
+				
+				
+				
+			
+			})
+		}
+			function submitdata(){
+				JSTB.action = "${ctx}/sscTHREEdata?times=" + times+"&Periodno="+Periodno;
 				//投注金额
 				var valList = [];
 				//投注金额总数
@@ -20,21 +201,26 @@
 				//把投注金额放入数组
 				   $('.ba').each(function(){					
 					//alert($(this).val());	
-					valList.push(parseInt($(this).val()));
-					}); 				 
-				 //投注金额求和
-				    for (var i = 0; i < valList.length; i++){ 
-					   if(!isNaN(valList[i])){
-						    sum += valList[i];
-					   } ; 
-					   }  
-				alert("购买成功，请等待开奖！祝你好运~");
-				for(var i=1;i<=37;i++){
+				sum += Number($(this).val());
+					}); 
+				//alert(sum);
+					   //获取用户余额data
+					    $.post("${ctx}/balance",function(data){
+					    	//alert(data);
+					    	//alert(sum);
+					    	if(sum>data){
+						   		alert("不好意思,您投注金额大于余额,请重新投注!");
+						   	}else{
+						   		JSTB.submit();
+								alert("投注成功,请耐心等待开奖结果,谢谢~");
+						   	} 
+					    })
+				for(var i=1;i<=93;i++){
 					var rate=$("#rate"+i+"").text();
 					//alert(aa+"    geshu:"+i);
 					$("#rate"+i+"").text("---");
-				}
-			}
+				}			
+			}	 
 		</script>
 		<!--  -->
 	</head>
@@ -46,7 +232,7 @@
 			<div id="header">
 				<!--开奖-->
 				<div class="lottery_info">
-					<div class="lottery_info_left floatleft"><span class="name" id="lotteryName">北京赛车</span> — <span class="gameName" id="gameName">两面</span><span class="result">&nbsp;今日输赢：<span id="bresult">0</span></span>
+					<div class="lottery_info_left floatleft"><span class="name" id="lotteryName">重庆时时彩</span> — <span class="gameName" id="gameName">第三球</span><span class="result">&nbsp;今日输赢：<span id="bresult">0</span></span>
 					</div>
 					<div class="lottery_info_right floatright"><span id="drawNumber">663585</span>期&nbsp;&nbsp;距离封盘：<span class="color_lv bold"><span id="cdClose">01:11</span></span>&nbsp;&nbsp;距离开奖：<span class="color_lv bold">
 						<span id="cdDraw">02:11</span></span>
@@ -254,7 +440,7 @@
 				<div class="buttons">
 					<label class="checkdefault"><input type="checkbox" class="checkbox"><span class="color_lv bold">预设</span></label>&nbsp;&nbsp;<label class="quickAmount"><span class="color_lv bold">金额</span> <input></label>
 				<!-- 	<input type="button" class="button" value="确定" onclick="bet()"><input type="button" class="button" value="重置" onclick="resetBets()"> -->
-				<input type="submit" class="button" value="确定" onclick="submitdata()"><input type="button" class="button" value="重置" onclick="resetBets()">
+				<input type="button" class="button" value="确定" onclick="submitdata()"><input type="button" class="button" value="重置" onclick="resetBets()">
 				</div>
 			</div>
 			</form>
@@ -321,10 +507,10 @@
 					<h3>客服中心</h3>
 				</div>
 				<div class="speak">
-					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=123456789&site=qq&menu=yes"><img border="0" src="images/button_old_11.gif" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2054344716&site=qq&menu=yes"><img border="0" src="images/button_old_11.gif" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
 				</div>
 				<div class="speak">
-					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=123456789&site=qq&menu=yes"><img border="0" src="images/button_old_11.gif" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2054344716&site=qq&menu=yes"><img border="0" src="images/button_old_11.gif" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
 				</div>
 			</div>
 	</body>

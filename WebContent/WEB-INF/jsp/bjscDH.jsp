@@ -92,7 +92,7 @@
 				/* 开奖  */
 				if (surplusfen == 0 && surplusmiao == 1) {
 					//刷新页面--显示倍率
-					parent.location.reload();
+					window.location.reload();
 					alert("开奖啦~");
 				}
 
@@ -189,7 +189,7 @@
 						<label class="checkdefault"><input type="checkbox"
 							class="checkbox"><span class="color_lv bold">预设</span></label>&nbsp;&nbsp;<label
 							class="quickAmount"><span class="color_lv bold">金额</span>
-							<input></label> <input type="button" onclick="bet()" value="确定"
+							<input></label> <input type="button" onclick="bet()" id="sub1"  value="确定"
 							class="button"> <input type="button"
 							onclick="resetBets()" value="重置" class="button">
 					</div>
@@ -1116,7 +1116,7 @@
 					<label class="checkdefault"><input type="checkbox"
 						class="checkbox"><span class="color_lv bold">预设</span></label>&nbsp;&nbsp;<label
 						class="quickAmount"><span class="color_lv bold">金额</span>
-						<input></label> <input type="submit" class="button" value="确定"
+						<input></label> <input type="submit" class="button" id="sub2"  value="确定"
 						onclick="submitdata()"><input type="button" class="button"
 						value="重置" onclick="resetBets()">
 				</div>

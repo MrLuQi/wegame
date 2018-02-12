@@ -26,17 +26,24 @@
 				} else {
 					hour = data.hour;
 				}
-				if (data.minute < 10) {
-					var m = data.minute;
-					var fen = "0" + m;
-					var minutes = "0" + m;
-					var minute = minutes.substring(1, 2);
-				} else {
-					fen = data.minute;
-					minutes = "" + data.minute + "";
-					minute = minutes.substring(1, 2);
-				}
-				if (data.second < 10) {
+				 if (data.minute < 10) {
+						var m = data.minute;
+						var fen = "0" + m;
+						var minutes = "0" + m;
+						var minute = minutes.substring(1, 2);
+						if(minute>=5){
+							minute="0"+parseInt(minute)-5
+						}
+					} else {
+						fen = data.minute;
+						minutes = "" + data.minute + "";
+						minute = minutes.substring(1, 2);
+						if(minute>=5){
+							minute=""+parseInt(minute)-5
+						}
+					}
+					
+				 if (data.second < 10) {
 					var s = data.second;
 					var second = "0" + s;
 				} else {
@@ -226,7 +233,7 @@
 			<div id="header">
 				<!--开奖-->
 				<div class="lottery_info">
-					<div class="lottery_info_left floatleft"><span class="name" id="lotteryName">北京赛车</span> — <span class="gameName" id="gameName">两面</span><span class="result">&nbsp;今日输赢：<span id="bresult">0</span></span>
+					<div class="lottery_info_left floatleft"><span class="name" id="lotteryName">重庆时时彩</span> — <span class="gameName" id="gameName">两面</span><span class="result">&nbsp;今日输赢：<span id="bresult">0</span></span>
 					</div>
 					<div class="lottery_info_right floatright">
 					<span id="showDate"></span>&nbsp;&nbsp;<span id="drawNumber">663585</span>期&nbsp;&nbsp;距离封盘：<span class="color_lv bold"><span id="cdClose">01:11</span></span>&nbsp;&nbsp;距离开奖：<span class="color_lv bold">
@@ -765,7 +772,7 @@
 				<div class="lefts" style="display:none">已经选中 <span id="betcount"></span> 注</div>
 				<div class="buttons">
 					<label class="checkdefault"><input type="checkbox" class="checkbox"><span class="color_lv bold">预设</span></label>&nbsp;&nbsp;<label class="quickAmount"><span class="color_lv bold">金额</span> <input></label>
-					<input type="submit" class="button" value="确定" onclick="submitdata()"><input type="button" class="button" value="重置" onclick="resetBets()">
+					<input type="button" class="button" value="确定" onclick="submitdata()"><input type="button" class="button" value="重置" onclick="resetBets()">
 				</div>
 			</div>
 			</form>
@@ -833,10 +840,10 @@
 					<h3>客服中心</h3>
 				</div>
 				<div class="speak">
-					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=123456789&site=qq&menu=yes"><img border="0" src="images/button_old_11.gif" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2054344716&site=qq&menu=yes"><img border="0" src="images/button_old_11.gif" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
 				</div>
 				<div class="speak">
-					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=123456789&site=qq&menu=yes"><img border="0" src="images/button_old_11.gif" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2054344716&site=qq&menu=yes"><img border="0" src="images/button_old_11.gif" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
 				</div>
 			</div>
 	</body>

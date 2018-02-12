@@ -83,7 +83,7 @@
 		}
 		$(function() {
 			 $.post("${ctx}/balance",function(data){
-				$("#balance").html(data+".00");	 
+				$("#balance").html(data+".00");	
 			 })
 		})
 	</script>
@@ -93,7 +93,7 @@
 	<div id="header" class="header">
 		<!--logo-->
 		<div class="logo" style="top:0px; margin-left:5px;">
-			<img src="images/100000019.png" style="width: 200px; height: 66px;">
+			<img src="images/logoThree.png" style="width: 200px; height: 66px;">
 		</div>
 		<!--top-->
 		<div class="top">

@@ -1,0 +1,45 @@
+.b1 {
+	background: url(../images/ball4.gif) no-repeat 7px 1px;
+	height: 27px;
+	width: 44px;
+	margin: 6px;
+	float: left;
+}
+
+.b2 {
+	background: url(../images/ball4.gif) no-repeat 7px -27px;
+	height: 27px;
+	width: 44px;
+	margin: 6px;
+	float: left;
+}
+
+.b3 {
+	background: url(../images/ball4.gif) no-repeat 7px -54px;
+	height: 27px;
+	width: 44px;
+	margin: 6px;
+	float: left;
+}
+
+.b4 {
+	background: url(../images/ball4.gif) no-repeat 7px -81px;
+	height: 27px;
+	width: 44px;
+	margin: 6px;
+	float: left;
+}
+
+.b5 {
+	background: url(../images/ball4.gif) no-repeat 7px -108px;
+	height: 27px;
+	width: 44px;
+	margin: 6px;
+	float: left;
+}
+.fuhao{
+	height: 1px;
+	width: 1px;
+	margin: 6px;
+	float: left;
+}

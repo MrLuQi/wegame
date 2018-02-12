@@ -5,7 +5,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>欢迎光临</title>
 	<link rel="stylesheet" href="${ctx}/css/main.css" />
-	<script type="text/javascript" src="${ctx }/js/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" href="${ctx}/css/shaizi.css" />
+	
+	<script type="text/javascript" src="${ctx}/js/jquery-3.2.1.min.js" ></script>
 	<script>
 		//tap切换导航
 		function Tabs(tabs_name, contents_name, tabs_checked_style, contents_checked_style) {
@@ -23,7 +25,32 @@
 				};
 			}
 		}
-	</script>
+			$(document).ready(function(){
+     $(".show a").click(function(){
+            $(".show a").removeClass("current");
+          $(this).addClass("current");
+          var index=$(this).prevAll().length;
+         $("#content div").hide();
+         $("#content div").eq(index).show();
+        })
+    })
+		$("ul > li").click(function() {
+		varindex = $(this).prevAll().length;
+		});
+		
+		$(document).ready(function(){
+     $(".show a").click(function(){
+            $(".show a").removeClass("current");
+          $(this).addClass("current");
+          var index=$(this).prevAll().length;
+         $("#content01 div").hide();
+         $("#content01 div").eq(index).show();
+        })
+    })
+		$("ul > li").click(function() {
+		varindex = $(this).prevAll().length;
+		});
+		</script>
 	<style>
 		a{
 			color: #F7F7F7;
@@ -63,17 +90,10 @@
 			opacity: 1;
 			visibility: visible;
 		}
-		.b5{
-			background: url(images/ball4.gif) no-repeat 7px 1px;
-			    height: 28px;
-    width: 44px;
-    margin: 6px;
-    float: left;
-		}
 		.t_k3{
 			    float: left;
     height: 45px;
-    width: 48%;
+    width: 55%;
 		}
 	</style>
 	<script type="text/javascript">
@@ -81,7 +101,7 @@
 			Tabs(".list-item", ".contents", "list-item-checked", "contents-checked");
 
 		}
-		$(function() {
+			$(function() {
 			 $.post("${ctx}/balance",function(data){
 				$("#balance").html(data+".00");	 
 			 })
@@ -100,19 +120,68 @@
 			<div class="menu">
 				<div class="menu1">
 					<div id="result_info" class="draw_number">
-						<div>江苏快3</div>
-						<div>20180124048期开奖</div>
+				<div id="content">
+					<div class="mt10">
+					  江苏快3<br />
+					  <span>20170028期</span>
+					</div>
+					<div class="mt10" style="display:none;">
+					  北京赛车<br />
+					  <span>20170028期</span>
+					</div>
+					<div class="mt10" style="display:none;">
+					  PC蛋蛋<br />
+					  <span>20170028期</span>
+					</div>
+					<div class="mt10" style="display:none;">
+					  六合彩<br />
+					  <span>20170028期</span>
+					</div>
+					<div class="mt10" style="display:none;">
+					  重庆时时彩<br />
+					  <span>20170028期</span>
+					</div>
+				</div>
 					</div>
 					<div id="result_balls" target="_blank" class="t_k3 l_jsk3">
-						<div class="b5"></div>
-						<div class="b5"></div>
-						<div class="b5"></div>
+						
+						<div id="content01">
+							<div class="mt10">
+							  	<span class="b5"></span>
+								<span class="b2"></span>
+								<span class="b1"></span>
+							</div>
+							<div class="mt10" style="display:none;">
+									  <span class="b1"></span>
+									<span class="b3"></span>
+									<span class="b4"></span>
+							</div>
+							<div class="mt10" style="display:none;">
+									  <span class="b2"></span>
+									<span class="b2"></span>
+									<span class="b4"></span>
+							</div>
+							<div class="mt10" style="display:none;">
+										  <span class="b3"></span>
+										  <span class="fuhao">+</span>
+									<span class="b4"></span>
+									<span class="fuhao">+</span>
+									<span class="b1"></span>
+									<span class="fuhao">=</span>
+									<span class="b5"></span>
+							</div>
+							<div class="mt10" style="display:none;">
+									 <span class="b1"></span>
+									<span class="b3"></span>
+									<span class="b3"></span>
+							</div>
+						</div>
 					</div>
 				</div>
 
 				<!--选项-->
 
-				<div class="menu2">
+					<div class="menu2">
 					<span><a  href="${ctx}/alone"target="Exhibition">未结明细</a></span> |
 					<span><a href="${ctx}/day"target="Exhibition">今天已结</a></span> |
 					<span><a href="${ctx}/alone"target="Exhibition">报表查询</a></span> |
@@ -128,7 +197,7 @@
                                     href="javascript:changeSkin('gray')">灰色</a></li></ul></span>
 				</div>
 				<div class="menu3">
-					<a href="${ctx }/toLogout" class="logout"></a>
+						<a href="${ctx }/toLogout" class="logout"></a>
 				</div>
 				<div style="clear:both;"></div>
 			</div>
@@ -137,7 +206,7 @@
 
 			<div class="lotterys">
 				<div class="show" id="list-title">
-					<a href="${ctx }/jsks" target="Exhibition" class="list-item list-item-checked">
+						<a href="${ctx }/jsks" target="Exhibition" class="list-item list-item-checked">
 						<span>江苏快3</span>
 					</a>
 					<a href="${ctx }/bjsc" target="Exhibition" class="list-item">
@@ -263,7 +332,7 @@
 			</div>
 			<div class="betdone" id="drawOfficial">
 				<div class="title">
-					<a href="">请联系客服充值</a>
+					<a href="${ctx }/pay" target="Exhibition">在线充值</a>
 				</div>
 				<div class="title">
 					<a href="${ctx }/pay02" target="Exhibition">在线提款</a>
@@ -300,8 +369,6 @@
 		<div class="iframes">
 			<iframe id="Exhibition" name="Exhibition" src="${ctx }/jsks" marginheight="0" marginwidth="0" frameborder="0" scrolling="yes" style="position: relative;left: 10px;top: 10px;width: 100%;height: 100%;"></iframe>
 		</div>
-		</div>
 </body>
+
 </html>
-
-

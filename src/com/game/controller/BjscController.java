@@ -162,7 +162,7 @@ public class BjscController {
 				 //注单中奖金额
 				 
 				 //投注类型
-				 orders.setOrdertype("bjsc_LM");
+				 orders.setOrdertype("bjscLM");
 				 //投注时间
 				 orders.setOrderdate(times);
 				 //退水金额
@@ -341,7 +341,7 @@ public class BjscController {
 		 //注单中奖金额
 		 
 		 //投注类型
-		 orders.setOrdertype("bjsc_DH");
+		 orders.setOrdertype("bjscDH");
 		 //投注时间
 		 orders.setOrderdate(times);
 		 //退水金额
@@ -410,7 +410,7 @@ public class BjscController {
 		 //注单中奖金额
 		 
 		 //投注类型
-		 orders.setOrdertype("bjsc_GYJZH");
+		 orders.setOrdertype("bjscGYJZH");
 		 //投注时间
 		 orders.setOrderdate(times);
 		 //退水金额

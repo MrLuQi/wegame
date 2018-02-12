@@ -1,6 +1,8 @@
 package com.game.controller;
 
 import java.util.Calendar;
+import java.util.TimeZone;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,7 +23,7 @@ public class TimeController {
 	    System.out.println(dateString);
 	    System.out.println(times);*/
 		Time times=new Time();
-	    Calendar c = Calendar.getInstance();//可以对每个时间域单独修改   
+	   Calendar c = Calendar.getInstance();//可以对每个时间域单独修改   
 	    int year = c.get(Calendar.YEAR);  
 	    int month = c.get(Calendar.MONTH)+1;   
 	    int day = c.get(Calendar.DATE);    

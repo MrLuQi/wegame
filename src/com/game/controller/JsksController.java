@@ -27,9 +27,6 @@ import com.game.service.JsksService;
 import com.game.service.MembersService;
 import com.game.util.common.gameConstants;
 
-
-
-
 @Controller
 public class JsksController {
 	/**

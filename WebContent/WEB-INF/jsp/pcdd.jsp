@@ -8,57 +8,55 @@
 <link rel="stylesheet" href="css/Jiangsu.css" />
 <script type="text/javascript" src="${ctx }/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
-	$(function() {
-		setInterval("getTime();", 1000); //每隔一秒执行一次 
-	})
-	//取得系统当前时间 
-	var times = "";
-	var pp = "";
-	function getTime() {
-		$.post("${ctx}/time", function(data) {
-			times = data.year + "/" + data.month + "/" + data.day + " "
-					+ data.hour + ":" + data.minute + ":" + data.second;
-			if (data.hour < 10) {
-				var h = data.hour;
-				var hour = "0" + h;
-			} else {
-				hour = data.hour;
+$(function() {
+	setInterval("getTime();", 1000); //每隔一秒执行一次 
+})
+//取得系统当前时间 
+var times = "";
+function getTime() {
+	$.post("${ctx}/time", function(data) {
+		times = data.year + "/" + data.month + "/" + data.day + " "
+				+ data.hour + ":" + data.minute + ":" + data.second;
+		if (data.hour < 10) {
+			var h = data.hour;
+			var hour = "0" + h;
+		} else {
+			hour = data.hour;
+		}
+		if (data.minute < 10) {
+			var m = data.minute;
+			var fen = "0" + m;
+			var minutes = "0" + m;
+			var minute = minutes.substring(1, 2);
+			if(minute>=5){
+				minute="0"+parseInt(minute)-5
 			}
-			if (data.minute < 10) {
-				var m = data.minute;
-				var fen = "0" + m;
-				var minutes = "0" + m;
-				var minute = minutes.substring(1, 2);
-				if (minute >= 5) {
-					minute = "0" + parseInt(minute) - 5
-				}
-			} else {
-				fen = data.minute;
-				minutes = "" + data.minute + "";
-				minute = minutes.substring(1, 2);
-				if (minute >= 5) {
-					minute = "" + parseInt(minute) - 5
-				}
+		} else {
+			fen = data.minute;
+			minutes = "" + data.minute + "";
+			minute = minutes.substring(1, 2);
+			if(minute>=5){
+				minute=""+parseInt(minute)-5
 			}
-			if (data.second < 10) {
-				var s = data.second;
-				var second = "0" + s;
-			} else {
-				second = data.second;
-			}
-			var time = data.year + "/" + data.month + "/" + data.day + " "
-					+ hour + ":" + fen + ":" + second;
-			$("#showDate").html(time);
-
-			//游戏开始时间9:00-23:55
-			//判断时间是否在游戏时间内
-			if ((9 < data.hour && data.hour < 23)
-					|| (data.hour == 9 && data.minute >= 0)
-					|| (data.hour == 23 && data.minute <= 55)) {
-				//8:40时刷新页面
-				if (data.hour == 9 && data.minute == 00 && data.second == 0) {
-					parent.location.reload();
-				}
+		}
+		if (data.second < 10) {
+			var s = data.second;
+			var second = "0" + s;
+		} else {
+			second = data.second;
+		}
+		var time = data.year + "/" + data.month + "/" + data.day + " "
+				+ hour + ":" + fen + ":" + second;
+		$("#showDate").html(time);
+		
+		//游戏开始时间9:00-23:55
+		//判断时间是否在游戏时间内
+		if ((9 <data.hour&&data.hour < 23)||(data.hour == 9 && data.minute >=0)
+				|| (data.hour == 23 && data.minute <= 55)) {
+					//8:40时刷新页面
+					if(data.hour == 9 && data.minute==00&&data.second==0){
+						parent.location.reload();
+					}
 				//游戏时间之内
 				var surplusfen = 4 - parseInt(minute); //剩余分钟
 				var surplusmiao = 60 - parseInt(data.second);//剩余秒钟
@@ -86,7 +84,6 @@
 						//alert(aa+"    geshu:"+i);
 						$("#rate" + i + "").text("---");
 					}
-
 					//alert("封盘啦~");
 				} else {
 					$("#sub1").attr("disabled", false);
@@ -95,22 +92,11 @@
 				/* 开奖  */
 				if (surplusfen == 0 && surplusmiao == 1) {
 					//刷新页面--显示倍率
-					/* window.onload = function() {
-						$.post("${ctx}/periods", function(data) {
-							alert(data);
-							$("#drawNumber").html(data);
-						})
-					} */
-					window.location.reload=function() {
-						$.post("${ctx}/periods", function(data1) {
-							pp=data1;
-							$("#drawNumber").html(data1);
-						})
-					}
+					parent.location.reload();
 					alert("开奖啦~");
 				}
 
-			} else {
+			}else{
 				//游戏时间之外  
 				//alert("stop!");
 				//console.log("stop!");
@@ -121,61 +107,64 @@
 				$("#sub2").attr("disabled", true);
 				//
 				for (var i = 1; i <= 50; i++) {
-					var rate = $("#rate" + i + "").text();
-					//alert(aa+"    geshu:"+i);
-					$("#rate" + i + "").text("---");
-				}
+						var rate = $("#rate" + i + "").text();
+						//alert(aa+"    geshu:"+i);
+						$("#rate" + i + "").text("---");
+					}
 			}
-
-		})
-	}
-	//确认按钮
-	function submitdata() {
-
-		//投注金额
-		var sum = 0;
-		//JSTB.action = "${ctx}/tzdata?times=" + times;
-		//	var time=document.getElementById("showDate").value;
-		//var time =$("#showDate").val();
-		var valList = [];
-		//投注金额总数
-
-		//把投注金额放入数组
-		$('.ba').each(function() {
-			//alert($(this).val());	
-			valList.push(parseInt($(this).val()));
-		});
-		//投注金额求和
-		for (var i = 0; i < valList.length; i++) {
-			if (!isNaN(valList[i])) {
-				sum += valList[i];
-			}
-			;
-		}
-		JSTB.action = "${ctx}/pcddxzdata?times=" + times + "&initamount=" + sum+"&periods"+pp;
-		//获取用户余额data
-		$.post("${ctx}/balance", function(data) {
-			//alert(data);
-			//alert(sum);
-			if (sum > data) {
-				alert("不好意思,您投注金额大于余额,请重新投注!");
-			} else {
-				//JSTB.submit();
-				alert("投注成功,请耐心等待开奖结果,谢谢~");
-			}
-		})
-
-	}
-	//重置按钮
-	function resetBets() {
-		var inputArray = $("input[type='text']");//取到所有的input text 并且放到一个数组中  
-		inputArray.each(//使用数组的循环函数 循环这个input数组  
-		function() {
-			var input = $(this);//循环中的每一个input元素  
-			$('#' + input.attr("id")).val("");
-		})
-
-	}
+		
+	
+	})
+}
+//确认按钮
+function submitdata() {
+	//投注金额
+	var sum=0;
+	//JSTB.action = "${ctx}/tzdata?times=" + times;
+	//	var time=document.getElementById("showDate").value;
+	//var time =$("#showDate").val();
+	var valList = [];
+	//投注金额总数
+	
+	//把投注金额放入数组
+	   $('.ba').each(function(){					
+		//alert($(this).val());	
+		valList.push(parseInt($(this).val()));
+		}); 				 
+	 //投注金额求和
+	    for (var i = 0; i < valList.length; i++){ 
+		   if(!isNaN(valList[i])){
+			    sum += valList[i];
+		   } ; 
+		   } 
+	    JSTB.action = "${ctx}/pcddxzdata?times=" + times+"&initamount="+sum;
+     //获取用户余额data
+    $.post("${ctx}/balance",function(data){
+    	//alert(data);
+    	//alert(sum);
+    	if(sum>data){
+	   		alert("不好意思,您投注金额大于余额,请重新投注!");
+	   	}else{
+	   		JSTB.submit();
+			alert("投注成功,请耐心等待开奖结果,谢谢~");
+			parent.location.reload();
+	   	} 
+    })
+    	
+	
+}
+//重置按钮
+function resetBets(){
+     var inputArray=$("input[type='text']");//取到所有的input text 并且放到一个数组中  
+     inputArray.each(//使用数组的循环函数 循环这个input数组  
+         function (){  
+             var input =$(this);//循环中的每一个input元素  
+         	  $('#'+input.attr("id")).val("");
+         }  
+     )  
+	
+	
+}
 </script>
 </head>
 
@@ -183,9 +172,8 @@
 	<input type="hidden" id="page" value="lm" name="page">
 	<div id="main">
 		<!---->
-		<%-- 	action="${pageContext.request.contextPath }/pcddxzdata" method="post" --%>
-		<form id="JSTB"
-			action="${pageContext.request.contextPath }/pcddxzdata" method="post">
+	<%-- 	action="${pageContext.request.contextPath }/pcddxzdata" method="post" --%>
+		<form id="JSTB" action="${pageContext.request.contextPath }/pcddxzdata" method="post">
 			<div id="header">
 				<div class="lottery_info">
 					<div class="lottery_info_left floatleft">
@@ -194,7 +182,7 @@
 							id="bresult">0</span></span>
 					</div>
 					<div class="lottery_info_right floatright">
-						<span id="showDate"></span>&nbsp;&nbsp;<span id="drawNumber"></span>期&nbsp;&nbsp;距离封盘：<span
+					<span id="showDate"></span>&nbsp;&nbsp;<span id="drawNumber">663585</span>期&nbsp;&nbsp;距离封盘：<span
 							class="color_lv bold"><span id="cdClose"></span></span>&nbsp;&nbsp;距离开奖：<span
 							class="color_lv bold"> <span id="cdDraw"></span></span> <span
 							id="cdRefresh" style="float: right; width: 50px;"></span>
@@ -206,8 +194,8 @@
 						<label class="checkdefault"><input type="checkbox"
 							class="checkbox"><span class="color_lv bold">预设</span></label>&nbsp;&nbsp;<label
 							class="quickAmount"><span class="color_lv bold">金额</span>
-							<input></label> <input type="button" onclick="bet()" id="sub1"
-							value="确定" class="button"> <input type="button"
+							<input></label> <input type="button" onclick="bet()"id="sub1" value="确定"
+							class="button"> <input type="button"
 							onclick="resetBets()" value="重置" class="button">
 					</div>
 
@@ -497,9 +485,9 @@
 					<label class="checkdefault"><input type="checkbox"
 						class="checkbox"><span class="color_lv bold">预设</span></label>&nbsp;&nbsp;<label
 						class="quickAmount"><span class="color_lv bold">金额</span>
-						<input></label> <input type="submit" class="button" value="确定"
-						id="sub2" onclick="submitdata()"><input type="button"
-						class="button" value="重置" onclick="resetBets()">
+						<input></label> <input type="button" class="button" value="确定"
+					id="sub2"	onclick="submitdata()"><input type="button" class="button"
+						value="重置" onclick="resetBets()">
 				</div>
 			</div>
 		</form>

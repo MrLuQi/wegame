@@ -83,7 +83,7 @@
 			<div class="navs" style="position: relative;">
 			<!--导航-->
 			<div class="logos">
-				<img src="${ctx}/images/logo.png" />
+				<img src="${ctx}/images/logoTwo.png" />
 			</div>
 			<div class="menu">
 				<ul>
@@ -178,6 +178,7 @@
 										<em class="ico-code"></em><input type="text" name="piccode" class="txt1" placeholder="验证码">
 									</div>
 									<div class="code" style="float:left;width: 80px;"><img src="" alt="点击更换" draggable="false"></div> -->
+									</div> 
 									<div class="submit"><input type="submit" class="subinput" value="登录" id="login"></div>
 									<div class="reg userreg">
 										<a id="showHidden" >注册</a>

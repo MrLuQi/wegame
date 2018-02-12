@@ -137,7 +137,7 @@ public class PcddController {
 		 Integer newBalance=oldBalance-Integer.parseInt(initamount);
 			 //更新用户余额
 		 membersService.updateMemberBalance(members.getMid(), newBalance);
-		 return "redirect:/pcdd";
+		 return "pcdd";
 	}
 
 	

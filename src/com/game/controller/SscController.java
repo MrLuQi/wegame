@@ -1,7 +1,6 @@
 package com.game.controller;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -385,7 +384,7 @@ public class SscController {
 			 orders.setInitamount(null);//注单原始金额
 			 orders.setOrdertype("sscTHREE");//游戏类型
 			 orders.setOrderdate(null);//下注时间
-			 orders.setPeriodno("1");			
+			 orders.setPeriodno("1");		 
 			 jsksService.insertData(orders);
 		return "sscTHREE";
 		
@@ -531,7 +530,7 @@ public class SscController {
 			  orders.setStatus("0");//注单状态
 			 orders.setOrderstatus(str_json_play);
 			 orders.setInitamount(null);//注单原始金额
-			 orders.setOrdertype("sscFOUR");//游戏类型
+			 orders.setOrdertype("sscFIVE");//游戏类型
 			 orders.setOrderdate(null);//下注时间
 			 orders.setPeriodno("1");
 			 jsksService.insertData(orders);

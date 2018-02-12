@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 
 import com.game.dao.mapper.MembersMapper;
+import com.game.dao.mapper.OrdersDynaSqlProvider;
 import com.game.pojo.Members;
 
 public interface MembersDao {
@@ -14,8 +15,10 @@ public interface MembersDao {
 	@Select("select balance from  members  where mid = #{mid};")
 	Integer findMemberBalance(Integer mid);
 
-@SelectProvider(type=MembersMapper.class,method="updateBalance")
-void updateBalance( Integer mid, Integer balance);
+	@SelectProvider(type=MembersMapper.class,method="updateBalance")
+	void updateBalance( Integer mid, Integer balance);
 	
-
+	@SelectProvider(type = MembersMapper.class, method = "insertMemberno")
+	void insertMemberno(String memberno, String passpwd);
+	
 }

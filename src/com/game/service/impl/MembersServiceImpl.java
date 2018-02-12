@@ -33,4 +33,10 @@ public class MembersServiceImpl implements MembersService {
 		
 	}
 
+
+	@Override
+	public void insertMemberno(String memberno, String passpwd) {
+		membersDao.insertMemberno(memberno,passpwd);
+	}
+
 }

@@ -75,7 +75,11 @@ public class MembersController {
 	}
 	
 	
-	
+	@RequestMapping(value ="/register")
+	public String register(String memberno,String passpwd){
+		membersService.insertMemberno(memberno,passpwd);
+		return null;
+	}
 	
 	
 	

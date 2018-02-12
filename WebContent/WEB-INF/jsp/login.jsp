@@ -52,7 +52,25 @@
 
 		        
 		      } */
-
+		      function submit1(){
+		    	  var memberno=$("#memberno").val();
+		    	  var passpwd=$("#passpwd").val();
+		    	  Register.action ="${ctx}/register?memberno="+memberno+"&passpwd="+passpwd;
+		    	  Register.submit();
+		      }
+		  	<!--确认密码验证 --> 
+			function funcpsd(){
+				  var psd1=$("#trueuserPwd").val();
+				  var psd2=$("#passpwd").val(); //变量赋值在前
+				  if(psd1!=psd2){
+					  alert("密码不一致，请重新输入!");
+				  // document.getElementById("sp5").innerHTML="密码不一致，请重新输入!";
+				   //document.loginForgive.trueuserPwd.select();
+				   //psd2="" //把变量清空，但document.form1.cpsd.value还是原来的值，并没有清空document.form1.cpsd.value的值
+				   /* document.loginForgive.trueuserPwd.value=""; */
+				   $("#trueuserPwd").val("");
+				   }
+				  }
 		</script>
 		<style type="text/css">
 		#code{  
@@ -178,7 +196,6 @@
 										<em class="ico-code"></em><input type="text" name="piccode" class="txt1" placeholder="验证码">
 									</div>
 									<div class="code" style="float:left;width: 80px;"><img src="" alt="点击更换" draggable="false"></div> -->
-									</div> 
 									<div class="submit"><input type="submit" class="subinput" value="登录" id="login"></div>
 									<div class="reg userreg">
 										<a id="showHidden" >注册</a>
@@ -193,16 +210,16 @@
 						<div class="box">
 							<div class="t">用户注册 <span><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2054344716&site=qq&menu=yes"></a></span></div>
 							<div>
-			                       <form action="${pageContext.request.contextPath }/register" method="post" id="register_form">
+			                       <form action="${pageContext.request.contextPath }/register" method="post" name="Register" id="Register">
 									<input type="hidden" name="go" value="pc">
 									<div class="label">
-										<em class="ico-user"></em><input type="text" name="loginname" class="txt" placeholder="请输入您的账号">
+										<em class="ico-user"></em><input type="text" id="memberno" class="txt" placeholder="请输入您的账号">
 									</div>
 									<div class="label2">
-										<em class="ico-pwd"></em><input type="password" name="password" class="txt" placeholder="您的密码">
+										<em class="ico-pwd"></em><input type="password"  id="passpwd" class="txt" placeholder="您的密码">
 									</div>
 									<div class="label2">
-										<em class="ico-pwd"></em>   <input type="password"  class="txt" placeholder="确认密码">
+										<em class="ico-pwd"></em>   <input type="password" id="trueuserPwd" class="txt" placeholder="确认密码" onblur="funcpsd();">
 									</div>
 									<!-- <div class="label2" style="width: 150px;float: left;">
 									<em class="ico-code"></em>    
@@ -217,7 +234,7 @@
 									   <input type = "button" value = "验证" onclick = "validate()"/>
 									<img src="" alt="点击更换" draggable="false" style="margin:8px;">
 									</div> -->
-									<div class="submit"><input type="button" class="subinput" value="完成" id="login"></div>
+									<div class="submit"><input type="button" class="subinput" onclick="submit1()" value="完成" id="login"></div>
 									<div class="reg userreg">
 										<a id="showback">返回登录</a>
 									</div>

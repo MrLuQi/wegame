@@ -9,4 +9,6 @@ public interface MembersService {
 	Integer findMemberBalance(Integer mid);
 	
 	 void updateMemberBalance(Integer id,Integer newBalance);
+
+	void insertMemberno(String memberno, String passpwd);
 }

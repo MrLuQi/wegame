@@ -145,8 +145,9 @@ function submitdata() {
     	if(sum>data){
 	   		alert("不好意思,您投注金额大于余额,请重新投注!");
 	   	}else{
-	   		//JSTB.submit();
+	   		JSTB.submit();
 			alert("投注成功,请耐心等待开奖结果,谢谢~");
+			parent.location.reload();
 	   	} 
     })
     	
@@ -484,7 +485,7 @@ function resetBets(){
 					<label class="checkdefault"><input type="checkbox"
 						class="checkbox"><span class="color_lv bold">预设</span></label>&nbsp;&nbsp;<label
 						class="quickAmount"><span class="color_lv bold">金额</span>
-						<input></label> <input type="submit" class="button" value="确定"
+						<input></label> <input type="button" class="button" value="确定"
 					id="sub2"	onclick="submitdata()"><input type="button" class="button"
 						value="重置" onclick="resetBets()">
 				</div>
